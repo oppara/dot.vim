@@ -801,12 +801,12 @@ augroup vimrc-lcd  "{{{2
     endif
 
     let base = substitute(expand('%:p'), '\\', '/', 'g')
-    for dir in ['src', 'include']
-      let pat = '/' . dir . '/'
-      if base =~# pat
-        let path = base[: strridx(base, pat) + len(dir)]
-      endif
-    endfor
+    " for dir in ['src', 'include']
+      " let pat = '/' . dir . '/'
+      " if base =~# pat
+        " let path = base[: strridx(base, pat) + len(dir)]
+      " endif
+    " endfor
     if path !=# ''
       return path
     endif
