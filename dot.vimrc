@@ -95,7 +95,7 @@ NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
 NeoBundle 'https://github.com/oppara/hatena-vim'
 NeoBundle 'https://github.com/oppara/taglist.vim'
 NeoBundle 'https://github.com/oppara/snipmate.vim'
-NeoBundle 'https://github.com/oppara/vim-chef'
+NeoBundle 'https://github.com/oppara/vim-chef', 'develop'
 
 NeoBundle 'https://github.com/Yggdroot/indentLine'
 
