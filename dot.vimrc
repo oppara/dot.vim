@@ -142,6 +142,10 @@ NeoBundleLazy 'https://github.com/hail2u/vim-css3-syntax.git', {
 \   'autoload' : { 'filetypes' : ['css'] }
 \}
 
+" ruby
+NeoBundleLazy 'https://github.com/tpope/vim-endwise', {
+\   'autoload' : { 'filetypes' : ['ruby'] }
+\}
 " slim
 NeoBundle 'https://github.com/slim-template/vim-slim'
 
