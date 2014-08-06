@@ -989,6 +989,8 @@ augroup vimrc-ft-php  "{{{2
   autocmd FileType php nnoremap <silent><buffer><leader>ti :PhpStylist<cr>
   autocmd FileType php vnoremap <silent><buffer><leader>ti :PhpStylist<cr>
 
+  autocmd FileType php nnoremap <buffer>ef :EnableFastPHPFolds<cr>
+
   autocmd FileType php  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
 
   " PDV - phpDocumentor for Vim :
