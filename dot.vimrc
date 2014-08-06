@@ -124,7 +124,9 @@ NeoBundleLazy 'https://github.com/oppara/PDV--phpDocumentor-for-Vim', {
 NeoBundleLazy 'https://github.com/karakaram/vim-quickrun-phpunit', {
       \'autoload' : { 'filetypes' : ['php'] }
       \}
-" NeoBundle 'https://github.com/vim-scripts/phpfolding.vim.git'
+NeoBundleLazy 'https://github.com/vim-scripts/phpfolding.vim', {
+      \'autoload' : { 'filetypes' : ['php'] }
+      \}
 
 " html
 NeoBundleLazy 'https://github.com/mattn/zencoding-vim', {
@@ -1465,6 +1467,15 @@ function! s:bundle.hooks.on_source(bundle)
   let g:pdv_cfg_Author = g:opp_email
   let g:pdv_cfg_php4guessval = 'private'
   let g:pdv_re_bool = "\(true\|false\)"
+endfunction
+unlet s:bundle
+
+
+" phpfolding.vim "{{{2
+" https://github.com/vim-scripts/phpfolding.vim
+let s:bundle = neobundle#get('phpfolding.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:DisableAutoPHPFolding = 1
 endfunction
 unlet s:bundle
 
