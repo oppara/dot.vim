@@ -12,8 +12,6 @@ let s:dropbox_dir     = expand ('~/Dropbox')
 
 " global vars  "{{{2
 
-let $MY_VIMRUNTIME = expand(s:is_win ? '~/vimfiles' : '~/.vim')
-
 let g:opp_email = 'oppara <oppara _at_ oppara.tv>'
 let g:snips_author = g:opp_email
 let g:changelog_username = 'oppara'
@@ -24,10 +22,11 @@ let g:mapleader = ','
 
 " NeoBundle: "{{{1
 
-filetype off
-
-let &runtimepath = &runtimepath . ',' . $MY_VIMRUNTIME .  '/bundle/neobundle.vim'
-call neobundle#rc($MY_VIMRUNTIME .  '/bundle')
+if has("vim_starting")
+  let $MY_VIMRUNTIME = expand(has('win32') || has('win64') ? '~/vimfiles' : '~/.vim')
+  let &runtimepath = &runtimepath . ',' . $MY_VIMRUNTIME .  '/bundle/neobundle.vim'
+endif
+call neobundle#rc()
 
 let g:neobundle#default_options = { 'loadInsert' : { 'autoload' : { 'insert' : '1' } } }
 
@@ -35,12 +34,13 @@ let g:neobundle#default_options = { 'loadInsert' : { 'autoload' : { 'insert' : '
 NeoBundleFetch 'https://github.com/Shougo/neobundle.vim'
 
 NeoBundle 'https://github.com/itchyny/lightline.vim'
-NeoBundle 'https://github.com/vim-scripts/summerfruit.vim'
-NeoBundle 'https://github.com/vim-scripts/summerfruit256.vim'
 
 NeoBundle 'https://bitbucket.org/ns9tks/vim-l9'
-NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
-NeoBundle 'https://bitbucket.org/oppara/vim-autocomplpop'
+NeoBundle 'https://github.com/oppara/snipmate.vim'
+NeoBundleLazy 'https://bitbucket.org/ns9tks/vim-fuzzyfinder', {
+      \ 'depends' : 'oppara/vim-autocomplpop',
+      \'autoload' : {'commands' : ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}}
+NeoBundleLazy 'https://bitbucket.org/oppara/vim-autocomplpop', '', 'loadInsert'
 
 NeoBundle 'https://github.com/Shougo/vimproc', {
   \ 'build' : {
@@ -51,105 +51,75 @@ NeoBundle 'https://github.com/Shougo/vimproc', {
   \ },
 \ }
 
-NeoBundleLazy 'Shougo/unite.vim', { 'autoload' : {
+NeoBundleLazy 'https://github.com/Shougo/unite.vim', {'autoload' : {
   \ 'insert' : '1',
   \ 'commands' : [{ 'name' : 'Unite', 'complete' : 'customlist,unite#complete_source'}],
-  \ 'function_prefix' : 'unite' }}
-NeoBundleLazy 'Shougo/unite-help', { 'autoload' : { 'unite_sources' : ['help'] } }
-NeoBundleLazy 'Shougo/unite-outline', { 'autoload' : { 'unite_sources' : ['outline'] } }
+  \ 'function_prefix' : 'unite'}}
+NeoBundleLazy 'https://github.com/Shougo/unite-help', {'autoload' : {'unite_sources' : ['help']}}
+NeoBundleLazy 'https://github.com/Shougo/unite-outline', {'autoload' : {'unite_sources' : ['outline']}}
 
-NeoBundle 'https://github.com/kana/vim-textobj-user'
-NeoBundle 'https://github.com/kana/vim-textobj-jabraces'
-NeoBundle 'https://github.com/h1mesuke/textobj-wiw'
-
-NeoBundle 'https://github.com/thinca/vim-quickrun'
-NeoBundle 'https://github.com/scrooloose/syntastic'
-NeoBundle 'https://github.com/thinca/vim-ref'
-NeoBundle 'https://github.com/h1mesuke/vim-alignta'
-NeoBundle 'https://bitbucket.org/anyakichi/vim-qfutil'
-
+" NeoBundle 'https://github.com/kana/vim-textobj-user'
+" NeoBundle 'https://github.com/kana/vim-textobj-jabraces'
+" NeoBundle 'https://github.com/h1mesuke/textobj-wiw'
+NeoBundleLazy 'https://github.com/kana/vim-fakeclip', {'autoload': {'commands': 'fakeclip', 'mappings': ['<Plug>(fakeclip-']}}
 NeoBundleLazy 'https://github.com/kana/vim-smartchr', '', 'loadInsert'
 NeoBundleLazy 'https://github.com/kana/vim-smartinput', '', 'loadInsert'
 
+NeoBundleLazy 'https://github.com/thinca/vim-quickrun', {'autoload': {'commands': 'QuickRun', 'mappings': ['<Plug>(quickrun']}, 'depends': 'Shougo/vimproc'}
+
+NeoBundleLazy 'https://github.com/scrooloose/syntastic', '', 'loadInsert'
+NeoBundleLazy 'https://github.com/junegunn/vim-easy-align', {'autoload': {'commands': 'EasyAlign', 'mappings': ['<Plug>(EasyAlign']}}
+NeoBundleLazy 'https://bitbucket.org/anyakichi/vim-qfutil', {'autoload': {'commands': 'qfutil'}}
+
 NeoBundle 'https://github.com/LeafCage/yankround.vim'
-NeoBundle 'https://github.com/kana/vim-fakeclip'
 NeoBundle 'https://github.com/thinca/vim-localrc'
 
 NeoBundle 'https://github.com/tpope/vim-surround'
 NeoBundle 'https://github.com/tpope/vim-unimpaired'
-NeoBundle 'https://github.com/tpope/vim-fugitive'
 NeoBundle 'https://github.com/tpope/vim-abolish'
 NeoBundle 'https://github.com/tpope/vim-repeat'
+NeoBundle 'https://github.com/tpope/vim-fugitive'
 
 NeoBundle 'https://github.com/othree/eregex.vim'
 NeoBundle 'https://github.com/scrooloose/nerdcommenter'
 NeoBundle 'https://github.com/vim-scripts/sudo.vim'
 NeoBundle 'https://github.com/vim-scripts/matchit.zip'
-NeoBundle 'https://github.com/vim-scripts/ZoomWin'
 NeoBundle 'https://github.com/vim-scripts/MatchTag.git'
 
 NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
       \'autoload' : { 'mappings'  : ['<Plug>(openbrowser-smart-search)', '<Plug>(openbrowser-open)'],
       \'function_prefix' : 'openbrowser' } }
 
-NeoBundle 'https://github.com/oppara/hatena-vim'
 NeoBundle 'https://github.com/oppara/taglist.vim'
-NeoBundle 'https://github.com/oppara/snipmate.vim'
-NeoBundle 'https://github.com/oppara/vim-chef', 'develop'
-
 NeoBundle 'https://github.com/Yggdroot/indentLine'
-
-NeoBundle 'https://github.com/rhysd/migemo-search.vim'
-
-NeoBundleLazy 'https://github.com/oppara/sql_iabbr.vim', {
-\   'autoload' : { 'filetypes' : ['sql'] }
-\}
-
-" markdown
-NeoBundle 'https://github.com/plasticboy/vim-markdown'
-NeoBundleLazy 'https://github.com/kannokanno/previm', {
-  \ 'depends': ['tryu/open-browser.vim'],
-  \'autoload': {'commands' : ['PrevimOpen']}
-  \}
-
+" NeoBundle 'https://github.com/rhysd/migemo-search.vim'
 
 " php
-NeoBundleLazy 'https://github.com/oppara/phpstylist.vim', {
-      \'autoload' : { 'filetypes' : ['php'] }
-      \}
-NeoBundleLazy 'https://github.com/oppara/PDV--phpDocumentor-for-Vim', {
-      \'autoload' : { 'filetypes' : ['php'] }
-      \}
+NeoBundleLazy 'https://github.com/oppara/phpstylist.vim', {'autoload' : {'filetypes' : ['php']}}
+NeoBundleLazy 'https://github.com/oppara/PDV--phpDocumentor-for-Vim', {'autoload' : {'filetypes' : ['php']}}
+NeoBundleLazy 'https://github.com/karakaram/vim-quickrun-phpunit', {'autoload' : {'filetypes' : ['php']}}
 " http://www.karakaram.com/vim/phpunit-location-list/
-NeoBundleLazy 'https://github.com/karakaram/vim-quickrun-phpunit', {
-      \'autoload' : { 'filetypes' : ['php'] }
-      \}
-NeoBundleLazy 'https://github.com/vim-scripts/phpfolding.vim', {
-      \'autoload' : { 'filetypes' : ['php'] }
-      \}
+NeoBundleLazy 'https://github.com/vim-scripts/phpfolding.vim', {'autoload' : {'filetypes' : ['php']}}
+
+" sql
+NeoBundleLazy 'https://github.com/oppara/sql_iabbr.vim', {'autoload' : {'indent' : 1, 'filetypes' : ['sql']}}
+
+" markdown
+" NeoBundle 'https://github.com/plasticboy/vim-markdown'
+NeoBundleLazy 'https://github.com/kannokanno/previm', {'depends': ['tryu/open-browser.vim'], 'autoload': {'commands' : ['PrevimOpen']}}
 
 " html
-NeoBundleLazy 'https://github.com/mattn/zencoding-vim', {
-\   'autoload' : { 'filetypes' : ['html', 'xhtml'] }
-\}
-NeoBundleLazy 'https://github.com/othree/html5.vim', {
-\   'autoload' : { 'filetypes' : ['html'] }
-\}
-NeoBundleLazy 'https://github.com/hokaccha/vim-html5validator', {
-\   'autoload' : { 'filetypes' : ['html'] }
-\}
+NeoBundleLazy 'https://github.com/mattn/emmet-vim', {'autoload' : {'filetypes' : ['html', 'xhtml', 'css', 'xml', 'slim']}}
+NeoBundleLazy 'https://github.com/othree/html5.vim', {'autoload' : {'filetypes' : ['html']}}
+NeoBundleLazy 'https://github.com/hokaccha/vim-html5validator', {'autoload' : {'filetypes' : ['html']}}
 
 " css
-NeoBundleLazy 'https://github.com/hail2u/vim-css3-syntax.git', {
-\   'autoload' : { 'filetypes' : ['css'] }
-\}
+NeoBundleLazy 'https://github.com/hail2u/vim-css3-syntax.git', {'autoload' : {'filetypes' : ['css']}}
 
 " ruby
-NeoBundleLazy 'https://github.com/tpope/vim-endwise', {
-\   'autoload' : { 'filetypes' : ['ruby'] }
-\}
-" slim
-NeoBundle 'https://github.com/slim-template/vim-slim'
+NeoBundleLazy 'https://github.com/tpope/vim-endwise', {'autoload' : {'filetypes' : ['ruby']}}
+NeoBundleLazy 'https://github.com/slim-template/vim-slim', {'autoload' : {'filetypes' : ['slim']}}
+NeoBundleLazy 'https://github.com/oppara/vim-chef', {'rev' : 'develop', 'autoload' : {'filetypes' : ['ruby']}}
 
 " javascript
 NeoBundle 'https://github.com/heavenshell/vim-jsdoc.git'
@@ -157,17 +127,16 @@ NeoBundle 'https://github.com/pangloss/vim-javascript'
 NeoBundle 'https://github.com/mattn/jscomplete-vim'
 NeoBundle 'https://github.com/igetgames/vim-backbone-jscomplete'
 NeoBundle 'https://github.com/myhere/vim-nodejs-complete'
-NeoBundle 'https://github.com/kchmck/vim-coffee-script'
-NeoBundle 'https://github.com/maksimr/vim-jsbeautify'
-
+NeoBundleLazy 'https://github.com/kchmck/vim-coffee-script', {'autoload' : {'filetypes' : ['coffee', 'markdown']}}
+NeoBundleLazy 'https://github.com/maksimr/vim-jsbeautify', {'autoload' : {'filetypes' : ['javascript', 'json']}}
 " json
-NeoBundle 'https://github.com/elzr/vim-json.git'
+NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'autoload' : {'filetypes' : ['json']}}
 
 " perl
 NeoBundleLazy 'vim-scripts/perlomni.vim'
 
 " objecteiv-c
-NeoBundle 'https://github.com/msanders/cocoa.vim'
+NeoBundleLazy 'https://github.com/msanders/cocoa.vim'
 
 " http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
 NeoBundle 'https://github.com/fuenor/qfixgrep.git'
@@ -901,7 +870,6 @@ augroup vimrc-ft
         \  if &l:omnifunc == ''
         \|   setlocal omnifunc=syntaxcomplete#Complete
         \| endif
-
 augroup END
 
 augroup vimrc-ft-snippet  "{{{2
@@ -909,11 +877,12 @@ augroup vimrc-ft-snippet  "{{{2
   autocmd BufRead,BufNew *snip :setlocal filetype=snippet
 augroup END
 
-" git.vim  "{{{2
-" https://github.com/tpope/vim-git/blob/master/ftplugin/git.vim
-" autocmd AfterPlugin BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | wincmd p
-" autocmd AfterPlugin BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | wincmd L
-" autocmd vimrc BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | only | split | b 1
+
+" " git.vim  "{{{2
+" " https://github.com/tpope/vim-git/blob/master/ftplugin/git.vim
+" " autocmd AfterPlugin BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | wincmd p
+" " autocmd AfterPlugin BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | wincmd L
+" " autocmd vimrc BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | only | split | b 1
 
 augroup vimrc-ft-gitrebase  "{{{2
   autocmd!
@@ -930,27 +899,9 @@ augroup vimrc-ft-vim  "{{{2
         \| setlocal keywordprg=:help
 augroup END
 
-augroup vimrc-ft-perl  "{{{2
-  autocmd!
-  autocmd FileType perl setlocal expandtab softtabstop=4 shiftwidth=4
-  autocmd FileType perl let s:tidy_cmd = "perltidy -q -st"
-  autocmd FileType perl nnoremap <silent><buffer><leader>ti :Tidy<cr>
-  autocmd FileType perl vnoremap <silent><buffer><leader>ti <Nop>
-  autocmd FileType perl  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
-" autocmd FileType perl setlocal complete-=i | setlocal complete+=k~/.vim/dict/perl_functions.dict
-augroup END
-
-augroup vimrc-ft-ruby  "{{{2
-  autocmd!
-  autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
-  autocmd FileType ruby  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
- " autocmd FileType ruby setlocal complete+=k~/.vim/dict/ruby.dict
-augroup END
-
 augroup vimrc-ft-php  "{{{2
   autocmd!
-  autocmd FileType php call s:set_php4_syntax_check()
-
+  " autocmd FileType php call s:set_php4_syntax_check()
   function! s:set_php4_syntax_check()
     let l:version =  system('php -v|xargs|cut -d " " -f 2|cut -d "." -f 1')
     if l:version == 4
@@ -1000,14 +951,30 @@ augroup vimrc-ft-php  "{{{2
 
 augroup END
 
-augroup vimrc-ft-python  "{{{2
+augroup vimrc-ft-perl  "{{{2
   autocmd!
-  autocmd FileType python setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=pythoncomplete#Complete
-        \| let python_highlight_numbers=1
-        \| let python_highlight_builtins=1
-        \| let python_highlight_space_errors=1
-augroup ED
+  autocmd FileType perl setlocal expandtab softtabstop=4 shiftwidth=4
+  autocmd FileType perl let s:tidy_cmd = "perltidy -q -st"
+  autocmd FileType perl nnoremap <silent><buffer><leader>ti :Tidy<cr>
+  autocmd FileType perl vnoremap <silent><buffer><leader>ti <Nop>
+  autocmd FileType perl  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+" autocmd FileType perl setlocal complete-=i | setlocal complete+=k~/.vim/dict/perl_functions.dict
+augroup END
+
+augroup vimrc-ft-ruby  "{{{2
+  autocmd!
+  autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
+  autocmd FileType ruby  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+ " autocmd FileType ruby setlocal complete+=k~/.vim/dict/ruby.dict
+augroup END
+
+augroup vimrc-ft-slim  "{{{2
+  autocmd!
+  autocmd BufRead,BufNew *slim :setlocal filetype=slim
+  autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
+        \| setlocal omnifunc=htmlcomplete#CompleteTags
+augroup END
+
 
 augroup vimrc-ft-javascript  "{{{2
   autocmd!
@@ -1028,6 +995,7 @@ augroup END
 
 augroup vimrc-ft-json  "{{{2
   autocmd!
+  autocmd BufRead,BufNewFile *json :setlocal filetype=json syntax=json
   autocmd FileType json setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal conceallevel=0
         \| setlocal foldmethod=syntax
@@ -1055,12 +1023,16 @@ augroup vimrc-ft-html  "{{{2
   autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 augroup END
 
-augroup vimrc-ft-slim  "{{{2
+
+augroup vimrc-ft-python  "{{{2
   autocmd!
-  autocmd BufRead,BufNew *slim :setlocal filetype=slim
-  autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
-        \| setlocal omnifunc=htmlcomplete#CompleteTags
-augroup END
+  autocmd FileType python setlocal expandtab softtabstop=2 shiftwidth=2
+        \| setlocal omnifunc=pythoncomplete#Complete
+        \| let python_highlight_numbers=1
+        \| let python_highlight_builtins=1
+        \| let python_highlight_space_errors=1
+augroup ED
+
 
 augroup vimrc-ft-css  "{{{2
   " http://d.hatena.ne.jp/secondlife/20060831/1157010796#20060831f1
@@ -1081,22 +1053,8 @@ augroup vimrc-ft-markdown  "{{{2
   autocmd FileType markdown vnoremap <silent><buffer>mo :MyList 1.<CR>
   autocmd FileType markdown call s:set_markdown_trailing_space_highlight()
 augroup END
-
-let g:markdown_fenced_languages = [
-\  'coffee',
-\  'css',
-\  'php',
-\  'perl',
-\  'sh',
-\  'html',
-\  'erb=eruby',
-\  'javascript',
-\  'js=javascript',
-\  'json=javascript',
-\  'ruby',
-\  'sass',
-\  'xml',
-\]
+" http://mattn.kaoriya.net/software/vim/20140523124903.htm
+let g:markdown_fenced_languages = ['coffee', 'css', 'php', 'perl', 'sh', 'html', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
 
 augroup vimrc-ft-sh  "{{{2
   autocmd!
@@ -1118,19 +1076,6 @@ augroup vimrc-ft-gitignore  "{{{2
   autocmd BufRead,BufNew .gitignore :setlocal filetype=conf
 augroup END
 
-augroup vimrc-ft-hatena  "{{{2
-  autocmd!
-  autocmd FileType hatena setlocal expandtab softtabstop=2 shiftwidth=2
-  autocmd FileType hatena vnoremap <silent><buffer>ml :MyList -<cr>
-  autocmd FileType hatena vnoremap <silent><buffer>mo :MyList +<cr>
-  autocmd FileType hatena vnoremap <silent><buffer>sp :HatenaSuperPre<cr>
-augroup END
-
-command! -range=% -buffer HatenaSuperPre call s:hatena_supper_pre(<line1>, <line2>)
-function! s:hatena_supper_pre(line1, line2)
-  call append(a:line1 - 1, '>||')
-  call append(a:line2 + 1, '||<')
-endfunction
 
 
 " Function:  "{{{1
@@ -1308,187 +1253,144 @@ endfunction
 " Plugins: "{{{1
 
 " eregex.vim  "{{{2
-let s:bundle = neobundle#get('eregex.vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:eregex_default_enable = 0
-  " http://www.vector.co.jp/soft/unix/writing/se265654.html
-  " :%s # vimの正規表現による置換
-  " :%S # eregexの正規表現vimによる置換
-  " :%g # vimの(ry
-  " :%G # eregexの(ry
-  " / # vimの(ry
-  " :M/ # eregex の(ry
-  nnoremap / :set noincsearch<cr>:set hlsearch<cr>:M/
-  " org
-  nnoremap ,/ :set noincsearch<cr>:set hlsearch<cr>/
-endfunction
-unlet s:bundle
+let g:eregex_default_enable = 0
+" http://www.vector.co.jp/soft/unix/writing/se265654.html
+" :%s # vimの正規表現による置換
+" :%S # eregexの正規表現vimによる置換
+" :%g # vimの(ry
+" :%G # eregexの(ry
+" / # vimの(ry
+" :M/ # eregex の(ry
+nnoremap / :set noincsearch<cr>:set hlsearch<cr>:M/
+" org
+nnoremap ,/ :set noincsearch<cr>:set hlsearch<cr>/
 
-" migemo-search.vim  "{{{2
-let s:bundle = neobundle#get('migemo-search.vim')
-function! s:bundle.hooks.on_source(bundle)
+
+if neobundle#tap('migemo-search.vim') "{{{2
   if executable('cmigemo')
     cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
   endif
-endfunction
-unlet s:bundle
-
-
-" vim-smartchr  "{{{2
-let s:bundle = neobundle#get('vim-smartchr')
-function! s:bundle.hooks.on_source(bundle)
-endfunction
-unlet s:bundle
-
-
-" vim-smartinput  "{{{2
-let s:bundle = neobundle#get('vim-smartinput')
-function! s:bundle.hooks.on_source(bundle)
-endfunction
-unlet s:bundle
+endif
 
 
 " previm  "{{{2
-let s:bundle = neobundle#get('previm')
-function! s:bundle.hooks.on_source(bundle)
-  let g:previm_open_cmd = "open"
-endfunction
-unlet s:bundle
+let g:previm_open_cmd = "open"
 
 
 " phpstylist.vim  "{{{2
-let s:bundle = neobundle#get('phpstylist.vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:phpstylist_cmd_path = $MY_VIMRUNTIME . '/tools/phpStylist.php'
-  let g:phpstylist_options = {
-      \ 'default' : [
-        \ '--indent_size 4 ',
-        \ '--keep_redundant_lines ',
-        \ '--space_after_comma ',
-        \ '--space_around_assignment ',
-        \ '--space_around_comparison ',
-        \ '--space_around_arithmetic ',
-        \ '--space_around_logical ',
-        \ '--space_around_colon_question ',
-        \ '--line_before_function ',
-        \ '--line_before_curly_function',
-        \ '--space_after_if ',
-        \ '--space_inside_for ',
-        \ '--else_along_curly',
-        \ '--add_missing_braces ',
-        \ '--indent_case ',
-        \ '--space_around_double_arrow ',
-        \ '--space_around_concat ',
-        \ '--vertical_array ',
-        \ '--align_array_assignment',
-        \ '--line_before_comment_multi ',
-        \ '--align_var_assignment ',
-        \ '--line_after_break '
-      \],
-      \ 'perl' : [
-        \ '--indent_size 4 ',
-        \ '--keep_redundant_lines ',
-        \ '--space_after_comma ',
-        \ '--space_around_assignment ',
-        \ '--space_around_comparison ',
-        \ '--space_around_arithmetic ',
-        \ '--space_around_logical ',
-        \ '--space_around_colon_question ',
-        \ '--space_inside_parentheses',
-        \ '--line_before_function ',
-        \ '--space_after_if ',
-        \ '--space_inside_for ',
-        \ '--add_missing_braces ',
-        \ '--indent_case ',
-        \ '--space_around_double_arrow ',
-        \ '--space_around_concat ',
-        \ '--vertical_array ',
-        \ '--align_array_assignment',
-        \ '--line_before_comment_multi ',
-        \ '--align_var_assignment ',
-        \ '--line_after_break '
-      \],
-      \ 'wp' : [
-        \ '--indent_size 4 ',
-        \ '--keep_redundant_lines ',
-        \ '--space_after_comma ',
-        \ '--space_around_assignment ',
-        \ '--space_around_comparison ',
-        \ '--space_around_arithmetic ',
-        \ '--space_around_logical ',
-        \ '--space_around_colon_question ',
-        \ '--space_inside_parentheses',
-        \ '--line_before_function ',
-        \ '--space_after_if ',
-        \ '--space_inside_for ',
-        \ '--add_missing_braces ',
-        \ '--indent_case ',
-        \ '--space_around_double_arrow ',
-        \ '--space_around_concat ',
-        \ '--vertical_array ',
-        \ '--align_array_assignment',
-        \ '--line_before_comment_multi ',
-        \ '--align_var_assignment ',
-        \ '--else_along_curly',
-        \ '--line_after_break '
-      \],
-      \ 'cake' : [
-        \ '--indent_size 4',
-        \ '--indent_with_tabs ',
-        \ '--keep_redundant_lines ',
-        \ '--space_around_assignment ',
-        \ '--space_around_comparison ',
-        \ '--space_around_arithmetic ',
-        \ '--space_around_logical ',
-        \ '--space_around_colon_question ',
-        \ '--space_after_if ',
-        \ '--space_inside_for ',
-        \ '--add_missing_braces ',
-        \ '--else_along_curly',
-        \ '--indent_case ',
-        \ '--space_around_double_arrow ',
-        \ '--space_around_concat ',
-        \ '--vertical_array ',
-        \ '--align_array_assignment',
-        \ '--line_before_comment_multi ',
-        \ '--align_var_assignment ',
-        \ '--line_after_break '
-      \]
-    \}
-endfunction
-unlet s:bundle
+let g:phpstylist_cmd_path = $MY_VIMRUNTIME . '/tools/phpStylist.php'
+let g:phpstylist_options = {
+    \ 'default' : [
+      \ '--indent_size 4 ',
+      \ '--keep_redundant_lines ',
+      \ '--space_after_comma ',
+      \ '--space_around_assignment ',
+      \ '--space_around_comparison ',
+      \ '--space_around_arithmetic ',
+      \ '--space_around_logical ',
+      \ '--space_around_colon_question ',
+      \ '--line_before_function ',
+      \ '--line_before_curly_function',
+      \ '--space_after_if ',
+      \ '--space_inside_for ',
+      \ '--else_along_curly',
+      \ '--add_missing_braces ',
+      \ '--indent_case ',
+      \ '--space_around_double_arrow ',
+      \ '--space_around_concat ',
+      \ '--vertical_array ',
+      \ '--align_array_assignment',
+      \ '--line_before_comment_multi ',
+      \ '--align_var_assignment ',
+      \ '--line_after_break '
+    \],
+    \ 'perl' : [
+      \ '--indent_size 4 ',
+      \ '--keep_redundant_lines ',
+      \ '--space_after_comma ',
+      \ '--space_around_assignment ',
+      \ '--space_around_comparison ',
+      \ '--space_around_arithmetic ',
+      \ '--space_around_logical ',
+      \ '--space_around_colon_question ',
+      \ '--space_inside_parentheses',
+      \ '--line_before_function ',
+      \ '--space_after_if ',
+      \ '--space_inside_for ',
+      \ '--add_missing_braces ',
+      \ '--indent_case ',
+      \ '--space_around_double_arrow ',
+      \ '--space_around_concat ',
+      \ '--vertical_array ',
+      \ '--align_array_assignment',
+      \ '--line_before_comment_multi ',
+      \ '--align_var_assignment ',
+      \ '--line_after_break '
+    \],
+    \ 'wp' : [
+      \ '--indent_size 4 ',
+      \ '--keep_redundant_lines ',
+      \ '--space_after_comma ',
+      \ '--space_around_assignment ',
+      \ '--space_around_comparison ',
+      \ '--space_around_arithmetic ',
+      \ '--space_around_logical ',
+      \ '--space_around_colon_question ',
+      \ '--space_inside_parentheses',
+      \ '--line_before_function ',
+      \ '--space_after_if ',
+      \ '--space_inside_for ',
+      \ '--add_missing_braces ',
+      \ '--indent_case ',
+      \ '--space_around_double_arrow ',
+      \ '--space_around_concat ',
+      \ '--vertical_array ',
+      \ '--align_array_assignment',
+      \ '--line_before_comment_multi ',
+      \ '--align_var_assignment ',
+      \ '--else_along_curly',
+      \ '--line_after_break '
+    \],
+    \ 'cake' : [
+      \ '--indent_size 4',
+      \ '--indent_with_tabs ',
+      \ '--keep_redundant_lines ',
+      \ '--space_around_assignment ',
+      \ '--space_around_comparison ',
+      \ '--space_around_arithmetic ',
+      \ '--space_around_logical ',
+      \ '--space_around_colon_question ',
+      \ '--space_after_if ',
+      \ '--space_inside_for ',
+      \ '--add_missing_braces ',
+      \ '--else_along_curly',
+      \ '--indent_case ',
+      \ '--space_around_double_arrow ',
+      \ '--space_around_concat ',
+      \ '--vertical_array ',
+      \ '--align_array_assignment',
+      \ '--line_before_comment_multi ',
+      \ '--align_var_assignment ',
+      \ '--line_after_break '
+    \]
+  \}
 
+" pdv  "{{{2
+let g:pdv_cfg_Package = ""
+let g:pdv_cfg_Copyright = ""
+let g:pdv_cfg_Version = "$id$"
+let g:pdv_cfg_Author = g:opp_email
+let g:pdv_cfg_php4guessval = 'private'
+let g:pdv_re_bool = "\(true\|false\)"
 
-" PDV - phpDocumentor for Vi  "{{{2
-" http://www.vim.org/scripts/script.php?script_id=1355
-let s:bundle = neobundle#get('PDV--phpDocumentor-for-Vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:pdv_cfg_Package = ""
-  let g:pdv_cfg_Copyright = ""
-  let g:pdv_cfg_Version = "$id$"
-  let g:pdv_cfg_Author = g:opp_email
-  let g:pdv_cfg_php4guessval = 'private'
-  let g:pdv_re_bool = "\(true\|false\)"
-endfunction
-unlet s:bundle
-
-
-" phpfolding.vim "{{{2
-" https://github.com/vim-scripts/phpfolding.vim
-let s:bundle = neobundle#get('phpfolding.vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:DisableAutoPHPFolding = 1
-endfunction
-unlet s:bundle
-
+" phpfolding.vim  "{{{2
+let g:DisableAutoPHPFolding = 1
 
 " matchparen  "{{{2
 let loaded_matchparen = 1
 
-
 " open-browser.vim  "{{{2
 nmap <leader>w <Plug>(openbrowser-smart-search)
-
 
 " NERD Commenter  "{{{2
 " http://www.vim.org/scripts/script.php?script_id=1218
@@ -1505,12 +1407,14 @@ let g:NERDCustomDelimiters = {
   \ }
 
 
-" zencoding.vim  "{{{2
-let g:user_zen_settings = { 'indentation':'  ' }
-
+if neobundle#tap('emmet-vim') "{{{2
+  let g:user_emmet_leader_key='<C-e>'
+  let g:user_emmet_settings = {'indentation' : '  '}
+endif
 
 " quickrun.vim  "{{{2
 let g:quickrun_config={'*': {'split': ''}}
+map <unique> <Leader>r <Plug>(quickrun)
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
 " augroup QuickRunPHPUnit
@@ -1532,18 +1436,12 @@ let g:quickrun_config['objc'] = {
       \}
 
 
-" ref.vim  "{{{2
-let g:ref_phpmanual_path = s:dropbox_dir . '/php_manual_ja'
-let g:ref_phpmanual_cmd = 'w3m -dump %s'
-let g:ref_alc_start_linenumber = 45
-
-
-" unite.vim "{{{2
-let s:bundle = neobundle#get('unite.vim')
-function! s:bundle.hooks.on_source(bundle)
+if neobundle#tap('unite.vim') "{{{2
   let g:unite_source_file_mru_limit = 200
   let g:unite_source_file_mru_filename_format = ''
   let g:unite_data_directory = $MY_VIMRUNTIME . '/.vim/unite'
+
+  nnoremap <silent>uo :<C-u>Unite outline<CR>
 
   " http://this.aereal.org/entry/2013/12/25/003235
   let s:unite_git_files_conflict = {
@@ -1559,16 +1457,12 @@ function! s:bundle.hooks.on_source(bundle)
           \ }')
     return candidates
   endfunction
-  call unite#define_source(s:unite_git_files_conflict)
-
-endfunction
-unlet s:bundle
-
-nnoremap <silent>uo :<C-u>Unite outline<CR>
-
+  " call unite#define_source(s:unite_git_files_conflict)
+endif
 
 " snipMate.vim  "{{{2
 let g:snippets_dir = $MY_VIMRUNTIME . '/snippets'
+
 
 
 " acp.vim  "{{{2
@@ -1766,9 +1660,9 @@ let g:lightline = {
 " Vim Starting:  "{{{1
 " http://d.hatena.ne.jp/thinca/20100619/1276915771
 if has('vim_starting')
-  if filereadable($HOME . '/.vimrc.local')
-    source $HOME/.vimrc.local
-  endif
+  " if filereadable($HOME . '/.vimrc.local')
+    " source $HOME/.vimrc.local
+  " endif
 
   " http://nanasi.jp/articles/vim/matchit_vim.html
   source $VIMRUNTIME/macros/matchit.vim
