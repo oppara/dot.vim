@@ -26,30 +26,64 @@ if has("vim_starting")
   let $MY_VIMRUNTIME = expand(has('win32') || has('win64') ? '~/vimfiles' : '~/.vim')
   let &runtimepath = &runtimepath . ',' . $MY_VIMRUNTIME .  '/bundle/neobundle.vim'
 endif
-call neobundle#rc()
 
-let g:neobundle#default_options = { 'loadInsert' : { 'autoload' : { 'insert' : '1' } } }
+call neobundle#begin($MY_VIMRUNTIME .  '/bundle')
 
 " git clone https://github.com/Shougo/neobundle.vim.git
 NeoBundleFetch 'https://github.com/Shougo/neobundle.vim'
+let g:neobundle#log_filename = $MY_VIMRUNTIME . '/bundle/.neobundle/neobundle.log'
+let g:neobundle#install_max_processes = 4
+let g:neobundle#install_process_timeout = 180
+let g:neobundle#default_options = { 'loadInsert' : { 'autoload' : { 'insert' : '1' } } }
 
-NeoBundle 'https://github.com/itchyny/lightline.vim'
+if neobundle#has_cache()
+  NeoBundleLoadCache
+else
 
-NeoBundle 'https://bitbucket.org/ns9tks/vim-l9'
-NeoBundle 'https://github.com/oppara/snipmate.vim'
+  NeoBundle 'https://github.com/itchyny/lightline.vim'
+  NeoBundle 'https://github.com/Shougo/vimproc', {
+        \ 'build' : {
+        \ 'windows' : 'make -f make_mingw32.mak',
+        \ 'cygwin' : 'make -f make_cygwin.mak',
+        \ 'mac' : 'make -f make_mac.mak',
+        \ 'unix' : 'make -f make_unix.mak',
+        \ },
+        \ }
+
+  NeoBundle 'https://bitbucket.org/ns9tks/vim-l9'
+  NeoBundle 'https://github.com/oppara/snipmate.vim'
+
+  NeoBundle 'https://github.com/LeafCage/yankround.vim'
+  NeoBundle 'https://github.com/thinca/vim-localrc'
+  NeoBundle 'https://github.com/thinca/vim-qfreplace'
+
+  NeoBundle 'https://github.com/tpope/vim-surround'
+  NeoBundle 'https://github.com/tpope/vim-unimpaired'
+  NeoBundle 'https://github.com/tpope/vim-abolish'
+  NeoBundle 'https://github.com/tpope/vim-repeat'
+  NeoBundle 'https://github.com/tpope/vim-fugitive'
+
+  NeoBundle 'https://github.com/othree/eregex.vim'
+  NeoBundle 'https://github.com/scrooloose/nerdcommenter'
+  NeoBundle 'https://github.com/vim-scripts/sudo.vim'
+  NeoBundle 'https://github.com/vim-scripts/matchit.zip'
+  NeoBundle 'https://github.com/vim-scripts/MatchTag.git'
+
+  NeoBundle 'https://github.com/oppara/taglist.vim'
+  NeoBundle 'https://github.com/Yggdroot/indentLine'
+  " NeoBundle 'https://github.com/rhysd/migemo-search.vim'
+
+  " http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
+  NeoBundle 'https://github.com/fuenor/qfixgrep.git'
+  NeoBundle 'https://github.com/glidenote/memolist.vim.git'
+
+  NeoBundleSaveCache
+endif
+
 NeoBundleLazy 'https://bitbucket.org/ns9tks/vim-fuzzyfinder', {
       \ 'depends' : 'oppara/vim-autocomplpop',
       \'autoload' : {'commands' : ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}}
 NeoBundleLazy 'https://bitbucket.org/oppara/vim-autocomplpop', '', 'loadInsert'
-
-NeoBundle 'https://github.com/Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ }
 
 NeoBundleLazy 'https://github.com/Shougo/unite.vim', {'autoload' : {
   \ 'insert' : '1',
@@ -71,28 +105,11 @@ NeoBundleLazy 'https://github.com/scrooloose/syntastic', '', 'loadInsert'
 NeoBundleLazy 'https://github.com/junegunn/vim-easy-align', {'autoload': {'commands': 'EasyAlign', 'mappings': ['<Plug>(EasyAlign']}}
 NeoBundleLazy 'https://bitbucket.org/anyakichi/vim-qfutil', {'autoload': {'commands': 'qfutil'}}
 
-NeoBundle 'https://github.com/LeafCage/yankround.vim'
-NeoBundle 'https://github.com/thinca/vim-localrc'
-
-NeoBundle 'https://github.com/tpope/vim-surround'
-NeoBundle 'https://github.com/tpope/vim-unimpaired'
-NeoBundle 'https://github.com/tpope/vim-abolish'
-NeoBundle 'https://github.com/tpope/vim-repeat'
-NeoBundle 'https://github.com/tpope/vim-fugitive'
-
-NeoBundle 'https://github.com/othree/eregex.vim'
-NeoBundle 'https://github.com/scrooloose/nerdcommenter'
-NeoBundle 'https://github.com/vim-scripts/sudo.vim'
-NeoBundle 'https://github.com/vim-scripts/matchit.zip'
-NeoBundle 'https://github.com/vim-scripts/MatchTag.git'
 
 NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
       \'autoload' : { 'mappings'  : ['<Plug>(openbrowser-smart-search)', '<Plug>(openbrowser-open)'],
       \'function_prefix' : 'openbrowser' } }
 
-NeoBundle 'https://github.com/oppara/taglist.vim'
-NeoBundle 'https://github.com/Yggdroot/indentLine'
-" NeoBundle 'https://github.com/rhysd/migemo-search.vim'
 
 " php
 NeoBundleLazy 'https://github.com/oppara/phpstylist.vim', {'autoload' : {'filetypes' : ['php']}}
@@ -122,11 +139,11 @@ NeoBundleLazy 'https://github.com/slim-template/vim-slim', {'autoload' : {'filet
 NeoBundleLazy 'https://github.com/oppara/vim-chef', {'rev' : 'develop', 'autoload' : {'filetypes' : ['ruby']}}
 
 " javascript
-NeoBundle 'https://github.com/heavenshell/vim-jsdoc.git'
-NeoBundle 'https://github.com/pangloss/vim-javascript'
-NeoBundle 'https://github.com/mattn/jscomplete-vim'
-NeoBundle 'https://github.com/igetgames/vim-backbone-jscomplete'
-NeoBundle 'https://github.com/myhere/vim-nodejs-complete'
+NeoBundleLazy 'https://github.com/heavenshell/vim-jsdoc.git', {'autoload' : {'filetypes' : ['javascript']}}
+NeoBundleLazy 'https://github.com/pangloss/vim-javascript', {'autoload' : {'filetypes' : ['javascript']}}
+NeoBundleLazy 'https://github.com/mattn/jscomplete-vim', {'autoload' : {'filetypes' : ['javascript']}}
+NeoBundleLazy 'https://github.com/igetgames/vim-backbone-jscomplete', {'autoload' : {'filetypes' : ['javascript']}}
+NeoBundleLazy 'https://github.com/myhere/vim-nodejs-complete', {'autoload' : {'filetypes' : ['javascript', 'node']}}
 NeoBundleLazy 'https://github.com/kchmck/vim-coffee-script', {'autoload' : {'filetypes' : ['coffee', 'markdown']}}
 NeoBundleLazy 'https://github.com/maksimr/vim-jsbeautify', {'autoload' : {'filetypes' : ['javascript', 'json']}}
 " json
@@ -138,9 +155,8 @@ NeoBundleLazy 'vim-scripts/perlomni.vim'
 " objecteiv-c
 NeoBundleLazy 'https://github.com/msanders/cocoa.vim'
 
-" http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
-NeoBundle 'https://github.com/fuenor/qfixgrep.git'
-NeoBundle 'https://github.com/glidenote/memolist.vim.git'
+
+call neobundle#end()
 
 filetype plugin indent on
 
