@@ -35,7 +35,8 @@ snippet re
 
 # class ...
 snippet cl
-	class ${1:ClassName} {
+	class ${1:ClassName}
+	{
 		${2}
 	}
 # define(...)
@@ -147,7 +148,7 @@ snippet __
 snippet ld
 	$this->log(${1}, LOG_DEBUG);${2}
 snippet le
-	$this->log(${1}, LOG_ERROR);${2}
+	$this->log(${1}, LOG_ERR);${2}
 snippet de #2
 	debug(${1});${2}
 
