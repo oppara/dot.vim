@@ -192,6 +192,11 @@ snippet aem
 snippet anem
 	$this->assertNotEmpty(${1:$count}${2});${3}
 
+snippet as
+	$this->assertSame(${1:$expected}, ${2:$actual}${3});${4}
+snippet ans
+	$this->assertNotSame(${1:$expected}, ${2:$actual}${3});${4}
+
 snippet aeq
 	$this->assertEquals(${1:$expected}, ${2:$actual}${3});${4}
 snippet aneq
@@ -231,8 +236,6 @@ snippet aom
 	$this->assertOutsideMargin(${1}, ${2}, ${3});${4}
 snippet ee
 	$this->expectError(${1});${2}
-snippet as
-	$this->assert(${1});${2}
 snippet atag
 	$this->assertTags(${1}, ${2}, true);${3}
 
