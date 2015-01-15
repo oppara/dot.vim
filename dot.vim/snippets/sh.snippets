@@ -56,3 +56,20 @@ snippet tmp
 	trap "rm -f '$${1}'; exit 1" 2       # INT
 	trap "rm -f '$${1}'; exit 1" 1 15    # HUP TERM
 	${0}
+
+snippet cwd
+	CURRENT=$(cd $(dirname $0) && pwd) ${1}
+
+snippet mul
+	 SCRIPT_PID="/path/to/run_script.pid"
+	if [ -f $SCRIPT_PID ]; then
+		PID=`cat $SCRIPT_PID `
+		if (ps -e | awk '{print $1}' | grep $PID >/dev/null); then
+			exit
+		fi
+	fi
+	echo $$ > $SCRIPT_PID
+
+	${1}
+
+	rm $SCRIPT_PID
