@@ -1578,6 +1578,14 @@ let g:indentLine_fileType = ['javascript', 'json', 'yaml', 'scss', 'sass', 'slim
 let g:indentLine_color_term = 235
 
 
+" EasyAlign  "{{{2
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
 " yankround.vim  "{{{2
 nmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
