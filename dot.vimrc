@@ -28,6 +28,7 @@ if has("vim_starting")
 endif
 
 call neobundle#begin($MY_VIMRUNTIME .  '/bundle')
+call neobundle#load_cache()
 
 " git clone https://github.com/Shougo/neobundle.vim.git
 NeoBundleFetch 'https://github.com/Shougo/neobundle.vim'
@@ -36,48 +37,44 @@ let g:neobundle#install_max_processes = 4
 let g:neobundle#install_process_timeout = 180
 let g:neobundle#default_options = { 'loadInsert' : { 'autoload' : { 'insert' : '1' } } }
 
-if neobundle#has_cache()
-  NeoBundleLoadCache
-else
 
-  NeoBundle 'https://github.com/itchyny/lightline.vim'
-  NeoBundle 'https://github.com/Shougo/vimproc', {
-        \ 'build' : {
-        \ 'windows' : 'make -f make_mingw32.mak',
-        \ 'cygwin' : 'make -f make_cygwin.mak',
-        \ 'mac' : 'make -f make_mac.mak',
-        \ 'unix' : 'make -f make_unix.mak',
-        \ },
-        \ }
+NeoBundle 'https://github.com/itchyny/lightline.vim'
+NeoBundle 'https://github.com/Shougo/vimproc', {
+      \ 'build' : {
+      \ 'windows' : 'make -f make_mingw32.mak',
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'mac' : 'make -f make_mac.mak',
+      \ 'unix' : 'make -f make_unix.mak',
+      \ },
+      \ }
 
-  NeoBundle 'https://bitbucket.org/ns9tks/vim-l9'
-  NeoBundle 'https://github.com/oppara/snipmate.vim'
+NeoBundle 'https://bitbucket.org/ns9tks/vim-l9'
+NeoBundle 'https://github.com/oppara/snipmate.vim'
 
-  NeoBundle 'https://github.com/LeafCage/yankround.vim'
-  NeoBundle 'https://github.com/thinca/vim-localrc'
-  NeoBundle 'https://github.com/thinca/vim-qfreplace'
+NeoBundle 'https://github.com/LeafCage/yankround.vim'
+NeoBundle 'https://github.com/thinca/vim-localrc'
+NeoBundle 'https://github.com/thinca/vim-qfreplace'
 
-  NeoBundle 'https://github.com/tpope/vim-surround'
-  NeoBundle 'https://github.com/tpope/vim-unimpaired'
-  NeoBundle 'https://github.com/tpope/vim-abolish'
-  NeoBundle 'https://github.com/tpope/vim-repeat'
-  NeoBundle 'https://github.com/tpope/vim-fugitive'
+NeoBundle 'https://github.com/tpope/vim-surround'
+NeoBundle 'https://github.com/tpope/vim-unimpaired'
+NeoBundle 'https://github.com/tpope/vim-abolish'
+NeoBundle 'https://github.com/tpope/vim-repeat'
+NeoBundle 'https://github.com/tpope/vim-fugitive'
 
-  NeoBundle 'https://github.com/scrooloose/nerdcommenter'
-  NeoBundle 'https://github.com/vim-scripts/sudo.vim'
-  NeoBundle 'https://github.com/vim-scripts/matchit.zip'
-  NeoBundle 'https://github.com/vim-scripts/MatchTag.git'
+NeoBundle 'https://github.com/scrooloose/nerdcommenter'
+NeoBundle 'https://github.com/vim-scripts/sudo.vim'
+NeoBundle 'https://github.com/vim-scripts/matchit.zip'
+NeoBundle 'https://github.com/vim-scripts/MatchTag.git'
 
-  NeoBundle 'https://github.com/oppara/taglist.vim'
-  NeoBundle 'https://github.com/Yggdroot/indentLine'
-  " NeoBundle 'https://github.com/rhysd/migemo-search.vim'
+NeoBundle 'https://github.com/oppara/taglist.vim'
+NeoBundle 'https://github.com/Yggdroot/indentLine'
+" NeoBundle 'https://github.com/rhysd/migemo-search.vim'
 
-  " http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
-  NeoBundle 'https://github.com/fuenor/qfixgrep.git'
-  NeoBundle 'https://github.com/glidenote/memolist.vim.git'
+" http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
+NeoBundle 'https://github.com/fuenor/qfixgrep.git'
+NeoBundle 'https://github.com/glidenote/memolist.vim.git'
 
-  NeoBundleSaveCache
-endif
+NeoBundleSaveCache
 
 NeoBundleLazy 'https://bitbucket.org/ns9tks/vim-fuzzyfinder', {
       \ 'depends' : 'oppara/vim-autocomplpop',
@@ -154,7 +151,7 @@ NeoBundleLazy 'vim-scripts/perlomni.vim'
 " objecteiv-c
 NeoBundleLazy 'https://github.com/msanders/cocoa.vim'
 
-
+NeoBundleSaveCache
 call neobundle#end()
 
 filetype plugin indent on
