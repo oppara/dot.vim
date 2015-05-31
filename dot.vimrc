@@ -1279,7 +1279,7 @@ let g:previm_open_cmd = "open"
 
 
 " phpstylist.vim  "{{{2
-let g:phpstylist_cmd_path = $MY_VIMRUNTIME . '/tools/phpStylist.php'
+let g:phpstylist_cmd_path = expand('~/src/github.com/oppara/phpstylist/index.php')
 let g:phpstylist_options = {
     \ 'default' : [
       \ '--indent_size 4 ',
