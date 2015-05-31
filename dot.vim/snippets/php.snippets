@@ -263,17 +263,18 @@ snippet simple
 
 # phpunit
 snippet pu
-	class ${1:ClassName}Test extends PHPUnit_Framework_TestCase {
+	class ${1:ClassName}Test extends PHPUnit_Framework_TestCase
+	{
 
-		function setUp()
+		protected function setUp()
 		{
 		}
 
-		function tearDown()
+		protected function tearDown()
 		{
 		}
 
-		function testSomething()
+		public function testSomething()
 		{
 			$this->fail();
 		}
