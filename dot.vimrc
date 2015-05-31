@@ -63,7 +63,6 @@ else
   NeoBundle 'https://github.com/tpope/vim-repeat'
   NeoBundle 'https://github.com/tpope/vim-fugitive'
 
-  NeoBundle 'https://github.com/othree/eregex.vim'
   NeoBundle 'https://github.com/scrooloose/nerdcommenter'
   NeoBundle 'https://github.com/vim-scripts/sudo.vim'
   NeoBundle 'https://github.com/vim-scripts/matchit.zip'
@@ -1267,20 +1266,6 @@ function! s:Jq(...)
 endfunction
 
 " Plugins: "{{{1
-
-" eregex.vim  "{{{2
-let g:eregex_default_enable = 0
-" http://www.vector.co.jp/soft/unix/writing/se265654.html
-" :%s # vimの正規表現による置換
-" :%S # eregexの正規表現vimによる置換
-" :%g # vimの(ry
-" :%G # eregexの(ry
-" / # vimの(ry
-" :M/ # eregex の(ry
-nnoremap / :set noincsearch<cr>:set hlsearch<cr>:M/
-" org
-nnoremap ,/ :set noincsearch<cr>:set hlsearch<cr>/
-
 
 if neobundle#tap('migemo-search.vim') "{{{2
   if executable('cmigemo')
