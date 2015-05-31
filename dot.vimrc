@@ -311,7 +311,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set wrapscan
-set noincsearch
+set incsearch
 nohlsearch
 set grepprg=internal
 
@@ -503,6 +503,9 @@ inoremap <silent> <c-j> <esc>:set iminsert=0<cr>
 " ずっとハイライトはうざい
 " nnoremap <silent> gh :let @/=''<cr>
 nnoremap <silent> gh :<c-u>setlocal nohlsearch<cr>
+
+" http://deris.hatenablog.jp/entry/2013/05/15/024932
+nnoremap /  /\v
 
 " 検索結果をquickfixに表示
 " http://subtech.g.hatena.ne.jp/secondlife/20070601/1180700503
