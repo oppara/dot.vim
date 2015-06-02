@@ -308,7 +308,6 @@ set hlsearch
 set ignorecase
 set smartcase
 set wrapscan
-set incsearch
 nohlsearch
 set grepprg=internal
 
