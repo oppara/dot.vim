@@ -498,7 +498,14 @@ inoremap <silent> <c-j> <esc>:set iminsert=0<cr>
 
 " ずっとハイライトはうざい
 " nnoremap <silent> gh :let @/=''<cr>
-nnoremap <silent> gh :<c-u>setlocal nohlsearch<cr>
+nnoremap <silent> gh :<C-u>call <SID>my_hlsearch_toggle()<CR>
+function! s:my_hlsearch_toggle()
+  if (&hlsearch)
+    execute ':setlocal nohlsearch'
+  else
+    execute ':setlocal hlsearch'
+  endif
+endfunction
 
 " http://deris.hatenablog.jp/entry/2013/05/15/024932
 nnoremap /  /\v
