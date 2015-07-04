@@ -1,7 +1,6 @@
-" Vars:   "{{{1
-
-set nocompatible
 scriptencoding utf-8
+
+" Vars:   "{{{1
 
 let s:is_mac      = has('macunix') || (executable('uname') && system('uname') =~? '^darwin')
 let s:is_unix     = has('unix') && !s:is_mac
