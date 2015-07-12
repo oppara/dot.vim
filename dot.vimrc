@@ -87,9 +87,41 @@ NeoBundleLazy 'https://github.com/Shougo/unite.vim', {'autoload' : {
 NeoBundleLazy 'https://github.com/Shougo/unite-help', {'autoload' : {'unite_sources' : ['help']}}
 NeoBundleLazy 'https://github.com/Shougo/unite-outline', {'autoload' : {'unite_sources' : ['outline']}}
 
-" NeoBundle 'https://github.com/kana/vim-textobj-user'
-" NeoBundle 'https://github.com/kana/vim-textobj-jabraces'
-" NeoBundle 'https://github.com/h1mesuke/textobj-wiw'
+NeoBundleLazy 'https://github.com/kana/vim-textobj-user', {
+      \ 'autoload' : {
+      \   'function_prefix' : 'textobj'}}
+
+NeoBundleLazy 'https://github.com/kana/vim-textobj-jabraces', {
+  \ 'autoload' : {
+  \   'commands' : 'TextobjJabracesDefaultKeyMappings',
+  \   'mappings' : [['vo', '<Plug>(textobj-jabraces-']]}}
+
+NeoBundleLazy 'https://github.com/kana/vim-textobj-fold', {
+  \ 'autoload' : {
+  \   'commands' : 'TextobjFoldDefaultKeyMappings',
+  \   'mappings' : [['vo', '<Plug>(textobj-fold-']]}}
+
+NeoBundleLazy 'https://github.com/anyakichi/vim-textobj-ifdef', {
+  \ 'autoload' : {
+  \   'commands' : 'TextobjIfdefDefaultKeyMappings',
+  \   'mappings' : [['vo', '<Plug>(textobj-ifdef-']]}}
+
+NeoBundleLazy 'https://github.com/akiyan/vim-textobj-php', {
+  \ 'autoload' : {
+  \   'filetypes' : ['php']}}
+
+NeoBundleLazy 'https://github.com/bps/vim-textobj-python', {
+  \ 'autoload' : {
+  \   'filetypes' : ['python']}}
+
+NeoBundleLazy 'https://github.com/rhysd/vim-textobj-ruby', {
+  \ 'autoload' : {
+  \   'filetypes' : ['ruby']}}
+
+NeoBundleLazy 'https://github.com/akiyan/vim-textobj-xml-attribute', {
+  \ 'autoload' : {
+  \   'filetypes' : ['xml']}}
+
 NeoBundleLazy 'https://github.com/kana/vim-fakeclip', {'autoload': {'commands': 'fakeclip', 'mappings': ['<Plug>(fakeclip-']}}
 NeoBundleLazy 'https://github.com/kana/vim-smartchr', '', 'loadInsert'
 NeoBundleLazy 'https://github.com/kana/vim-smartinput', '', 'loadInsert'
