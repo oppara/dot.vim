@@ -15,80 +15,6 @@ snippet cgi
 	# use CGI::Carp qw( fatalsToBrowser );
 	# use Data::Dumper;
 
-snippet dd
-	print Dumper( ${1} );
-
-# Function
-snippet sub
-	sub ${1} {
-		${0}
-	}
-
-# Conditional
-snippet if
-	if ( ${1} ) {
-		${2:# body...}
-	}
-# Conditional if..else
-snippet ife
-	if ( ${1} ) {
-		${2:# body...}
-	}
-	else {
-		${3:# else...}
-	}
-# Conditional if..elsif..else
-snippet ifee
-	if ( ${1} ) {
-		${2:# body...}
-	}
-	elsif ( ${3} ) {
-		${4:# elsif...}
-	}
-	else {
-		${5:# else...}
-	}
-# Conditional One-line
-snippet xif
-	${1:expression} if ${2:condition};${3}
-# Unless conditional
-snippet un
-	unless ( ${1} ) {
-		${2:# body...}
-	}
-# Unless conditional One-line
-snippet xun
-	${1:expression} unless ${2:condition};${3}
-# Try/Except
-snippet eval
-	eval {
-		${1:# do something risky...}
-	};
-	if ( $@ ) {
-		${2:# handle failure...}
-	}
-# While Loop
-snippet wh
-	while ( ${1} ) {
-		${2:# body...}
-	}
-# While Loop One-line
-snippet xwh
-	${1:expression} while ${2:condition};${3}
-# For Loop
-snippet fo
-	for ( my $${2:var} = 0; $$2 < ${1:count}; $$2${3:++} ) {
-		${4:# body...}
-	}
-# Foreach Loop
-snippet fe
-	foreach my $${1:x} ( @${2:array} ) {
-		${3:# body...}
-	}
-# Foreach Loop One-line
-snippet xfe
-	${1:expression} foreach @${2:array};${3}
-# Package
 snippet pm
 	package ${1:ClassName};
 
@@ -102,7 +28,79 @@ snippet pm
 	}
 
 	1;
+
+snippet dd
+	print Dumper(${1});
+
+# Function
+snippet sub
+	sub ${1} {
+		${2}
+	}
+
+snippet me
+	sub ${1} {
+		my $${2:self} = ${3:shift};
+
+		${4}
+	}
+
+# Conditional
+snippet if
+	if (${1}) {
+		${2}
+	}
+# Conditional if..else
+snippet ife
+	if (${1}) {
+		${2}
+	}
+	else {
+		${3}
+	}
+# Conditional if..elsif..else
+snippet el
+	elsif (${1} {
+		${2}
+	}
+
+
+# Unless conditional
+snippet un
+	unless (${1}) {
+		${2}
+	}
+
+# Try/Except
+snippet eval
+	eval {
+		${1}
+	};
+	if ($@) {
+		${2}
+	}
+
+snippet wh
+	while (${1}) {
+		${2}
+	}
+
+snippet fo
+	for (my $${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
+		${4}
+	}
+
+snippet fe
+	foreach my $${1:val} (@${2:array}) {
+		${3}
+	}
+snippet feh
+	foreach my $${1:key} (keys %@${2:hash}) {
+		${3}
+	}
+
+
 # Read File
 snippet slurp
-	my $${1:var};
+	my $${1:data};
 	{ local $/ = undef; local *FILE; open FILE, "<${2:file}"; $$1 = <FILE>; close FILE }${3}
