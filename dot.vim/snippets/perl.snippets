@@ -12,7 +12,7 @@ snippet cgi
 	#!/usr/local/bin/perl -T
 	use strict;
 	use warnings;
-	# use CGI::Carp qw( fatalsToBrowser );
+	# use CGI::Carp qw(fatalsToBrowser);
 	# use Data::Dumper;
 
 snippet pm
@@ -29,8 +29,11 @@ snippet pm
 
 	1;
 
+snippet ud
+	use Data::Dumper;
+
 snippet dd
-	print Dumper(${1});
+	${1:print} Dumper(${2});
 
 # Function
 snippet sub
