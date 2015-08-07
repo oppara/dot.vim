@@ -72,6 +72,7 @@ NeoBundle 'https://github.com/Yggdroot/indentLine'
 " http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
 NeoBundle 'https://github.com/fuenor/qfixgrep.git'
 NeoBundle 'https://github.com/glidenote/memolist.vim.git'
+NeoBundle 'https://github.com/mattn/vim-maketable'
 
 NeoBundleSaveCache
 
