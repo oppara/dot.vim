@@ -279,3 +279,12 @@ snippet pu
 			$this->fail();
 		}
 	}
+
+# csv import
+# http://blog.fenrir-inc.com/jp/2014/07/php-csv.html
+snippet csv
+	$csv = new SplFileObject(${1:$path});
+	$csv->setFlags(SplFileObject::READ_CSV);
+	foreach ($csv as $line) {
+		${2}
+	}
