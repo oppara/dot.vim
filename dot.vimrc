@@ -1059,7 +1059,10 @@ augroup END
 augroup vimrc-ft-coffeescript  "{{{2
 " https://github.com/kchmck/vim-coffee-script
   autocmd!
-  au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+  " au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+  autocmd FileType coffee setlocal expandtab softtabstop=2 shiftwidth=2
+        \| setlocal conceallevel=0
+        \| setlocal foldmethod=syntax
 augroup END
 
 augroup vimrc-ft-html  "{{{2
