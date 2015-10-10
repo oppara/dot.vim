@@ -339,8 +339,8 @@ set magic
 set hlsearch
 set ignorecase
 set smartcase
+set incsearch
 set wrapscan
-nohlsearch
 set grepprg=internal
 
 
@@ -351,7 +351,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set directory-=.
-set viminfo='10,\"100,:20,%,n~/.viminfo
+set viminfo='100,<100,:50,%,h,n~/.viminfo
 
 " view  "{{{2
 set viewoptions-=options viewoptions+=slash,unix
@@ -538,9 +538,6 @@ function! s:my_hlsearch_toggle()
     execute ':setlocal hlsearch'
   endif
 endfunction
-
-" http://deris.hatenablog.jp/entry/2013/05/15/024932
-nnoremap /  /\v
 
 " 検索結果をquickfixに表示
 " http://subtech.g.hatena.ne.jp/secondlife/20070601/1180700503
