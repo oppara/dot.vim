@@ -145,6 +145,7 @@ NeoBundleLazy 'https://github.com/oppara/PDV--phpDocumentor-for-Vim', {'autoload
 NeoBundleLazy 'https://github.com/karakaram/vim-quickrun-phpunit', {'autoload' : {'filetypes' : ['php']}}
 " http://www.karakaram.com/vim/phpunit-location-list/
 NeoBundleLazy 'https://github.com/vim-scripts/phpfolding.vim', {'autoload' : {'filetypes' : ['php']}}
+NeoBundleLazy 'https://github.com/StanAngeloff/php.vim', {'autoload' : {'filetypes' : ['php']}}
 
 " sql
 NeoBundleLazy 'https://github.com/oppara/sql_iabbr.vim', {'autoload' : {'indent' : 1, 'filetypes' : ['sql']}}
@@ -998,6 +999,13 @@ augroup vimrc-ft-php  "{{{2
   autocmd FileType php nnoremap <buffer><leader>d :call PhpDocSingle()<cr>bcw
   autocmd FileType php vnoremap <buffer><leader>d :call PhpDocRange()<cr>
   autocmd FileType php let g:pdv_cfg_Author = g:opp_email
+
+  " https://github.com/StanAngeloff/php.vim
+  function! PhpSyntaxOverride()
+    hi! def link phpDocTags  phpDefine
+    hi! def link phpDocParam phpType
+  endfunction
+  autocmd FileType php call PhpSyntaxOverride()
 
 augroup END
 
