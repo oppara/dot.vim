@@ -27,7 +27,7 @@ if has("vim_starting")
 endif
 
 call neobundle#begin($MY_VIMRUNTIME .  '/bundle')
-call neobundle#load_cache()
+" call neobundle#load_cache()
 
 " git clone https://github.com/Shougo/neobundle.vim.git
 NeoBundleFetch 'https://github.com/Shougo/neobundle.vim'
@@ -74,7 +74,7 @@ NeoBundle 'https://github.com/fuenor/qfixgrep.git'
 NeoBundle 'https://github.com/glidenote/memolist.vim.git'
 NeoBundle 'https://github.com/mattn/vim-maketable'
 
-NeoBundleSaveCache
+" NeoBundleSaveCache
 
 NeoBundleLazy 'https://bitbucket.org/ns9tks/vim-fuzzyfinder', {
       \ 'depends' : 'oppara/vim-autocomplpop',
