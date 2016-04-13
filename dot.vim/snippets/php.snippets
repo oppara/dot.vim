@@ -267,6 +267,10 @@ snippet simple
 	}
 
 # phpunit
+snippet @ex
+	@expectedException ${1:Exception}
+snippet @da
+	@dataProvider ${1:provider}
 snippet pu
 	class ${1:ClassName}Test extends PHPUnit_Framework_TestCase
 	{
@@ -287,7 +291,6 @@ snippet pu
 			$this->fail();
 		}
 	}
-
 # csv import
 # http://blog.fenrir-inc.com/jp/2014/07/php-csv.html
 snippet csv
