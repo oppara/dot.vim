@@ -39,6 +39,8 @@ snippet case
 			${3};;
 	esac
 
+snippet null
+	${1:cmd} > /dev/null 2>&1${2}
 
 snippet sed
 	set -e 's/${1:pattern}/${2:replacement}/'${3}
