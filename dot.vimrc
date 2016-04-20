@@ -131,7 +131,7 @@ NeoBundleLazy 'https://github.com/thinca/vim-quickrun', {'autoload': {'commands'
 
 NeoBundleLazy 'https://github.com/scrooloose/syntastic', '', 'loadInsert'
 NeoBundleLazy 'https://github.com/junegunn/vim-easy-align', {'autoload': {'commands': 'EasyAlign', 'mappings': ['<Plug>(EasyAlign']}}
-NeoBundleLazy 'https://bitbucket.org/anyakichi/vim-qfutil', {'autoload': {'commands': 'qfutil'}}
+NeoBundleLazy 'https://github.com/anyakichi/vim-qfutil', {'autoload': {'commands': 'qfutil'}}
 
 
 NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
