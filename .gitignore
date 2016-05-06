@@ -1,7 +1,7 @@
 tags
 tags-ja
 cookies
-dot.vim/bundle/*
+dot.vim/plugged/*
 dot.vim/doc/*
 dot.vim/view
 !.empty

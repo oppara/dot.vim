@@ -18,174 +18,125 @@ let g:changelog_username = 'oppara'
 let mapleader = ','
 let g:mapleader = ','
 
-
-" NeoBundle: "{{{1
-
+" vim-plug: "{{{1
+"
 if has("vim_starting")
-  let $MY_VIMRUNTIME = expand(has('win32') || has('win64') ? '~/vimfiles' : '~/.vim')
-  let &runtimepath = &runtimepath . ',' . $MY_VIMRUNTIME .  '/bundle/neobundle.vim'
+  let $MY_VIMRUNTIME = expand(s:is_win ? '~/vimfiles' : '~/.vim')
+  let g:plug_dir =  $MY_VIMRUNTIME . '/plugged'
+  let g:plug_repo_dir =  g:plug_dir . '/vim-plug/autoload'
+  execute 'set runtimepath^=' . fnamemodify(g:plug_repo_dir, ':h')
+  if !isdirectory(expand(g:plug_repo_dir))
+     execute '!git clone https://github.com/junegunn/vim-plug.git' g:plug_repo_dir
+  endif
 endif
 
-call neobundle#begin($MY_VIMRUNTIME .  '/bundle')
-" call neobundle#load_cache()
+call plug#begin(g:plug_dir)
 
-" git clone https://github.com/Shougo/neobundle.vim.git
-NeoBundleFetch 'https://github.com/Shougo/neobundle.vim'
-let g:neobundle#log_filename = $MY_VIMRUNTIME . '/bundle/.neobundle/neobundle.log'
-let g:neobundle#install_max_processes = 4
-let g:neobundle#install_process_timeout = 180
-let g:neobundle#default_options = { 'loadInsert' : { 'autoload' : { 'insert' : '1' } } }
+  Plug 'junegunn/vim-plug', {'dir': g:plug_repo_dir}
 
+  Plug 'itchyny/lightline.vim'
+  Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
-NeoBundle 'https://github.com/itchyny/lightline.vim'
-NeoBundle 'https://github.com/Shougo/vimproc', {
-      \ 'build' : {
-      \ 'windows' : 'make -f make_mingw32.mak',
-      \ 'cygwin' : 'make -f make_cygwin.mak',
-      \ 'mac' : 'make -f make_mac.mak',
-      \ 'unix' : 'make -f make_unix.mak',
-      \ },
-      \ }
+  Plug 'clones/vim-l9'
+  Plug 'clones/vim-autocomplpop'
+  Plug 'clones/vim-fuzzyfinder', {'on': ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}
 
-NeoBundle 'https://bitbucket.org/ns9tks/vim-l9'
-NeoBundle 'https://github.com/oppara/snipmate.vim'
+  Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
+  Plug 'Shougo/unite-help', {'for': ['unite'] }
+  Plug 'Shougo/unite-outline', {'for': ['unite']}
 
-NeoBundle 'https://github.com/LeafCage/yankround.vim'
-NeoBundle 'https://github.com/thinca/vim-localrc'
-NeoBundle 'https://github.com/thinca/vim-qfreplace'
+  Plug 'oppara/snipmate.vim'
+  Plug 'oppara/taglist.vim'
 
-NeoBundle 'https://github.com/tpope/vim-surround'
-NeoBundle 'https://github.com/tpope/vim-unimpaired'
-NeoBundle 'https://github.com/tpope/vim-abolish'
-NeoBundle 'https://github.com/tpope/vim-repeat'
-NeoBundle 'https://github.com/tpope/vim-fugitive'
+  Plug 'LeafCage/yankround.vim'
+  Plug 'thinca/vim-localrc'
+  Plug 'thinca/vim-qfreplace'
 
-NeoBundle 'https://github.com/scrooloose/nerdcommenter'
-NeoBundle 'https://github.com/vim-scripts/sudo.vim'
-NeoBundle 'https://github.com/vim-scripts/matchit.zip'
-NeoBundle 'https://github.com/vim-scripts/MatchTag.git'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-fugitive'
 
-NeoBundle 'https://github.com/oppara/taglist.vim'
-NeoBundle 'https://github.com/Yggdroot/indentLine'
-" NeoBundle 'https://github.com/rhysd/migemo-search.vim'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'vim-scripts/sudo.vim'
+  Plug 'vim-scripts/matchit.zip'
+  Plug 'vim-scripts/MatchTag'
 
-" http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
-NeoBundle 'https://github.com/fuenor/qfixgrep.git'
-NeoBundle 'https://github.com/glidenote/memolist.vim.git'
-NeoBundle 'https://github.com/mattn/vim-maketable'
+  Plug 'Yggdroot/indentLine'
+  " Plug 'rhysd/migemo-search.vim'
+  " if executable('cmigemo')
+    " cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
+  " endif
 
-" NeoBundleSaveCache
+  " http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
+  Plug 'fuenor/qfixgrep'
+  Plug 'glidenote/memolist.vim'
 
-NeoBundleLazy 'https://bitbucket.org/ns9tks/vim-fuzzyfinder', {
-      \ 'depends' : 'oppara/vim-autocomplpop',
-      \'autoload' : {'commands' : ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}}
-NeoBundleLazy 'https://bitbucket.org/oppara/vim-autocomplpop', '', 'loadInsert'
-
-NeoBundleLazy 'https://github.com/Shougo/unite.vim', {'autoload' : {
-  \ 'insert' : '1',
-  \ 'commands' : [{ 'name' : 'Unite', 'complete' : 'customlist,unite#complete_source'}],
-  \ 'function_prefix' : 'unite'}}
-NeoBundleLazy 'https://github.com/Shougo/unite-help', {'autoload' : {'unite_sources' : ['help']}}
-NeoBundleLazy 'https://github.com/Shougo/unite-outline', {'autoload' : {'unite_sources' : ['outline']}}
-
-NeoBundleLazy 'https://github.com/kana/vim-textobj-user', {
-      \ 'autoload' : {
-      \   'function_prefix' : 'textobj'}}
-
-NeoBundleLazy 'https://github.com/kana/vim-textobj-jabraces', {
-  \ 'autoload' : {
-  \   'commands' : 'TextobjJabracesDefaultKeyMappings',
-  \   'mappings' : [['vo', '<Plug>(textobj-jabraces-']]}}
-
-NeoBundleLazy 'https://github.com/kana/vim-textobj-fold', {
-  \ 'autoload' : {
-  \   'commands' : 'TextobjFoldDefaultKeyMappings',
-  \   'mappings' : [['vo', '<Plug>(textobj-fold-']]}}
-
-NeoBundleLazy 'https://github.com/anyakichi/vim-textobj-ifdef', {
-  \ 'autoload' : {
-  \   'commands' : 'TextobjIfdefDefaultKeyMappings',
-  \   'mappings' : [['vo', '<Plug>(textobj-ifdef-']]}}
-
-NeoBundleLazy 'https://github.com/akiyan/vim-textobj-php', {
-  \ 'autoload' : {
-  \   'filetypes' : ['php']}}
-
-NeoBundleLazy 'https://github.com/bps/vim-textobj-python', {
-  \ 'autoload' : {
-  \   'filetypes' : ['python']}}
-
-NeoBundleLazy 'https://github.com/rhysd/vim-textobj-ruby', {
-  \ 'autoload' : {
-  \   'filetypes' : ['ruby']}}
-
-NeoBundleLazy 'https://github.com/akiyan/vim-textobj-xml-attribute', {
-  \ 'autoload' : {
-  \   'filetypes' : ['xml']}}
-
-NeoBundleLazy 'https://github.com/kana/vim-fakeclip', {'autoload': {'commands': 'fakeclip', 'mappings': ['<Plug>(fakeclip-']}}
-NeoBundleLazy 'https://github.com/kana/vim-smartchr', '', 'loadInsert'
-NeoBundleLazy 'https://github.com/kana/vim-smartinput', '', 'loadInsert'
-
-NeoBundleLazy 'https://github.com/thinca/vim-quickrun', {'autoload': {'commands': 'QuickRun', 'mappings': ['<Plug>(quickrun']}, 'depends': 'Shougo/vimproc'}
-
-NeoBundleLazy 'https://github.com/scrooloose/syntastic', '', 'loadInsert'
-NeoBundleLazy 'https://github.com/junegunn/vim-easy-align', {'autoload': {'commands': 'EasyAlign', 'mappings': ['<Plug>(EasyAlign']}}
-NeoBundleLazy 'https://github.com/anyakichi/vim-qfutil', {'autoload': {'commands': 'qfutil'}}
+  Plug 'mattn/vim-maketable'
 
 
-NeoBundleLazy 'https://github.com/tyru/open-browser.vim', {
-      \'autoload' : { 'mappings'  : ['<Plug>(openbrowser-smart-search)', '<Plug>(openbrowser-open)'],
-      \'function_prefix' : 'openbrowser' } }
+  Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
+  Plug 'kana/vim-smartchr'
+  Plug 'kana/vim-smartinput'
+
+  Plug 'thinca/vim-quickrun', {'on': ['QuickRun', '<Plug>(quickrun']}
+
+  Plug 'kana/vim-textobj-user'
+  Plug 'kana/vim-textobj-jabraces', {'on': ['TextobjJabracesDefaultKeyMappings']}
+  Plug 'kana/vim-textobj-fold', {'on': ['TextobjFoldDefaultKeyMappings']}
+  Plug 'anyakichi/vim-textobj-ifdef', {'on': ['TextobjIfdefDefaultKeyMappings']}
+  Plug 'akiyan/vim-textobj-php', {'for': ['php']}
+  Plug 'bps/vim-textobj-python', {'for': ['python']}
+  Plug 'rhysd/vim-textobj-ruby', {'for': ['ruby']}
+  Plug 'akiyan/vim-textobj-xml-attribute', {'for': ['xml']}
+
+  Plug 'scrooloose/syntastic'
+  Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
+  Plug 'anyakichi/vim-qfutil', {'on': ['QFGrep', 'QFMake']}
+
+  Plug 'tyru/open-browser.vim'
+
+  Plug 'oppara/phpstylist.vim', {'for': ['php']}
+  Plug 'oppara/PDV--phpDocumentor-for-Vim', {'for': ['php']}
+" " http://www.karakaram.com/vim/phpunit-location-list/
+  Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
+  Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
+  Plug 'StanAngeloff/php.vim', {'for': ['php']}
+
+  Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
+
+  Plug 'plasticboy/vim-markdown', {'for': ['markdown']}
+  Plug 'kannokanno/previm', {'on': ['PrevimOpen']}
+
+  Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade']}
+  let g:user_emmet_leader_key='<C-e>'
+  let g:user_emmet_settings = {'variables': {'lang': 'ja', 'charset': 'utf-8'}, 'indentation': '  '}
+
+  Plug 'othree/html5.vim', {'for': ['html']}
+  Plug 'hokaccha/vim-html5validator', {'for': ['html']}
+
+  Plug 'hail2u/vim-css3-syntax', {'for': ['css']}
+
+  Plug 'tpope/vim-endwise', {'for': ['ruby']}
+  Plug 'oppara/vim-chef', {'for': ['chef'], 'branch': 'develop'}
+  Plug 'slim-template/vim-slim', {'for': ['slim']}
+
+  Plug 'heavenshell/vim-jsdoc', {'for': ['javascript']}
+  Plug 'pangloss/vim-javascript', {'for': ['javascript']}
+  Plug 'mattn/jscomplete-vim', {'for': ['javascript']}
+  Plug 'igetgames/vim-backbone-jscomplete', {'for': ['javascript']}
+  Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
+  Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
+  Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
+  Plug 'elzr/vim-json', {'for': ['json']}
+
+  Plug 'vim-scripts/perlomni.vim', {'for': ['perl']}
+  Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
+
+call plug#end()
 
 
-" php
-NeoBundleLazy 'https://github.com/oppara/phpstylist.vim', {'autoload' : {'filetypes' : ['php']}}
-NeoBundleLazy 'https://github.com/oppara/PDV--phpDocumentor-for-Vim', {'autoload' : {'filetypes' : ['php']}}
-NeoBundleLazy 'https://github.com/karakaram/vim-quickrun-phpunit', {'autoload' : {'filetypes' : ['php']}}
-" http://www.karakaram.com/vim/phpunit-location-list/
-NeoBundleLazy 'https://github.com/vim-scripts/phpfolding.vim', {'autoload' : {'filetypes' : ['php']}}
-NeoBundleLazy 'https://github.com/StanAngeloff/php.vim', {'autoload' : {'filetypes' : ['php']}}
-
-" sql
-NeoBundleLazy 'https://github.com/oppara/sql_iabbr.vim', {'autoload' : {'indent' : 1, 'filetypes' : ['sql']}}
-
-" markdown
-" NeoBundle 'https://github.com/plasticboy/vim-markdown'
-NeoBundleLazy 'https://github.com/kannokanno/previm', {'depends': ['tryu/open-browser.vim'], 'autoload': {'commands' : ['PrevimOpen']}}
-
-" html
-NeoBundleLazy 'https://github.com/mattn/emmet-vim', {'autoload' : {'filetypes' : ['html', 'xhtml', 'css', 'xml', 'slim']}}
-NeoBundleLazy 'https://github.com/othree/html5.vim', {'autoload' : {'filetypes' : ['html']}}
-NeoBundleLazy 'https://github.com/hokaccha/vim-html5validator', {'autoload' : {'filetypes' : ['html']}}
-
-" css
-NeoBundleLazy 'https://github.com/hail2u/vim-css3-syntax.git', {'autoload' : {'filetypes' : ['css']}}
-
-" ruby
-NeoBundleLazy 'https://github.com/tpope/vim-endwise', {'autoload' : {'filetypes' : ['ruby']}}
-NeoBundleLazy 'https://github.com/slim-template/vim-slim', {'autoload' : {'filetypes' : ['slim']}}
-NeoBundleLazy 'https://github.com/oppara/vim-chef', {'rev' : 'develop', 'autoload' : {'filetypes' : ['ruby']}}
-
-" javascript
-NeoBundleLazy 'https://github.com/heavenshell/vim-jsdoc.git', {'autoload' : {'filetypes' : ['javascript']}}
-NeoBundleLazy 'https://github.com/pangloss/vim-javascript', {'autoload' : {'filetypes' : ['javascript']}}
-NeoBundleLazy 'https://github.com/mattn/jscomplete-vim', {'autoload' : {'filetypes' : ['javascript']}}
-NeoBundleLazy 'https://github.com/igetgames/vim-backbone-jscomplete', {'autoload' : {'filetypes' : ['javascript']}}
-NeoBundleLazy 'https://github.com/myhere/vim-nodejs-complete', {'autoload' : {'filetypes' : ['javascript', 'node']}}
-NeoBundleLazy 'https://github.com/kchmck/vim-coffee-script', {'autoload' : {'filetypes' : ['coffee', 'markdown']}}
-NeoBundleLazy 'https://github.com/maksimr/vim-jsbeautify', {'autoload' : {'filetypes' : ['javascript', 'json']}}
-" json
-NeoBundleLazy 'https://github.com/elzr/vim-json.git', {'autoload' : {'filetypes' : ['json']}}
-
-" perl
-NeoBundleLazy 'vim-scripts/perlomni.vim'
-
-" objecteiv-c
-NeoBundleLazy 'https://github.com/msanders/cocoa.vim'
-
-NeoBundleSaveCache
-call neobundle#end()
 
 filetype plugin indent on
 
@@ -1314,12 +1265,6 @@ endfunction
 
 " Plugins: "{{{1
 
-if neobundle#tap('migemo-search.vim') "{{{2
-  if executable('cmigemo')
-    cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
-  endif
-endif
-
 
 " previm  "{{{2
 let g:previm_open_cmd = "open"
@@ -1455,11 +1400,6 @@ let g:NERDCustomDelimiters = {
   \ }
 
 
-if neobundle#tap('emmet-vim') "{{{2
-  let g:user_emmet_leader_key='<C-e>'
-  let g:user_emmet_settings = {'indentation' : '  '}
-endif
-
 " quickrun.vim  "{{{2
 let g:quickrun_config={'*': {'split': ''}}
 map <unique> <Leader>r <Plug>(quickrun)
@@ -1484,29 +1424,29 @@ let g:quickrun_config['objc'] = {
       \}
 
 
-if neobundle#tap('unite.vim') "{{{2
-  let g:unite_source_file_mru_limit = 200
-  let g:unite_source_file_mru_filename_format = ''
-  let g:unite_data_directory = $MY_VIMRUNTIME . '/.vim/unite'
+" unite  "{{{2
+let g:unite_source_file_mru_limit = 200
+let g:unite_source_file_mru_filename_format = ''
+let g:unite_data_directory = $MY_VIMRUNTIME . '/.vim/unite'
 
-  nnoremap <silent>uo :<C-u>Unite outline<CR>
+nnoremap <silent>uo :<C-u>Unite outline<CR>
 
-  " http://this.aereal.org/entry/2013/12/25/003235
-  let s:unite_git_files_conflict = {
-        \   'name' : 'git/files/conflict',
-        \ }
-  function! s:unite_git_files_conflict.gather_candidates(args, context)
-    let output = unite#util#system('git diff-files --name-only --diff-filter=U')
-    let candidates = map(split(output, "\n"), '{
-          \ "word" : fnamemodify(v:val, ":p"),
-          \ "source" : "git/files/conflict",
-          \ "kind" : "file",
-          \ "action__path" : fnamemodify(v:val, ":p"),
-          \ }')
-    return candidates
-  endfunction
-  " call unite#define_source(s:unite_git_files_conflict)
-endif
+" http://this.aereal.org/entry/2013/12/25/003235
+let s:unite_git_files_conflict = {
+      \   'name' : 'git/files/conflict',
+      \ }
+function! s:unite_git_files_conflict.gather_candidates(args, context)
+  let output = unite#util#system('git diff-files --name-only --diff-filter=U')
+  let candidates = map(split(output, "\n"), '{
+        \ "word" : fnamemodify(v:val, ":p"),
+        \ "source" : "git/files/conflict",
+        \ "kind" : "file",
+        \ "action__path" : fnamemodify(v:val, ":p"),
+        \ }')
+  return candidates
+endfunction
+" call unite#define_source(s:unite_git_files_conflict)
+
 
 " snipMate.vim  "{{{2
 let g:snippets_dir = $MY_VIMRUNTIME . '/snippets'
