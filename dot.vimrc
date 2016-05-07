@@ -98,7 +98,8 @@ call plug#begin(g:plug_dir)
   Plug 'tyru/open-browser.vim'
 
   Plug 'oppara/phpstylist.vim', {'for': ['php']}
-  Plug 'oppara/PDV--phpDocumentor-for-Vim', {'for': ['php']}
+  Plug 'oppara/php-doc-modded', {'for': ['php']}
+
 " " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
   Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
@@ -947,10 +948,15 @@ augroup vimrc-ft-php  "{{{2
 
   autocmd FileType php  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
 
-  " PDV - phpDocumentor for Vim :
+  " php-doc-modded
   autocmd FileType php nnoremap <buffer><leader>d :call PhpDocSingle()<cr>bcw
   autocmd FileType php vnoremap <buffer><leader>d :call PhpDocRange()<cr>
-  autocmd FileType php let g:pdv_cfg_Author = g:opp_email
+  autocmd FileType php let g:pdv_cfg_Author = g:oppara_email
+        \| let g:pdv_cfg_autoEndFunction = 0
+        \| let g:pdv_cfg_autoEndClass = 0
+        \| let g:pdv_cfg_Package = ''
+        \| let g:pdv_cfg_Copyright = ''
+        \| let g:pdv_cfg_License = ''
 
   " https://github.com/StanAngeloff/php.vim
   function! PhpSyntaxOverride()
@@ -1368,13 +1374,6 @@ let g:phpstylist_options = {
     \]
   \}
 
-" pdv  "{{{2
-let g:pdv_cfg_Package = ""
-let g:pdv_cfg_Copyright = ""
-let g:pdv_cfg_Version = "$id$"
-let g:pdv_cfg_Author = g:opp_email
-let g:pdv_cfg_php4guessval = 'private'
-let g:pdv_re_bool = "\(true\|false\)"
 
 " phpfolding.vim  "{{{2
 let g:DisableAutoPHPFolding = 1
