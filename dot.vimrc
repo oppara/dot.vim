@@ -11,8 +11,8 @@ let s:dropbox_dir     = expand ('~/Dropbox')
 
 " global vars  "{{{2
 
-let g:opp_email = 'oppara <oppara _at_ oppara.tv>'
-let g:snips_author = g:opp_email
+let g:oppara_email = 'oppara <oppara _at_ oppara.tv>'
+let g:snips_author = g:oppara_email
 let g:changelog_username = 'oppara'
 
 let mapleader = ','
