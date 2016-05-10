@@ -689,17 +689,18 @@ augroup vimrc-avoid-jis  "{{{2
 augroup END
 
 
-"編集中のファイル名を screen のタイトルに表示する  "{{{2
-if &term =~ "screen"
-  " if &term !~ "xterm-color"
+" Automatic rename of tmux window
+if exists('$TMUX') && !exists('$NORENAME')
+" if &term =~ "screen"
   augroup vimrc-screen
     autocmd!
     autocmd BufEnter *
           \ if bufname("") !~ "^\[A-Za-z0-9\]*://" && bufname("") !~ "^["
           \ | silent! exe '!echo -n "k[`basename %`]\\"'
           \ | endif
-    autocmd VimLeave *
-          \ silent! exe '!echo -n "k`dirs`\\"'
+    autocmd VimLeave * call system('tmux set-window automatic-rename on')
+    " autocmd VimLeave *
+          " \ silent! exe '!echo -n "k`dirs`\\"'
   augroup END
 end
 
