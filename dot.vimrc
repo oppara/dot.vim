@@ -464,10 +464,6 @@ endfunction
 
 " edit
 nnoremap <leader>ev :sp $HOME/.vimrc<cr>
-" reload
-nnoremap <leader>sv :source $HOME/.vimrc<cr>
-"When .vimrc is edited, reload it
-" autocmd! bufwritepost vimrc source ~/.vimrc
 
 
 " update helptag  "{{{2
@@ -900,6 +896,7 @@ augroup END
 
 augroup vimrc-ft-vim  "{{{2
   autocmd!
+  autocmd BufWritePost dot.vimrc,.vimrc nested if expand('%') !~ 'fugitive' | source % | endif
   autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
         \| nnoremap <leader>sv :source %<CR>
         \| setlocal keywordprg=:help
