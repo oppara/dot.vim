@@ -100,7 +100,7 @@ call plug#begin(g:plug_dir)
   Plug 'tyru/open-browser.vim'
 
   Plug 'oppara/phpstylist.vim', {'for': ['php']}
-  Plug 'oppara/php-doc-modded', {'for': ['php']}
+  Plug 'oppara/php-doc-modded', {'branch': 'develop', 'for': ['php']}
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
