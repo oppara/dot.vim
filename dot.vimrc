@@ -954,7 +954,8 @@ augroup vimrc-ft-php  "{{{2
   autocmd FileType php let g:pdv_cfg_Author = g:oppara_email
         \| let g:pdv_cfg_autoEndFunction = 0
         \| let g:pdv_cfg_autoEndClass = 0
-        \| let g:pdv_cfg_Package = ''
+        \| let g:pdv_cfg_Scope = 0
+        \| let g:pdv_cfg_Version = ''
         \| let g:pdv_cfg_Copyright = ''
         \| let g:pdv_cfg_License = ''
 
