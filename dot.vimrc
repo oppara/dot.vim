@@ -1402,7 +1402,8 @@ let g:NERDCustomDelimiters = {
 
 " quickrun.vim  "{{{2
 let g:quickrun_config={'*': {'split': ''}}
-map <unique> <Leader>r <Plug>(quickrun)
+let g:quickrun_no_default_key_mappings = 1
+silent! map <unique> <Leader>r <Plug>(quickrun)
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
 " augroup QuickRunPHPUnit
