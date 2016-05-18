@@ -132,6 +132,7 @@ call plug#begin(g:plug_dir)
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
+  Plug 'oppara/vim-jquery', {'for': ['javascript']}
   Plug 'elzr/vim-json', {'for': ['json']}
 
   Plug 'vim-scripts/perlomni.vim', {'for': ['perl']}
