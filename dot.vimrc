@@ -330,7 +330,6 @@ set whichwrap=b,s,h,l,<,>,[,]
 set startofline
 " set iminsert=0 imsearch=0
 set clipboard+=unnamed
-set nrformats=alpha,hex,bin
 
 
 " comletion  "{{{2
