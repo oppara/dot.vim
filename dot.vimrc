@@ -838,6 +838,9 @@ augroup END
 
 augroup vimrc-misc  "{{{2
   autocmd!
+  " Turn off paste mode when leaving insert"
+  autocmd InsertLeave * set nopaste
+
   " 最後に編集した位置へカーソルを移動
   autocmd BufReadPost
         \ * if line("'\"") && line("'\"") <= line('$')
