@@ -893,6 +893,8 @@ augroup END
 augroup vimrc-ft-gitrebase  "{{{2
   autocmd!
   " http://sssslide.com/speakerdeck.com/rhysd/do-you-know-about-vim-runtime-files
+  autocmd FileType gitrebase nnoremap <buffer>p :<C-u>Pick<CR>
+  autocmd FileType gitrebase nnoremap <buffer>e :<C-u>Edit<CR>
   autocmd FileType gitrebase nnoremap <buffer>s :<C-u>Squash<CR>
   autocmd FileType gitrebase nnoremap <buffer>f :<C-u>Fixup<CR>
   autocmd FileType gitrebase nnoremap <buffer>r :<C-u>Reword<CR>
