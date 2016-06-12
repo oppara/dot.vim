@@ -110,7 +110,7 @@ call plug#begin(g:plug_dir)
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
   Plug 'plasticboy/vim-markdown', {'for': ['markdown']}
-  Plug 'kannokanno/previm', {'on': ['PrevimOpen']}
+  Plug 'kannokanno/previm', {'for': ['markdown']}
 
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade']}
   let g:user_emmet_leader_key='<C-e>'
@@ -1070,13 +1070,15 @@ augroup vimrc-ft-markdown  "{{{2
   autocmd!
   autocmd BufRead,BufNew *mkd, *.md, *markdown :setlocal filetype=markdown
   autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType markdown set commentstring=<\!--\ %s\ -->
+  autocmd FileType markdown nnoremap <silent><buffer><leader>r :PrevimOpen<CR>
   autocmd FileType markdown vnoremap <silent><buffer>ml :MyList -<CR>
-  autocmd FileType markdown vnoremap <silent><buffer>mc :MyList -[ ]<CR>
+  autocmd FileType markdown vnoremap <silent><buffer>mc :MyList - [ ]<CR>
   autocmd FileType markdown vnoremap <silent><buffer>mo :MyList 1.<CR>
   autocmd FileType markdown call s:set_markdown_trailing_space_highlight()
+  " surround.vim
+  autocmd FileType markdown let b:surround_{char2nr('l')} = "[](\r)"
 augroup END
-" http://mattn.kaoriya.net/software/vim/20140523124903.htm
-let g:markdown_fenced_languages = ['coffee', 'css', 'php', 'perl', 'sh', 'html', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
 
 augroup vimrc-ft-sh  "{{{2
   autocmd!
@@ -1426,7 +1428,6 @@ let g:quickrun_config['objc'] = {
       \ 'tempfile': '{tempname()}.m',
       \}
 
-
 " unite  "{{{2
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_file_mru_filename_format = ''
@@ -1566,6 +1567,18 @@ nmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
+
+" plasticboy/vim-markdown  "{{{2
+" https://github.com/plasticboy/vim-markdown
+let g:vim_markdown_no_default_key_mappings = 1
+let g:vim_markdown_folding_style_pythonic = 1
+" let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toc_autofit = 1
+" http://mattn.kaoriya.net/software/vim/20140523124903.htm
+let g:markdown_fenced_languages = ['coffee', 'css', 'php', 'perl', 'sh', 'html', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
 
 " syntastic  "{{{2
 " https://github.com/scrooloose/syntastic
