@@ -1,17 +1,15 @@
-# Vim
+# [VIM - Vi IMproved](http://www.vim.org/)
 
-VIM - Vi IMproved
+<https://github.com/vim-jp/vim>
 
-## [Vim](https://github.com/vim-jp/vim)
+## Install
 
     % brew install vim --with-lua --with-luajit
 
 or
 
-    % hg clone https://vim.googlecode.com/hg/ vim
-    % cd vim
-    % hg pull -u
-    % cd src
+    % git https://github.com/vim/vim.git 
+    % cd vim/src
     % ./configure --prefix=${HOME}/bin \
       --with-features=huge \
       --enable-multibyte \
@@ -27,13 +25,9 @@ or
     % make && make install
 
 
-### [NeoBundle](https://github.com/Shougo/neobundle)
+### MacVim-KaoriYa
 
-    % mkdir ~/.vim/bundle
-    % cd ~/.vim/bundle/
-    % git clone  https://github.com/Shougo/neobundle.vim.git
+<https://code.google.com/p/macvim-kaoriya/>
 
-
-### [MacVim](https://code.google.com/p/macvim-kaoriya/)
-
-    % brew cask install oppara/homebrew/macvim-kaoriya
+    % brew tap caskroom/homebrew-versions
+    % brew cask install macvim-kaoriya
