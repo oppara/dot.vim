@@ -112,7 +112,7 @@ call plug#begin(g:plug_dir)
   Plug 'plasticboy/vim-markdown', {'for': ['markdown']}
   Plug 'kannokanno/previm', {'for': ['markdown']}
 
-  Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade']}
+  Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
   let g:user_emmet_leader_key='<C-e>'
   let g:user_emmet_settings = {'variables': {'lang': 'ja', 'charset': 'utf-8'}, 'indentation': '  '}
 
