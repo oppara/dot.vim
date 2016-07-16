@@ -135,6 +135,7 @@ call plug#begin(g:plug_dir)
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
   Plug 'elzr/vim-json', {'for': ['json']}
 
+  Plug 'ekalinin/Dockerfile.vim'
   Plug 'pearofducks/ansible-vim'
 
   Plug 'vim-scripts/perlomni.vim', {'for': ['perl']}
