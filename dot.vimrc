@@ -1551,7 +1551,7 @@ let g:jsdoc_default_mapping = 0
 
 
 " indentLine  "{{{2
-let g:indentLine_fileType = ['javascript', 'json', 'yaml', 'scss', 'sass', 'slim', 'haml', 'html']
+let g:indentLine_fileType = ['javascript', 'json', 'yaml', 'scss', 'sass', 'slim', 'haml', 'html', 'ansible']
 let g:indentLine_color_term = 235
 
 
