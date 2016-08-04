@@ -135,15 +135,19 @@ snippet th
 
 # cakephp
 snippet cc
-	class ${1:ClassName}Controller extends AppController {
-		var $name = '$1';
-		var $helpers = array();
-		var $components = array();
+	App::uses('AppController', 'Controller');
+
+	class ${1:ClassName}Controller extends AppController
+	{
+		public $helpers = array();
+		public $components = array();
 		${2}
 	}
 snippet cm
-	class ${1:ClassName} extends AppModel {
-		var $name = '$1';
+	App::uses('AppModel', 'Model');
+
+	class ${1:ClassName} extends AppModel
+	{
 		${2}
 	}
 snippet _
