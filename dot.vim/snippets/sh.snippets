@@ -60,7 +60,7 @@ snippet tmp
 	${0}
 
 snippet cwd
-	CURRENT=$(cd $(dirname $0) && pwd) ${1}
+	CWD=$(cd $(dirname $0$${1:0}) && pwd)${2}
 
 snippet mul
 	 SCRIPT_PID="/path/to/run_script.pid"
