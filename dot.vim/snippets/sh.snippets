@@ -42,6 +42,13 @@ snippet case
 snippet null
 	${1:cmd} > /dev/null 2>&1${2}
 
+snippet exit
+	trap '${1:cmd}' EXIT
+
+# http://sfujiwara.hatenablog.com/entry/20120613/1339547638
+snippet syslog
+	${1:cmd} 2>&1 | logger -t ${2:mycommand} -p ${3:local0.info}${4}
+
 snippet sed
 	set -e 's/${1:pattern}/${2:replacement}/'${3}
 snippet awk
