@@ -106,6 +106,7 @@ call plug#begin(g:plug_dir)
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
   Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
   Plug 'StanAngeloff/php.vim', {'for': ['php']}
+  Plug 'jwalton512/vim-blade', {'for': ['php']}
 
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
