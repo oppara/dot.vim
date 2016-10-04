@@ -99,47 +99,36 @@ call plug#begin(g:plug_dir)
 
   Plug 'tyru/open-browser.vim'
 
+  Plug 'sheerun/vim-polyglot'
+
   Plug 'oppara/phpstylist.vim', {'for': ['php']}
   Plug 'oppara/php-doc-modded', {'branch': 'develop', 'for': ['php']}
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
   Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
-  Plug 'StanAngeloff/php.vim', {'for': ['php']}
-  Plug 'jwalton512/vim-blade', {'for': ['php']}
 
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
-  Plug 'plasticboy/vim-markdown', {'for': ['markdown']}
   Plug 'kannokanno/previm', {'for': ['markdown']}
 
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
   let g:user_emmet_leader_key='<C-e>'
   let g:user_emmet_settings = {'variables': {'lang': 'ja', 'charset': 'utf-8'}, 'indentation': '  '}
 
-  Plug 'othree/html5.vim', {'for': ['html']}
   Plug 'hokaccha/vim-html5validator', {'for': ['html']}
 
   Plug 'hail2u/vim-css3-syntax', {'for': ['css']}
 
   Plug 'tpope/vim-endwise', {'for': ['ruby']}
-  Plug 'oppara/vim-chef', {'for': ['chef'], 'branch': 'develop'}
-  Plug 'slim-template/vim-slim', {'for': ['slim']}
 
   Plug 'heavenshell/vim-jsdoc', {'for': ['javascript']}
-  Plug 'pangloss/vim-javascript', {'for': ['javascript']}
   Plug 'mattn/jscomplete-vim', {'for': ['javascript']}
   Plug 'igetgames/vim-backbone-jscomplete', {'for': ['javascript']}
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
-  Plug 'kchmck/vim-coffee-script', {'for': ['coffee']}
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
-  Plug 'elzr/vim-json', {'for': ['json']}
 
-  Plug 'ekalinin/Dockerfile.vim'
-  Plug 'pearofducks/ansible-vim'
-
-  Plug 'vim-scripts/perlomni.vim', {'for': ['perl']}
   Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
 
 call plug#end()
