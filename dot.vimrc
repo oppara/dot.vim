@@ -940,7 +940,7 @@ augroup vimrc-ft-php  "{{{2
 
   autocmd FileType php nnoremap <buffer>ef :EnableFastPHPFolds<cr>
 
-  autocmd FileType php  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+  autocmd FileType php,blade inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
 
   " php-doc-modded
   autocmd FileType php nnoremap <buffer><leader>d :call PhpDocSingle()<cr>bcw
