@@ -891,7 +891,7 @@ augroup END
 
 augroup vimrc-ft-vim  "{{{2
   autocmd!
-  autocmd BufWritePost dot.vimrc,.vimrc nested if expand('%') !~ 'fugitive' | source % | endif
+  " autocmd BufWritePost dot.vimrc,.vimrc nested if expand('%') !~ 'fugitive' | source % | endif
   autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
         \| nnoremap <leader>sv :source %<CR>
         \| setlocal keywordprg=:help
