@@ -943,6 +943,7 @@ augroup vimrc-ft-php  "{{{2
   autocmd FileType php,blade inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   autocmd FileType blade let b:surround_{char2nr('e')} = "{{ \r }}"
         \| let b:surround_{char2nr('p')} = "{!! \r !!}"
+        \| highlight PreProc ctermfg=244  ctermbg=none
 
   " php-doc-modded
   autocmd FileType php nnoremap <buffer><leader>d :call PhpDocSingle()<cr>bcw
