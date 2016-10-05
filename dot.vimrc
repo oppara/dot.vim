@@ -77,10 +77,10 @@ call plug#begin(g:plug_dir)
 
   Plug 'mattn/vim-maketable'
 
+  Plug 'jiangmiao/auto-pairs'
 
   Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
   Plug 'kana/vim-smartchr'
-  Plug 'kana/vim-smartinput'
 
   Plug 'thinca/vim-quickrun', {'on': ['QuickRun', '<Plug>(quickrun']}
 
