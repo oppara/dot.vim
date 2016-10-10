@@ -114,8 +114,6 @@ call plug#begin(g:plug_dir)
   Plug 'rhysd/vim-gfm-syntax'
 
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
-  let g:user_emmet_leader_key='<C-e>'
-  let g:user_emmet_settings = {'variables': {'lang': 'ja', 'charset': 'utf-8'}, 'indentation': '  '}
 
   Plug 'hokaccha/vim-html5validator', {'for': ['html']}
 
@@ -1270,6 +1268,17 @@ function! s:Jq(...)
 endfunction
 
 " Plugins: "{{{1
+
+" emmet-vim  "{{{2
+let g:user_emmet_leader_key='<c-t>'
+let g:user_emmet_settings = {
+      \  'variables': {
+      \    'lang': 'ja',
+      \    'charset': 'utf-8'
+      \  },
+      \ 'indentation': '  '
+      \}
+
 
 " vim-gfm-syntax  "{{{2
 let g:gfm_syntax_enable_always = 0
