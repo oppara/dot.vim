@@ -111,6 +111,7 @@ call plug#begin(g:plug_dir)
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
   Plug 'kannokanno/previm', {'for': ['markdown']}
+  Plug 'rhysd/vim-gfm-syntax'
 
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
   let g:user_emmet_leader_key='<C-e>'
@@ -1270,6 +1271,13 @@ endfunction
 
 " Plugins: "{{{1
 
+" vim-gfm-syntax  "{{{2
+let g:gfm_syntax_enable_always = 0
+let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
+augroup vimrc-vim-gfm-syntax
+  autocmd!
+  autocmd BufRead,BufNew,BufNewFile README.md setlocal ft=markdown.gfm
+augroup END
 
 " previm  "{{{2
 let g:previm_open_cmd = "open"
