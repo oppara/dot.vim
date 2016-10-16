@@ -127,6 +127,7 @@ call plug#begin(g:plug_dir)
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
+  Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': ['javascript']}
 
   Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
 
