@@ -1269,6 +1269,11 @@ endfunction
 
 " Plugins: "{{{1
 
+"vim-polyglot  "{{{2
+let g:polyglot_disabled = ['jsx']
+let g:jsx_ext_required = 1
+
+
 " emmet-vim  "{{{2
 let g:user_emmet_leader_key='<c-t>'
 let g:user_emmet_settings = {
