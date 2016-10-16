@@ -1616,8 +1616,9 @@ let g:syntastic_perl_checkers = ['perl', 'podchecker']
 " let g:syntastic_php_checkers = ['php', 'phpmd']
 let g:syntastic_php_checkers = ['php']
 
-let g:syntastic_javascript_checkers = ['jsl']
-let g:syntastic_javascript_jsl_args = '-conf ' . $MY_VIMRUNTIME . '/tools/jsl.conf'
+" let g:syntastic_javascript_checkers = ['jsl']
+" let g:syntastic_javascript_jsl_args = '-conf ' . $MY_VIMRUNTIME . '/tools/jsl.conf'
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
 
 
