@@ -999,11 +999,13 @@ augroup vimrc-ft-javascript  "{{{2
         \| setlocal dictionary+=$MY_VIMRUNTIME/dict/javascript.dict
         \| setlocal complete+=k$MY_VIMRUNTIME/dict/javascript.dict
 
+  autocmd FileType javascript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   " tidy
   autocmd FileType javascript nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
   " jsdoc
   autocmd FileType javascript nmap <silent> <leader>d <Plug>(jsdoc)
 augroup END
+
 
 augroup vimrc-ft-json  "{{{2
   autocmd!
