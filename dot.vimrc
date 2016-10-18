@@ -114,8 +114,6 @@ call plug#begin(g:plug_dir)
   Plug 'rhysd/vim-gfm-syntax'
 
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
-  let g:user_emmet_leader_key='<C-e>'
-  let g:user_emmet_settings = {'variables': {'lang': 'ja', 'charset': 'utf-8'}, 'indentation': '  '}
 
   Plug 'hokaccha/vim-html5validator', {'for': ['html']}
 
@@ -129,6 +127,7 @@ call plug#begin(g:plug_dir)
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
+  Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': ['javascript']}
 
   Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
 
@@ -1001,11 +1000,13 @@ augroup vimrc-ft-javascript  "{{{2
         \| setlocal dictionary+=$MY_VIMRUNTIME/dict/javascript.dict
         \| setlocal complete+=k$MY_VIMRUNTIME/dict/javascript.dict
 
+  autocmd FileType javascript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   " tidy
   autocmd FileType javascript nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
   " jsdoc
   autocmd FileType javascript nmap <silent> <leader>d <Plug>(jsdoc)
 augroup END
+
 
 augroup vimrc-ft-json  "{{{2
   autocmd!
@@ -1270,6 +1271,22 @@ function! s:Jq(...)
 endfunction
 
 " Plugins: "{{{1
+
+"vim-polyglot  "{{{2
+let g:polyglot_disabled = ['jsx']
+let g:jsx_ext_required = 1
+
+
+" emmet-vim  "{{{2
+let g:user_emmet_leader_key='<c-t>'
+let g:user_emmet_settings = {
+      \  'variables': {
+      \    'lang': 'ja',
+      \    'charset': 'utf-8'
+      \  },
+      \ 'indentation': '  '
+      \}
+
 
 " vim-gfm-syntax  "{{{2
 let g:gfm_syntax_enable_always = 0
@@ -1600,8 +1617,9 @@ let g:syntastic_perl_checkers = ['perl', 'podchecker']
 " let g:syntastic_php_checkers = ['php', 'phpmd']
 let g:syntastic_php_checkers = ['php']
 
-let g:syntastic_javascript_checkers = ['jsl']
-let g:syntastic_javascript_jsl_args = '-conf ' . $MY_VIMRUNTIME . '/tools/jsl.conf'
+" let g:syntastic_javascript_checkers = ['jsl']
+" let g:syntastic_javascript_jsl_args = '-conf ' . $MY_VIMRUNTIME . '/tools/jsl.conf'
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
 
 
