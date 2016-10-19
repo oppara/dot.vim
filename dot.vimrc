@@ -646,6 +646,20 @@ noremap <Leader>rw mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 noremap <Leader>ri :%s/\s*$//g<cr>:noh<cr>''
 
+" xterm pastes "{{{2
+if &term =~ "xterm"|| &term ==# 'screen-bce' || &term ==# 'screen'
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
 
 
 " Autocmd:  "{{{1
