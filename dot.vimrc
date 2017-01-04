@@ -671,7 +671,7 @@ augroup vimrc-rtrim  "{{{2
 
   function! s:rtrim()
     let s:cursor = getpos(".")
-    if &filetype == "markdown"
+    if stridx(&filetype, 'markdown') == 0
       %s/\s\+\(\s\{2}\)$/\1/e
       call s:set_markdown_trailing_space_highlight()
     else
