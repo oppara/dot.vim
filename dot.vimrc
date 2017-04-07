@@ -44,8 +44,8 @@ call plug#begin(g:plug_dir)
   Plug 'clones/vim-fuzzyfinder', {'on': ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}
 
   Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
-  Plug 'Shougo/unite-help', {'for': ['unite'] }
-  Plug 'Shougo/unite-outline', {'for': ['unite']}
+  Plug 'Shougo/unite-help', {'on': ['Unite'] }
+  Plug 'Shougo/unite-outline', {'on': ['Unite']}
 
   Plug 'oppara/snipmate.vim'
   Plug 'oppara/taglist.vim'
