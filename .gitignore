@@ -4,6 +4,7 @@ cookies
 dot.vim/plugged/*
 dot.vim/doc/*
 dot.vim/view
+dot.vim/.vim
 !.empty
 
 
