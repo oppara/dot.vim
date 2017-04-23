@@ -107,6 +107,7 @@ call plug#begin(g:plug_dir)
 " " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
   Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
+  Plug 'beanworks/vim-phpfmt', {'for': ['php']}
 
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
@@ -1411,6 +1412,12 @@ let g:phpstylist_options = {
       \ '--line_after_break '
     \]
   \}
+
+
+" phpfmt.vim  "{{{2
+let g:phpfmt_command = expand('~/.composer/vendor/bin/phpcbf')
+" let g:phpfmt_standard = 'WordPress-Core'
+" let g:phpfmt_autosave = 0
 
 
 " phpfolding.vim  "{{{2
