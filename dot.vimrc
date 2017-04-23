@@ -950,7 +950,7 @@ augroup vimrc-ft-php  "{{{2
         \| nmap g' cs'g
         \| nmap G' cs'G
 
-  autocmd FileType php nnoremap <silent><buffer><leader>ti :PhpStylist<cr>
+  autocmd FileType php nnoremap <silent><buffer><leader>ti :PhpFmt<cr>
   autocmd FileType php vnoremap <silent><buffer><leader>ti :PhpStylist<cr>
 
   autocmd FileType php nnoremap <buffer>ef :EnableFastPHPFolds<cr>
@@ -1416,8 +1416,8 @@ let g:phpstylist_options = {
 
 " phpfmt.vim  "{{{2
 let g:phpfmt_command = expand('~/.composer/vendor/bin/phpcbf')
+let g:phpfmt_autosave = 0
 " let g:phpfmt_standard = 'WordPress-Core'
-" let g:phpfmt_autosave = 0
 
 
 " phpfolding.vim  "{{{2
