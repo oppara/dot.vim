@@ -72,6 +72,7 @@ call plug#begin(g:plug_dir)
   " endif
 
   Plug 'fuenor/qfixgrep'
+  Plug 'nazo/pt.vim'
 
   Plug 'mattn/vim-maketable'
 
@@ -1282,6 +1283,13 @@ function! s:Jq(...)
 endfunction
 
 " Plugins: "{{{1
+
+"pt.vim  "{{{2
+cnoreabbrev Pt Pt!
+nnoremap <expr> <Space>g ':<C-u>Pt! ' . expand('<cword>')
+nnoremap <expr> <Space>G ':<C-u>Pt! '
+
+
 
 "vim-polyglot  "{{{2
 let g:polyglot_disabled = ['jsx']
