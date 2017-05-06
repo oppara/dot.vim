@@ -1462,22 +1462,6 @@ nnoremap <leader>gb :<C-u>Gblame<Enter>
 nnoremap <leader>gh :help Gstatus<Enter>
 
 
-" memolist.vim  "{{{2
-" https://github.com/glidenote/memolist.vim
-let g:memolist_path = expand ('~/Dropbox/memo')
-let g:memolist_memo_suffix = "md"
-let g:memolist_qfixgrep = 1
-let g:memolist_template_dir_path = $MY_VIMRUNTIME . "/templates/memolist"
-
-nnoremap <silent> mml :MemoListList<CR>
-nnoremap <silent> mmn :MemoListNew<CR>
-nnoremap <silent> mmg :MemoGrep<CR>
-nnoremap <silent> mmf :FufFile <C-r>=expand(g:memolist_path."/")<CR><CR>
-command! -nargs=0 MemoListNew new | call memolist#new(<q-args>)
-command! -nargs=0 MemoListList new | call memolist#list()
-
-
-
 " jscomplete-vim  "{{{2
 " https://github.com/teramako/jscomplete-vim
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
