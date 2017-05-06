@@ -1291,6 +1291,17 @@ let g:tagbar_case_insensitive = 1
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
 
+" https://github.com/majutsushi/tagbar/wiki
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:H1',
+        \ 'i:H2',
+        \ 'k:H3',
+        \ 'l:H4'
+    \ ]
+\ }
+
 
 "pt.vim  "{{{2
 cnoreabbrev Pt Pt!
