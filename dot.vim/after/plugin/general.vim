@@ -34,37 +34,6 @@ let b:match_words = '<:>,<div.*>:</div>,if:endif,foreach:endforeach,\<begin\>:\<
 
 " Plugins: "{{{1
 
-" taglist.vim  "{{{2
-" http://www.vim.org/scripts/script.php?script_id=273
-" ctags -R --langmap=PHP:.php --php-types=c+f+d ./
-" ctags --verbose -e --recurse --languages=javascript
-"
-if exists('loaded_taglist')
-  noremap <silent> <S-D-t> <ESC>:Tlist<CR>
-  noremap <silent> <leader>tl :Tlist<cr><c-w>h
-
-  if filereadable('/Applications/MacVim.app/Contents/MacOS/ctags')
-  " if has('gui_macvim') && has('kaoriya')
-    let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags'
-  elseif ( has('win32') )
-    let Tlist_Ctags_Cmd = $MY_VIMRUNTIME . '/tools/ctags'
-  else
-    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-  endif
-  let Tlist_Show_One_File = 1
-  let Tlist_File_Fold_Auto_Close = 1
-  let Tlist_Exit_OnlyWindow = 1
-  let Tlist_Sort_Type = 'chronological'
-  let Tlist_Auto_Highlight_Tag = 1
-  let Tlist_Exit_OnlyWindow = 1
-  let Tlist_Close_On_Select = 1
-
-  let s:tlist_def_php_settings = 'php;c:class;d:constant;f:function'
-  let g:tlist_javascript_settings = 'javascript;f:function;c:class;m:method'
-endif
-
-
-
 " unite.vim  "{{{2
 if exists('g:loaded_unite')
 

@@ -48,7 +48,7 @@ call plug#begin(g:plug_dir)
   Plug 'Shougo/unite-outline', {'on': ['Unite']}
 
   Plug 'oppara/snipmate.vim'
-  Plug 'oppara/taglist.vim'
+  Plug 'majutsushi/tagbar'
 
   Plug 'LeafCage/yankround.vim'
   Plug 'thinca/vim-localrc'
@@ -1283,6 +1283,14 @@ function! s:Jq(...)
 endfunction
 
 " Plugins: "{{{1
+
+" tagbar  "{{{2
+noremap <silent> <leader>tl :TagbarOpenAutoClose<cr>
+let g:tagbar_left = 1
+let g:tagbar_case_insensitive = 1
+let g:tagbar_compact = 1
+let g:tagbar_indent = 1
+
 
 "pt.vim  "{{{2
 cnoreabbrev Pt Pt!
