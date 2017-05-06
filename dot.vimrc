@@ -101,12 +101,12 @@ call plug#begin(g:plug_dir)
 
   Plug 'sheerun/vim-polyglot'
 
-  Plug 'oppara/phpstylist.vim', {'for': ['php']}
   Plug 'oppara/php-doc-modded', {'branch': 'develop', 'for': ['php']}
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
   Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
+  Plug 'beanworks/vim-phpfmt', {'for': ['php']}
 
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
@@ -949,8 +949,7 @@ augroup vimrc-ft-php  "{{{2
         \| nmap g' cs'g
         \| nmap G' cs'G
 
-  autocmd FileType php nnoremap <silent><buffer><leader>ti :PhpStylist<cr>
-  autocmd FileType php vnoremap <silent><buffer><leader>ti :PhpStylist<cr>
+  autocmd FileType php nnoremap <silent><buffer><leader>ti :PhpFmt<cr>
 
   autocmd FileType php nnoremap <buffer>ef :EnableFastPHPFolds<cr>
 
@@ -1314,103 +1313,13 @@ augroup END
 let g:previm_open_cmd = "open"
 
 
-" phpstylist.vim  "{{{2
-let g:phpstylist_cmd_path = expand('~/src/github.com/oppara/phpstylist/index.php')
-let g:phpstylist_options = {
-    \ 'default' : [
-      \ '--indent_size 4 ',
-      \ '--keep_redundant_lines ',
-      \ '--space_after_comma ',
-      \ '--space_around_assignment ',
-      \ '--space_around_comparison ',
-      \ '--space_around_arithmetic ',
-      \ '--space_around_logical ',
-      \ '--space_around_colon_question ',
-      \ '--line_before_function ',
-      \ '--line_before_curly_function',
-      \ '--space_after_if ',
-      \ '--space_inside_for ',
-      \ '--else_along_curly',
-      \ '--add_missing_braces ',
-      \ '--indent_case ',
-      \ '--space_around_double_arrow ',
-      \ '--space_around_concat ',
-      \ '--vertical_array ',
-      \ '--align_array_assignment',
-      \ '--line_before_comment_multi ',
-      \ '--align_var_assignment ',
-      \ '--line_after_break '
-    \],
-    \ 'perl' : [
-      \ '--indent_size 4 ',
-      \ '--keep_redundant_lines ',
-      \ '--space_after_comma ',
-      \ '--space_around_assignment ',
-      \ '--space_around_comparison ',
-      \ '--space_around_arithmetic ',
-      \ '--space_around_logical ',
-      \ '--space_around_colon_question ',
-      \ '--space_inside_parentheses',
-      \ '--line_before_function ',
-      \ '--space_after_if ',
-      \ '--space_inside_for ',
-      \ '--add_missing_braces ',
-      \ '--indent_case ',
-      \ '--space_around_double_arrow ',
-      \ '--space_around_concat ',
-      \ '--vertical_array ',
-      \ '--align_array_assignment',
-      \ '--line_before_comment_multi ',
-      \ '--align_var_assignment ',
-      \ '--line_after_break '
-    \],
-    \ 'wp' : [
-      \ '--indent_size 4 ',
-      \ '--keep_redundant_lines ',
-      \ '--space_after_comma ',
-      \ '--space_around_assignment ',
-      \ '--space_around_comparison ',
-      \ '--space_around_arithmetic ',
-      \ '--space_around_logical ',
-      \ '--space_around_colon_question ',
-      \ '--space_inside_parentheses',
-      \ '--line_before_function ',
-      \ '--space_after_if ',
-      \ '--space_inside_for ',
-      \ '--add_missing_braces ',
-      \ '--indent_case ',
-      \ '--space_around_double_arrow ',
-      \ '--space_around_concat ',
-      \ '--vertical_array ',
-      \ '--align_array_assignment',
-      \ '--line_before_comment_multi ',
-      \ '--align_var_assignment ',
-      \ '--else_along_curly',
-      \ '--line_after_break '
-    \],
-    \ 'cake' : [
-      \ '--indent_size 4',
-      \ '--indent_with_tabs ',
-      \ '--keep_redundant_lines ',
-      \ '--space_around_assignment ',
-      \ '--space_around_comparison ',
-      \ '--space_around_arithmetic ',
-      \ '--space_around_logical ',
-      \ '--space_around_colon_question ',
-      \ '--space_after_if ',
-      \ '--space_inside_for ',
-      \ '--add_missing_braces ',
-      \ '--else_along_curly',
-      \ '--indent_case ',
-      \ '--space_around_double_arrow ',
-      \ '--space_around_concat ',
-      \ '--vertical_array ',
-      \ '--align_array_assignment',
-      \ '--line_before_comment_multi ',
-      \ '--align_var_assignment ',
-      \ '--line_after_break '
-    \]
-  \}
+
+
+" phpfmt.vim  "{{{2
+let g:phpfmt_command = expand('~/.composer/vendor/bin/phpcbf')
+let g:phpfmt_autosave = 0
+" let g:phpfmt_standard = 'WordPress-Core'
+" let g:phpfmt_options = '--standard=WordPress-Core --encoding=utf-8'
 
 
 " phpfolding.vim  "{{{2
