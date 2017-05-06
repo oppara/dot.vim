@@ -71,9 +71,7 @@ call plug#begin(g:plug_dir)
     " cnoremap <expr><CR> migemosearch#replace_search_word()."\<CR>"
   " endif
 
-  " http://blog.glidenote.com/blog/2012/03/26/memolist.vim/
   Plug 'fuenor/qfixgrep'
-  Plug 'glidenote/memolist.vim'
 
   Plug 'mattn/vim-maketable'
 
