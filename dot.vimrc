@@ -1290,6 +1290,7 @@ let g:tagbar_left = 1
 let g:tagbar_case_insensitive = 1
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
+let g:tagbar_iconchars = ['+', '-']
 
 " https://github.com/majutsushi/tagbar/wiki
 let g:tagbar_type_markdown = {
