@@ -1027,6 +1027,7 @@ augroup vimrc-ft-json  "{{{2
         \| setlocal conceallevel=0
         \| setlocal foldmethod=syntax
 
+  autocmd BufReadPost *json execute 'normal! zAgg'
   autocmd FileType json nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
 augroup END
 
