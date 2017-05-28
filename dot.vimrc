@@ -1618,12 +1618,7 @@ let g:lightline = {
 
 
 " Vim Starting:  "{{{1
-" http://d.hatena.ne.jp/thinca/20100619/1276915771
 if has('vim_starting')
-  " if filereadable($HOME . '/.vimrc.local')
-    " source $HOME/.vimrc.local
-  " endif
-
   " http://nanasi.jp/articles/vim/matchit_vim.html
   source $VIMRUNTIME/macros/matchit.vim
 endif
