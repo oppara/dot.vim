@@ -1304,6 +1304,16 @@ let g:tagbar_type_markdown = {
     \ ]
 \ }
 
+let g:tagbar_type_php = {
+    \ 'kinds' : [
+        \ 'i:interfaces',
+        \ 'c:classes',
+        \ 'd:constant definitions:1:0',
+        \ 'f:functions',
+        \ 'v:variables:1:0',
+    \ ],
+\ }
+
 
 "pt.vim  "{{{2
 cnoreabbrev Pt Pt!
