@@ -350,7 +350,7 @@ set wrap
 
 " list "{{{3
 set list
-set listchars=tab:»_,trail:-,extends:»,precedes:«
+set listchars=tab:»_,extends:»,precedes:«
 
 " fold "{{{3
 set foldenable
