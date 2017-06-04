@@ -1567,6 +1567,7 @@ let g:syntastic_php_checkers = ['php']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_json_checkers = ['jsonlint']
 
+let g:syntastic_go_checkers = ['golint', 'go']
 
 " lightline  "{{{2
 let s:base04 = [ '#fdf6e3', 230 ]
