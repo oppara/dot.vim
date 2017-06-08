@@ -94,7 +94,7 @@ call plug#begin(g:plug_dir)
 
   Plug 'scrooloose/syntastic'
   Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
-  Plug 'anyakichi/vim-qfutil', {'on': ['QFGrep', 'QFMake']}
+  Plug 'anyakichi/vim-qfutil'
 
   Plug 'tyru/open-browser.vim'
 
