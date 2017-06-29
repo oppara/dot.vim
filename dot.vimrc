@@ -249,6 +249,11 @@ augroup vimrc-color
 
     highlight ZenkakuSpace ctermbg=Red ctermfg=Red guibg=Red
 
+    highlight DiffAdd          ctermbg=235  ctermfg=108  cterm=reverse
+    highlight DiffChange       ctermbg=235  ctermfg=27  cterm=reverse
+    highlight DiffDelete       ctermbg=235  ctermfg=131  cterm=reverse
+    highlight DiffText         ctermbg=235  ctermfg=33  cterm=reverse
+
     if g:colors_name !~? '^wombat'
       highlight Pmenu ctermbg=black
       highlight PmenuSel ctermfg=black ctermbg=white
