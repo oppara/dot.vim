@@ -1317,7 +1317,6 @@ let g:tagbar_type_php = {
         \ 'c:classes',
         \ 'd:constant definitions:1:0',
         \ 'f:functions',
-        \ 'v:variables:1:0',
     \ ],
 \ }
 
