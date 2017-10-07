@@ -6,10 +6,10 @@ let s:is_mac      = has('macunix') || (executable('uname') && system('uname') =~
 let s:is_unix     = has('unix') && !s:is_mac
 let s:is_win      = has('win32') || has('win64')
 let s:tidy_cmd    = ''
-let s:dropbox_dir     = expand ('~/Dropbox')
 
 
 " global vars  "{{{2
+let $MY_VIMRUNTIME = expand(s:is_win ? '~/vimfiles' : '~/.vim')
 
 let g:oppara_email = 'oppara <oppara _at_ oppara.tv>'
 let g:snips_author = g:oppara_email
@@ -21,7 +21,6 @@ let g:mapleader = ','
 " vim-plug: "{{{1
 "
 if has("vim_starting")
-  let $MY_VIMRUNTIME = expand(s:is_win ? '~/vimfiles' : '~/.vim')
   let g:plug_dir =  $MY_VIMRUNTIME . '/plugged'
   let g:plug_repo_dir =  g:plug_dir . '/vim-plug/autoload'
   execute 'set runtimepath^=' . fnamemodify(g:plug_repo_dir, ':h')
