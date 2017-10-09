@@ -1291,6 +1291,13 @@ endfunction
 
 " Plugins: "{{{1
 
+" vim-go  "{{{2
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+
 " tagbar  "{{{2
 noremap <silent> <leader>tl :TagbarOpenAutoClose<cr>
 let g:tagbar_left = 1
