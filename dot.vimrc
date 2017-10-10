@@ -1058,7 +1058,7 @@ augroup vimrc-ft-html  "{{{2
 
   " xmllintによる XMLの検証と整形
   " http://nanasi.jp/articles/others/xmllint.html
-  autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
+  " autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
 augroup END
 
 
