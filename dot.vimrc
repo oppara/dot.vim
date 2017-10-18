@@ -1116,6 +1116,12 @@ augroup vimrc-ft-gitignore  "{{{2
 augroup END
 
 
+augroup vimrc-ft-applescript  "{{{2
+  autocmd!
+  autocmd BufRead,BufNew *applescript :setlocal filetype=applescript
+augroup END
+
+
 
 " Function:  "{{{1
 
