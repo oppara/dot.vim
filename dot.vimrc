@@ -97,6 +97,7 @@ call plug#begin(g:plug_dir)
   Plug 'tyru/open-browser.vim'
 
   Plug 'sheerun/vim-polyglot'
+  Plug 'w0rp/ale'
 
   Plug 'oppara/php-doc-modded', {'branch': 'develop', 'for': ['php']}
 
@@ -1294,6 +1295,22 @@ function! s:Jq(...)
 endfunction
 
 " Plugins: "{{{1
+
+" ale  "{{{2
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 1
+let g:ale_echo_msg_format = '[%linter%] %s'
+" let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = 1
+let g:ale_linters = {
+            \ 'javascript': ['eslint'],
+            \ 'json': ['jsonlint'],
+            \ 'php': ['php', 'phpcbf'],
+            \}
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+
 
 " vim-go  "{{{2
 let g:go_highlight_types = 1
