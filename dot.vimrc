@@ -1300,6 +1300,7 @@ endfunction
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 1
 let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_statusline_format = ['E%d', 'W%d', '']
 " let g:ale_open_list = 1
 " let g:ale_keep_list_window_open = 1
 let g:ale_linters = {
@@ -1596,7 +1597,7 @@ let s:green = [ '#859900', 64 ]
 let s:red = [ '#dc322f', 160 ]
 let s:orange = [ '#cb4b16', 166 ]
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}}
-let s:p.normal.left = [ [ s:base04, s:base01 ], [ s:base03, s:base00 ] ]
+let s:p.normal.left = [ [ s:base04, s:base01 ], [ s:base03, s:base00 ], [ s:base04, s:red ] ]
 let s:p.inactive.left =  [ [ s:base00, s:base02 ], [ s:base00, s:base02 ] ]
 let s:p.insert.left = [ [ s:base04, s:green ], [ s:base03, s:base00 ] ]
 let s:p.replace.left = [ [ s:base04, s:red ], [ s:base03, s:base00 ] ]
@@ -1621,7 +1622,7 @@ let g:lightline = {
       \ 'colorscheme': 'hogehoge',
       \ 'active': {
       \   'left': [ [ 'paste', 'readonly', 'modified' ],
-      \             [ 'filename' ] ],
+      \             [ 'filename' ], [ 'ale' ] ],
       \   'right': [ [ 'percent' ],
       \              [ 'lineinfo' ],
       \              [ 'fugitive', 'fileencoding', 'fileformat', 'filetype' ] ]
@@ -1640,8 +1641,14 @@ let g:lightline = {
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ },
+      \ 'component_function': {
+      \   'ale': 'ALEStatus'
+      \ },
       \ }
 
+function! ALEStatus()
+  return ALEGetStatusLine()
+endfunction
 
 
 
