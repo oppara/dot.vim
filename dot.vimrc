@@ -91,7 +91,6 @@ call plug#begin(g:plug_dir)
   Plug 'rhysd/vim-textobj-ruby', {'for': ['ruby']}
   Plug 'akiyan/vim-textobj-xml-attribute', {'for': ['xml']}
 
-  Plug 'scrooloose/syntastic'
   Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
   Plug 'anyakichi/vim-qfutil'
 
@@ -127,7 +126,6 @@ call plug#begin(g:plug_dir)
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
-  Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': ['javascript']}
 
   Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
 
@@ -1566,31 +1564,6 @@ let g:vim_markdown_toc_autofit = 1
 " http://mattn.kaoriya.net/software/vim/20140523124903.htm
 let g:markdown_fenced_languages = ['coffee', 'css', 'php', 'perl', 'sh', 'html', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
 
-" syntastic  "{{{2
-" https://github.com/scrooloose/syntastic
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_save = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 6
-let g:syntastic_auto_jump = 1
-let g:syntastic_enable_signs=1
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html', 'cucumber'] }
-
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl', 'podchecker']
-
-" let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-" let g:syntastic_php_checkers = ['php', 'phpmd']
-let g:syntastic_php_checkers = ['php']
-
-" let g:syntastic_javascript_checkers = ['jsl']
-" let g:syntastic_javascript_jsl_args = '-conf ' . $MY_VIMRUNTIME . '/tools/jsl.conf'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_json_checkers = ['jsonlint']
-
-let g:syntastic_go_checkers = ['golint', 'go']
 
 " lightline  "{{{2
 let s:base04 = [ '#fdf6e3', 230 ]
