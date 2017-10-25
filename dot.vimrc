@@ -1304,6 +1304,7 @@ let g:ale_statusline_format = ['E%d', 'W%d', '']
 " let g:ale_open_list = 1
 " let g:ale_keep_list_window_open = 1
 let g:ale_linters = {
+            \ 'html': ['htmlhint'],
             \ 'javascript': ['eslint'],
             \ 'json': ['jsonlint'],
             \ 'php': ['php', 'phpcbf'],
