@@ -1001,7 +1001,7 @@ augroup END
 augroup vimrc-ft-slim  "{{{2
   autocmd!
   autocmd BufRead,BufNew *slim :setlocal filetype=slim
-  autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
+  autocmd FileType slim setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal omnifunc=htmlcomplete#CompleteTags
 augroup END
 
