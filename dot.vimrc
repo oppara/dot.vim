@@ -91,13 +91,13 @@ call plug#begin(g:plug_dir)
   Plug 'rhysd/vim-textobj-ruby', {'for': ['ruby']}
   Plug 'akiyan/vim-textobj-xml-attribute', {'for': ['xml']}
 
-  Plug 'scrooloose/syntastic'
   Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
   Plug 'anyakichi/vim-qfutil'
 
   Plug 'tyru/open-browser.vim'
 
   Plug 'sheerun/vim-polyglot'
+  Plug 'w0rp/ale'
 
   Plug 'oppara/php-doc-modded', {'branch': 'develop', 'for': ['php']}
 
@@ -127,7 +127,6 @@ call plug#begin(g:plug_dir)
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
-  Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': ['javascript']}
 
   Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
 
@@ -1297,6 +1296,30 @@ endfunction
 
 " Plugins: "{{{1
 
+" ale  "{{{2
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 1
+let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_statusline_format = ['E%d', 'W%d', '']
+let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
+" let g:ale_open_list = 1
+" let g:ale_keep_list_window_open = 1
+let g:ale_linters = {
+            \ 'html': ['htmlhint'],
+            \ 'javascript': ['eslint'],
+            \ 'json': ['jsonlint'],
+            \ 'php': ['php', 'phpcbf'],
+            \ 'ruby': ['ruby'],
+            \}
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+highlight ALEError ctermfg=196 ctermbg=228
+highlight ALEErrorSign ctermfg=202 ctermbg=none
+highlight ALEErrorLine term=underline cterm=underline
+
+
+
 " vim-go  "{{{2
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -1566,31 +1589,6 @@ let g:vim_markdown_toc_autofit = 1
 " http://mattn.kaoriya.net/software/vim/20140523124903.htm
 let g:markdown_fenced_languages = ['coffee', 'css', 'php', 'perl', 'sh', 'html', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
 
-" syntastic  "{{{2
-" https://github.com/scrooloose/syntastic
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_save = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 6
-let g:syntastic_auto_jump = 1
-let g:syntastic_enable_signs=1
-let g:syntastic_mode_map = { 'mode': 'active',
-  \ 'active_filetypes': [],
-  \ 'passive_filetypes': ['html', 'cucumber'] }
-
-let g:syntastic_enable_perl_checker = 1
-let g:syntastic_perl_checkers = ['perl', 'podchecker']
-
-" let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-" let g:syntastic_php_checkers = ['php', 'phpmd']
-let g:syntastic_php_checkers = ['php']
-
-" let g:syntastic_javascript_checkers = ['jsl']
-" let g:syntastic_javascript_jsl_args = '-conf ' . $MY_VIMRUNTIME . '/tools/jsl.conf'
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_json_checkers = ['jsonlint']
-
-let g:syntastic_go_checkers = ['golint', 'go']
 
 " lightline  "{{{2
 let s:base04 = [ '#fdf6e3', 230 ]
@@ -1602,7 +1600,7 @@ let s:green = [ '#859900', 64 ]
 let s:red = [ '#dc322f', 160 ]
 let s:orange = [ '#cb4b16', 166 ]
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}}
-let s:p.normal.left = [ [ s:base04, s:base01 ], [ s:base03, s:base00 ] ]
+let s:p.normal.left = [ [ s:base04, s:base01 ], [ s:base03, s:base00 ], [ s:base04, s:red ] ]
 let s:p.inactive.left =  [ [ s:base00, s:base02 ], [ s:base00, s:base02 ] ]
 let s:p.insert.left = [ [ s:base04, s:green ], [ s:base03, s:base00 ] ]
 let s:p.replace.left = [ [ s:base04, s:red ], [ s:base03, s:base00 ] ]
@@ -1627,7 +1625,7 @@ let g:lightline = {
       \ 'colorscheme': 'hogehoge',
       \ 'active': {
       \   'left': [ [ 'paste', 'readonly', 'modified' ],
-      \             [ 'filename' ] ],
+      \             [ 'filename' ], [ 'ale' ] ],
       \   'right': [ [ 'percent' ],
       \              [ 'lineinfo' ],
       \              [ 'fugitive', 'fileencoding', 'fileformat', 'filetype' ] ]
@@ -1646,8 +1644,14 @@ let g:lightline = {
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ },
+      \ 'component_function': {
+      \   'ale': 'ALEStatus'
+      \ },
       \ }
 
+function! ALEStatus()
+  return ALEGetStatusLine()
+endfunction
 
 
 
