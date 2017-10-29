@@ -18,8 +18,11 @@ let g:changelog_username = 'oppara'
 let mapleader = ','
 let g:mapleader = ','
 
+
+
+
 " vim-plug: "{{{1
-"
+
 if has("vim_starting")
   let g:plug_dir =  $MY_VIMRUNTIME . '/plugged'
   let g:plug_repo_dir =  g:plug_dir . '/vim-plug/autoload'
@@ -142,6 +145,7 @@ filetype plugin indent on
 
 " Options:   "{{{1
 
+
 " encoding  "{{{2
 
 language C
@@ -261,7 +265,6 @@ augroup vimrc-color
 augroup END
 
 
-
 " colorscheme  "{{{2
 
 syntax enable
@@ -306,8 +309,11 @@ set noswapfile
 set directory-=.
 set viminfo='100,<100,:50,%,h,n~/.viminfo
 
+
 " view  "{{{2
+
 set viewoptions-=options viewoptions+=slash,unix
+
 
 " tags "{{{3
 set tags=+../../**/tags
@@ -330,6 +336,7 @@ set clipboard+=unnamed
 
 
 " comletion  "{{{2
+
 setlocal completeopt=menuone,preview
 setlocal complete=.,w,b,u,k,i " help cpt
 " setlocal completefunc=syntaxcomplete#Complete
@@ -371,6 +378,9 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']['.&ft.']'}
 " scroll  "{{{2
 " http://d.hatena.ne.jp/hyuki/20131206/vim
 set scrolloff=3
+
+
+
 
 " Mapping:  "{{{1
 
@@ -474,6 +484,7 @@ nnoremap <leader>ht :helptags $MY_VIMRUNTIME/doc<cr>:helptags  $MY_VIMRUNTIME/bu
 " コマンド <Esc> でInsertモードを終える度に値を 0 に戻すには以下。
 inoremap <silent> <esc> <esc>:set iminsert=0<cr>
 inoremap <silent> <c-j> <esc>:set iminsert=0<cr>
+
 
 " search  "{{{2
 
@@ -586,6 +597,7 @@ cnoremap <c-z> <c-r>=expand('%:p:r')<cr>
 
 nnoremap bb :ls<cr>:buffer
 
+
 " カーソル下の単語を最後にヤンクしたテキストで置き換え "{{{2
 
 nnoremap yp wbdiw"0P
@@ -611,9 +623,9 @@ nnoremap <silent>ffu :setlocal fileformat=unix<cr>
 " nnoremap <silent>ffm :setlocal fileformat=mac<cr>
 
 
-" tab
+" tab "{{{2
 
-" shiftwidth "{{{2
+" shiftwidth
 nnoremap <leader>t2 :setlocal shiftwidth=2<cr>
 nnoremap <leader>t4 :setlocal shiftwidth=4<cr>
 
@@ -632,8 +644,6 @@ inoremap <Leader>dd  <C-r>=strftime('%Y-%m-%d')<Return>
 nnoremap Q q
 
 
-
-
 " tag jump "{{{2
 
 nnoremap [Tag]t  <C-]>           " jump
@@ -646,9 +656,11 @@ nnoremap [Tag]l  :<C-u>tags<cr>  " list
 
 noremap <Leader>rw mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
+
 "Remove indenting on empty lines "{{{2
 
 noremap <Leader>ri :%s/\s*$//g<cr>:noh<cr>''
+
 
 " xterm pastes "{{{2
 if &term =~ "xterm"|| &term ==# 'screen-bce' || &term ==# 'screen'
@@ -663,6 +675,7 @@ if &term =~ "xterm"|| &term ==# 'screen-bce' || &term ==# 'screen'
 
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+
 
 
 
@@ -690,8 +703,10 @@ augroup vimrc-rtrim  "{{{2
   endfunction
 augroup END
 
+
 augroup vimrc-avoid-jis  "{{{2
   autocmd!
+
   " 日本語を含まない場合にJISと解釈されるのを防ぐ  "{{{3
   autocmd BufReadPost *
         \   if &modifiable && !search('[^\x00-\x7F]', 'cnw') && &filetype != 'svn'
@@ -715,6 +730,7 @@ if exists('$TMUX') && !exists('$NORENAME')
   augroup END
 end
 
+
 augroup vimrc-view  "{{{2
   autocmd!
   " 状態の保存と復元
@@ -729,6 +745,7 @@ augroup vimrc-view  "{{{2
 
 augroup END
 
+
 augroup vimrc-quicklook-fix  "{{{2
   autocmd!
   " http://d.hatena.ne.jp/uasi/20110523/1306079612
@@ -742,6 +759,7 @@ augroup vimrc-quicklook-fix  "{{{2
   endfunction
 augroup END
 
+
 augroup vimrc-cursorline  "{{{2
   autocmd!
   autocmd VimEnter * setlocal cursorline
@@ -749,8 +767,10 @@ augroup vimrc-cursorline  "{{{2
   autocmd WinLeave * setlocal nocursorline
 augroup END
 
+
 augroup vimrc-lcd  "{{{2
   autocmd!
+
   " 現在編集中のバッファのディレクトリに移動する  "{{{3
   autocmd BufReadPre,BufFilePre * unlet! b:lcd
   autocmd BufReadPost,BufFilePost,BufEnter * call s:lcd()
@@ -824,6 +844,7 @@ augroup vimrc-lcd  "{{{2
   endfunction
 augroup END
 
+
 augroup vimrc-quickfix  "{{{2
   autocmd!
   " Quickfixを自動で閉じる
@@ -847,6 +868,7 @@ augroup vimrc-quickfix  "{{{2
   endfunction
 augroup END
 
+
 augroup vimrc-misc  "{{{2
   autocmd!
   " 最後に編集した位置へカーソルを移動
@@ -868,6 +890,7 @@ augroup vimrc-misc  "{{{2
         \ |   filetype detect
         \ | endif
 augroup END
+
 
 
 
@@ -898,6 +921,7 @@ augroup END
 " " autocmd AfterPlugin BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | wincmd L
 " " autocmd vimrc BufRead *.git/COMMIT_EDITMSG DiffGitCached -p | only | split | b 1
 
+
 augroup vimrc-ft-gitrebase  "{{{2
   autocmd!
   " http://sssslide.com/speakerdeck.com/rhysd/do-you-know-about-vim-runtime-files
@@ -907,6 +931,7 @@ augroup vimrc-ft-gitrebase  "{{{2
   autocmd FileType gitrebase nnoremap <buffer>r :<C-u>Reword<CR>
 augroup END
 
+
 augroup vimrc-ft-vim  "{{{2
   autocmd!
   " autocmd BufWritePost dot.vimrc,.vimrc nested if expand('%') !~ 'fugitive' | source % | endif
@@ -914,6 +939,7 @@ augroup vimrc-ft-vim  "{{{2
         \| nnoremap <leader>sv :source %<CR>
         \| setlocal keywordprg=:help
 augroup END
+
 
 augroup vimrc-ft-php  "{{{2
   autocmd!
@@ -981,6 +1007,7 @@ augroup vimrc-ft-php  "{{{2
 
 augroup END
 
+
 augroup vimrc-ft-perl  "{{{2
   autocmd!
   autocmd FileType perl setlocal expandtab softtabstop=4 shiftwidth=4
@@ -991,12 +1018,14 @@ augroup vimrc-ft-perl  "{{{2
 " autocmd FileType perl setlocal complete-=i | setlocal complete+=k~/.vim/dict/perl_functions.dict
 augroup END
 
+
 augroup vimrc-ft-ruby  "{{{2
   autocmd!
   autocmd FileType ruby setlocal expandtab softtabstop=2 shiftwidth=2
   autocmd FileType ruby  inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
  " autocmd FileType ruby setlocal complete+=k~/.vim/dict/ruby.dict
 augroup END
+
 
 augroup vimrc-ft-slim  "{{{2
   autocmd!
@@ -1036,6 +1065,7 @@ augroup vimrc-ft-json  "{{{2
   autocmd FileType json nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
 augroup END
 
+
 augroup vimrc-ft-coffeescript  "{{{2
 " https://github.com/kchmck/vim-coffee-script
   autocmd!
@@ -1044,6 +1074,7 @@ augroup vimrc-ft-coffeescript  "{{{2
         \| setlocal conceallevel=0
         \| setlocal foldmethod=syntax
 augroup END
+
 
 augroup vimrc-ft-html  "{{{2
   autocmd!
@@ -1080,6 +1111,7 @@ augroup vimrc-ft-css  "{{{2
   autocmd FileType css,scss nnoremap <silent><buffer><leader>ti :call CSSBeautify()<cr>
 augroup END
 
+
 augroup vimrc-ft-markdown  "{{{2
   autocmd!
   autocmd BufRead,BufNew *mkd, *.md, *markdown :setlocal filetype=markdown
@@ -1094,20 +1126,24 @@ augroup vimrc-ft-markdown  "{{{2
   autocmd FileType markdown let b:surround_{char2nr('l')} = "[](\r)"
 augroup END
 
+
 augroup vimrc-ft-sh  "{{{2
   autocmd!
   autocmd FileType sh setlocal expandtab softtabstop=2 shiftwidth=2
 augroup END
+
 
 augroup vimrc-ft-yaml  "{{{2
   autocmd!
   autocmd FileType yaml setlocal expandtab softtabstop=2 shiftwidth=2
 augroup END
 
+
 augroup vimrc-ft-svn  "{{{2
   autocmd!
   autocmd FileType svn setlocal fileencoding=utf-8
 augroup END
+
 
 augroup vimrc-ft-gitignore  "{{{2
   autocmd!
@@ -1119,6 +1155,7 @@ augroup vimrc-ft-applescript  "{{{2
   autocmd!
   autocmd BufRead,BufNew *applescript :setlocal filetype=applescript
 augroup END
+
 
 
 
@@ -1294,6 +1331,9 @@ function! s:Jq(...)
     execute "%! jq \"" . l:arg . "\""
 endfunction
 
+
+
+
 " Plugins: "{{{1
 
 " ale  "{{{2
@@ -1319,13 +1359,13 @@ highlight ALEErrorSign ctermfg=202 ctermbg=none
 highlight ALEErrorLine term=underline cterm=underline
 
 
-
 " vim-go  "{{{2
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_extra_types = 1
+
 
 " tagbar  "{{{2
 noremap <silent> <leader>tl :TagbarOpenAutoClose<cr>
@@ -1362,7 +1402,6 @@ nnoremap <expr> <Space>g ':<C-u>Pt! ' . expand('<cword>')
 nnoremap <expr> <Space>G ':<C-u>Pt! '
 
 
-
 "vim-polyglot  "{{{2
 let g:polyglot_disabled = ['jsx']
 let g:jsx_ext_required = 1
@@ -1387,10 +1426,9 @@ augroup vimrc-vim-gfm-syntax
   autocmd BufRead,BufNew,BufNewFile README.md setlocal ft=markdown.gfm
 augroup END
 
+
 " previm  "{{{2
 let g:previm_open_cmd = "open"
-
-
 
 
 " phpfmt.vim  "{{{2
@@ -1403,11 +1441,14 @@ let g:phpfmt_autosave = 0
 " phpfolding.vim  "{{{2
 let g:DisableAutoPHPFolding = 1
 
+
 " matchparen  "{{{2
 let loaded_matchparen = 1
 
+
 " open-browser.vim  "{{{2
 nmap <leader>w <Plug>(openbrowser-smart-search)
+
 
 " NERD Commenter  "{{{2
 " http://www.vim.org/scripts/script.php?script_id=1218
@@ -1448,6 +1489,7 @@ let g:quickrun_config['objc'] = {
       \ 'tempfile': '{tempname()}.m',
       \}
 
+
 " unite  "{{{2
 let g:unite_source_file_mru_limit = 200
 let g:unite_source_file_mru_filename_format = ''
@@ -1479,9 +1521,9 @@ if executable('pt')
   let g:unite_source_grep_encoding = 'utf-8'
 endif
 
+
 " snipMate.vim  "{{{2
 let g:snippets_dir = $MY_VIMRUNTIME . '/snippets'
-
 
 
 " acp.vim  "{{{2
@@ -1528,6 +1570,7 @@ nnoremap <silent> ffd :FufDir <C-r>=expand('%:p:~')[:-1-len(expand('%:p:~:t'))]<
 nnoremap <silent> ffb :FufBookmark<CR>
 vmap <silent> ffa :FufAddBookmark<CR>
 
+
 " qfutil  "{{{2
 " https://bitbucket.org/anyakichi/vim-qfutil
 " http://www.sopht.jp/blog/index.php?/archives/458-Quickfix-utility-for-Vim.html
@@ -1554,10 +1597,8 @@ nnoremap <leader>gh :help Gstatus<Enter>
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
 
-
 " jsdoc-vim  "{{{2
 let g:jsdoc_default_mapping = 0
-
 
 
 " indentLine  "{{{2
@@ -1578,6 +1619,7 @@ nmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
 nmap <C-p> <Plug>(yankround-prev)
 nmap <C-n> <Plug>(yankround-next)
+
 
 " plasticboy/vim-markdown  "{{{2
 " https://github.com/plasticboy/vim-markdown
@@ -1652,7 +1694,6 @@ let g:lightline = {
 function! ALEStatus()
   return ALEGetStatusLine()
 endfunction
-
 
 
 
