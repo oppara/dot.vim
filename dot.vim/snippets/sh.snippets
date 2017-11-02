@@ -58,6 +58,12 @@ snippet awk
 snippet env
 	#!/usr/bin/env ${1}
 
+snippet hd
+	$(cat << EOF
+	${1}
+	EOF
+	)
+
 snippet now
 	now=$(date +"%Y%m%d_%I%M%S")
 
