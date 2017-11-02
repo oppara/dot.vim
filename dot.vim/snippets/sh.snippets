@@ -58,6 +58,8 @@ snippet awk
 snippet env
 	#!/usr/bin/env ${1}
 
+snippet now
+	now=$(date +"%Y%m%d_%I%M%S")
 
 snippet tmp
 	${1:TMPFILE}="mktemp -t ${2:untitled}"
