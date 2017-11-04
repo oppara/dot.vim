@@ -269,6 +269,7 @@ augroup END
 
 syntax enable
 set background=dark
+set synmaxcol=300
 
 if 200 < &t_Co || &term ==# 'screen-bce' || &term ==# 'screen'
     set t_Co=256
