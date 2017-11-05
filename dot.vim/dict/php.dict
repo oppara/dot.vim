@@ -29,6 +29,7 @@ apcu_clear_cache
 apcu_dec
 apcu_delete
 apcu_enabled
+apcu_entry
 apcu_exists
 apcu_fetch
 apcu_inc
@@ -203,6 +204,7 @@ curl_getinfo
 curl_init
 curl_multi_add_handle
 curl_multi_close
+curl_multi_errno
 curl_multi_exec
 curl_multi_getcontent
 curl_multi_info_read
@@ -216,8 +218,10 @@ curl_reset
 curl_setopt
 curl_setopt_array
 curl_share_close
+curl_share_errno
 curl_share_init
 curl_share_setopt
+curl_share_strerror
 curl_strerror
 curl_unescape
 curl_version
@@ -281,6 +285,8 @@ dechex
 decoct
 define
 defined
+deflate_add
+deflate_init
 deg2rad
 dgettext
 dir
@@ -299,10 +305,7 @@ each
 easter_date
 easter_days
 end
-ereg
-ereg_replace
-eregi
-eregi_replace
+error_clear_last
 error_get_last
 error_log
 error_reporting
@@ -416,6 +419,7 @@ gc_collect_cycles
 gc_disable
 gc_enable
 gc_enabled
+gc_mem_caches
 gd_info
 get_browser
 get_called_class
@@ -443,6 +447,7 @@ get_object_vars
 get_parent_class
 get_required_files
 get_resource_type
+get_resources
 getcwd
 getdate
 getenv
@@ -506,6 +511,7 @@ gmp_prob_prime
 gmp_random
 gmp_random_bits
 gmp_random_range
+gmp_random_seed
 gmp_root
 gmp_rootrem
 gmp_scan0
@@ -735,6 +741,7 @@ imap_mail_move
 imap_mailboxmsginfo
 imap_mime_header_decode
 imap_msgno
+imap_mutf7_to_utf8
 imap_num_msg
 imap_num_recent
 imap_open
@@ -764,15 +771,19 @@ imap_unsubscribe
 imap_utf7_decode
 imap_utf7_encode
 imap_utf8
+imap_utf8_to_mutf7
 implode
 in_array
 inet_ntop
 inet_pton
+inflate_add
+inflate_init
 ini_alter
 ini_get
 ini_get_all
 ini_restore
 ini_set
+intdiv
 interface_exists
 intl_error_name
 intl_get_error_code
@@ -802,6 +813,8 @@ intlcal_get_maximum
 intlcal_get_minimal_days_in_first_week
 intlcal_get_minimum
 intlcal_get_now
+intlcal_get_repeated_wall_time_option
+intlcal_get_skipped_wall_time_option
 intlcal_get_time
 intlcal_get_time_zone
 intlcal_get_type
@@ -816,6 +829,8 @@ intlcal_set
 intlcal_set_first_day_of_week
 intlcal_set_lenient
 intlcal_set_minimal_days_in_first_week
+intlcal_set_repeated_wall_time_option
+intlcal_set_skipped_wall_time_option
 intlcal_set_time
 intlcal_set_time_zone
 intlcal_to_date_time
@@ -827,6 +842,7 @@ intltz_count_equivalent_ids
 intltz_create_default
 intltz_create_enumeration
 intltz_create_time_zone
+intltz_create_time_zone_id_enumeration
 intltz_from_date_time_zone
 intltz_get_canonical_id
 intltz_get_display_name
@@ -838,7 +854,9 @@ intltz_get_gmt
 intltz_get_id
 intltz_get_offset
 intltz_get_raw_offset
+intltz_get_region
 intltz_get_tz_data_version
+intltz_get_unknown
 intltz_has_same_rules
 intltz_to_date_time_zone
 intltz_use_daylight_time
@@ -859,6 +877,7 @@ is_float
 is_infinite
 is_int
 is_integer
+is_iterable
 is_link
 is_long
 is_nan
@@ -1411,10 +1430,12 @@ openssl_error_string
 openssl_free_key
 openssl_get_cert_locations
 openssl_get_cipher_methods
+openssl_get_curve_names
 openssl_get_md_methods
 openssl_get_privatekey
 openssl_get_publickey
 openssl_open
+openssl_pbkdf2
 openssl_pkcs12_export
 openssl_pkcs12_export_to_file
 openssl_pkcs12_read
@@ -1465,6 +1486,7 @@ password_verify
 pathinfo
 pclose
 pcntl_alarm
+pcntl_async_signals
 pcntl_errno
 pcntl_exec
 pcntl_fork
@@ -1473,11 +1495,13 @@ pcntl_getpriority
 pcntl_setpriority
 pcntl_signal
 pcntl_signal_dispatch
+pcntl_signal_get_handler
 pcntl_sigprocmask
 pcntl_strerror
 pcntl_wait
 pcntl_waitpid
 pcntl_wexitstatus
+pcntl_wifcontinued
 pcntl_wifexited
 pcntl_wifsignaled
 pcntl_wifstopped
@@ -1641,6 +1665,7 @@ posix_setegid
 posix_seteuid
 posix_setgid
 posix_setpgid
+posix_setrlimit
 posix_setsid
 posix_setuid
 posix_strerror
@@ -1656,6 +1681,7 @@ preg_match_all
 preg_quote
 preg_replace
 preg_replace_callback
+preg_replace_callback_array
 preg_split
 prev
 print_r
@@ -1672,6 +1698,8 @@ quoted_printable_encode
 quotemeta
 rad2deg
 rand
+random_bytes
+random_int
 range
 raphf\clean_persistent_handles
 raphf\stat_persistent_handles
@@ -1727,9 +1755,11 @@ session_abort
 session_cache_expire
 session_cache_limiter
 session_commit
+session_create_id
 session_decode
 session_destroy
 session_encode
+session_gc
 session_get_cookie_params
 session_id
 session_module_name
@@ -1790,6 +1820,7 @@ socket_connect
 socket_create
 socket_create_listen
 socket_create_pair
+socket_export_stream
 socket_get_option
 socket_get_status
 socket_getopt
