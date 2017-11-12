@@ -108,6 +108,7 @@ call plug#begin(g:plug_dir)
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
   Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
   Plug 'beanworks/vim-phpfmt', {'for': ['php']}
+  Plug 'arnaud-lb/vim-php-namespace', {'for': ['php']}
 
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
@@ -1441,6 +1442,10 @@ let g:phpfmt_autosave = 0
 
 " phpfolding.vim  "{{{2
 let g:DisableAutoPHPFolding = 1
+
+
+" vim-php-namespace "{{{2
+let g:php_namespace_sort_after_insert = 1
 
 
 " matchparen  "{{{2
