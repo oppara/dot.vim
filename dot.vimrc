@@ -37,6 +37,8 @@ call plug#begin(g:plug_dir)
   Plug 'junegunn/vim-plug', {'dir': g:plug_repo_dir}
 
   Plug 'vim-jp/vimdoc-ja'
+  Plug 'justinmk/vim-dirvish'
+
 
   Plug 'itchyny/lightline.vim'
   Plug 'Shougo/vimproc.vim', {'do': 'make'}
