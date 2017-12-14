@@ -1355,8 +1355,8 @@ let g:ale_linters = {
             \ 'php': ['php', 'phpcbf'],
             \ 'ruby': ['ruby'],
             \}
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-p> <Plug>(ale_previous_wrap)
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
 
 highlight ALEError ctermfg=196 ctermbg=228
 highlight ALEErrorSign ctermfg=202 ctermbg=none
