@@ -279,8 +279,12 @@ snippet @ex
 	@expectedException ${1:Exception}
 snippet @dp
 	@dataProvider ${1:provider}
+snippet @g
+	@group ${1:hoi}
 snippet pu
-	class ${1:ClassName}Test extends PHPUnit_Framework_TestCase
+	use PHPUnit\Framework\TestCase;
+
+	class ${1:ClassName}Test extends TestCase
 	{
 
 		protected function setUp()
