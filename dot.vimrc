@@ -131,7 +131,7 @@ call plug#begin(g:plug_dir)
   Plug 'mattn/jscomplete-vim', {'for': ['javascript']}
   Plug 'igetgames/vim-backbone-jscomplete', {'for': ['javascript']}
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
-  Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json']}
+  Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json', 'css']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
 
   Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
