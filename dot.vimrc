@@ -134,8 +134,6 @@ call plug#begin(g:plug_dir)
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json', 'css']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
 
-  Plug 'msanders/cocoa.vim', {'for': ['cocoa']}
-
 call plug#end()
 
 
