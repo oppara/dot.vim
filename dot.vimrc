@@ -39,6 +39,7 @@ call plug#begin(g:plug_dir)
   Plug 'vim-jp/vimdoc-ja'
   Plug 'justinmk/vim-dirvish'
 
+  Plug 'editorconfig/editorconfig-vim'
 
   Plug 'itchyny/lightline.vim'
   Plug 'Shougo/vimproc.vim', {'do': 'make'}
@@ -133,6 +134,7 @@ call plug#begin(g:plug_dir)
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json', 'css']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
+
 
 call plug#end()
 
