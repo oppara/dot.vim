@@ -1058,6 +1058,12 @@ augroup vimrc-ft-javascript  "{{{2
 augroup END
 
 
+augroup vimrc-ft-vue  "{{{2
+  autocmd!
+  autocmd FileType vue syntax sync fromstart
+augroup END
+
+
 augroup vimrc-ft-json  "{{{2
   autocmd!
   autocmd BufRead,BufNewFile *json :setlocal filetype=json syntax=json
