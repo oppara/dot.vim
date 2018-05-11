@@ -720,17 +720,14 @@ augroup END
 
 
 " Automatic rename of tmux window
-if exists('$TMUX') && !exists('$NORENAME')
+" if exists('$TMUX') && !exists('$NORENAME')
+if exists('$TMUX')
 " if &term =~ "screen"
   augroup vimrc-screen
     autocmd!
-    autocmd BufEnter *
-          \ if bufname("") !~ "^\[A-Za-z0-9\]*://" && bufname("") !~ "^["
-          \ | silent! exe '!echo -n "k[`basename %`]\\"'
-          \ | endif
-    autocmd VimLeave * call system('tmux set-window automatic-rename on')
-    " autocmd VimLeave *
-          " \ silent! exe '!echo -n "k`dirs`\\"'
+    autocmd BufEnter * call system("tmux rename-window " . "'[" . expand("%:t") . "]'")
+    autocmd VimLeave * call system("tmux set-window automatic-rename on")
+    autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
   augroup END
 end
 
