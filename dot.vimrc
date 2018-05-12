@@ -51,6 +51,8 @@ call plug#begin(g:plug_dir)
   Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
   Plug 'Shougo/unite-help', {'on': ['Unite'] }
   Plug 'Shougo/unite-outline', {'on': ['Unite']}
+  Plug 'tsukkee/unite-tag', {'on': ['Unite']}
+
 
   Plug 'oppara/snipmate.vim'
   Plug 'majutsushi/tagbar'
@@ -320,8 +322,7 @@ set viewoptions-=options viewoptions+=slash,unix
 
 
 " tags "{{{3
-set tags=+../../**/tags
-set tags=+tags;
+set tags=./tags;,tags;
 
 " buffer "{{{3
 set hidden
@@ -680,8 +681,33 @@ if &term =~ "xterm"|| &term ==# 'screen-bce' || &term ==# 'screen'
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
+" tag "{{{2
+set notagbsearch
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+" noremap <silent> <C-]> :<C-u>Unite tag:<C-r>=expand('<cword>')<CR><CR>
+" noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tag:<C-r>=expand('<cword>')<CR><CR>
 
+" [tag jump] カーソルの単語の定義先にジャンプ（複数候補はリスト表示）
+nnoremap tj :exe("tjump ".expand('<cword>'))<CR>
 
+" [tag back] tag stack を戻る -> tp(tag pop)よりもtbの方がしっくりきた
+nnoremap tb :pop<CR>
+
+" [tag next] tag stack を進む
+nnoremap tn :tag<CR>
+
+" [tag vertical] 縦にウィンドウを分割してジャンプ
+nnoremap tv :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" [tag horizon] 横にウィンドウを分割してジャンプ
+nnoremap th :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" " [tag tab] 新しいタブでジャンプ
+" nnoremap tt :tab sp<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" [tags list] tag list を表示
+nnoremap tl :ts<CR>
 
 " Autocmd:  "{{{1
 
