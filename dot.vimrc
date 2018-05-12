@@ -107,7 +107,8 @@ call plug#begin(g:plug_dir)
   Plug 'sheerun/vim-polyglot'
   Plug 'w0rp/ale'
 
-  Plug 'oppara/php-doc-modded', {'branch': 'develop', 'for': ['php']}
+  Plug 'tobyS/vmustache'
+  Plug 'tobyS/pdv', {'for': ['php']}
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
@@ -1015,15 +1016,9 @@ augroup vimrc-ft-php  "{{{2
         \| let b:surround_{char2nr('p')} = "{!! \r !!}"
         \| highlight PreProc ctermfg=250  ctermbg=none
 
-  " php-doc-modded
-  autocmd FileType php nnoremap <buffer><leader>d :call PhpDocSingle()<cr>bcw
-  autocmd FileType php vnoremap <buffer><leader>d :call PhpDocRange()<cr>
-  autocmd FileType php let g:pdv_cfg_Author = g:oppara_email
-        \| let g:pdv_cfg_autoEndFunction = 0
-        \| let g:pdv_cfg_autoEndClass = 0
-        \| let g:pdv_cfg_Version = ''
-        \| let g:pdv_cfg_Copyright = ''
-        \| let g:pdv_cfg_License = ''
+  " pdv
+  let g:pdv_template_dir = $HOME . '/.vim/templates/pdv'
+  autocmd FileType php nnoremap <buffer><leader>d :call  pdv#DocumentCurrentLine()<cr>
 
   " https://github.com/StanAngeloff/php.vim
   function! PhpSyntaxOverride()
