@@ -67,6 +67,7 @@ call plug#begin(g:plug_dir)
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-fugitive'
 
+  Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
   Plug 'vim-scripts/sudo.vim'
   Plug 'vim-scripts/matchit.zip'
@@ -1397,6 +1398,10 @@ let g:go_highlight_methods = 1
 let g:go_highlight_extra_types = 1
 
 
+" nerdtree  "{{{2
+noremap <silent> <C-n> :NERDTreeToggle<CR>
+
+
 " tagbar  "{{{2
 noremap <silent> <leader>tl :TagbarOpenAutoClose<cr>
 let g:tagbar_left = 1
@@ -1657,8 +1662,8 @@ nmap ga <Plug>(EasyAlign)
 " yankround.vim  "{{{2
 nmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
+" nmap <C-p> <Plug>(yankround-prev)
+" nmap <C-n> <Plug>(yankround-next)
 
 
 " plasticboy/vim-markdown  "{{{2
