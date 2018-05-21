@@ -1,4 +1,15 @@
-scriptencoding utf-8
+" encoding and color {{{1
+if has('vim_starting')
+    set encoding=utf-8
+    scriptencoding utf-8
+
+    if !has('gui_running') && exists(&termguicolors) && $COLORTERM ==# 'truecolor'
+        let &t_8f = "\e[38;2;%lu;%lu;%lum"
+        let &t_8b = "\e[48;2;%lu;%lu;%lum"
+        set termguicolors
+    endif
+endif
+
 
 " Vars:   "{{{1
 
