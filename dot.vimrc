@@ -1496,7 +1496,8 @@ nmap <leader>w <Plug>(openbrowser-smart-search)
 let g:NERDSpaceDelims = 1
 let g:NERDShutUp = 1
 let g:NERDCustomDelimiters = {
-  \ 'html': { 'left': '<!--', 'right': '-->' }
+  \ 'html': { 'left': '<!--', 'right': '-->' },
+  \ 'vue': { 'left': '//' }
   \ }
 
 
