@@ -50,7 +50,6 @@ call plug#begin(g:plug_dir)
   Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
   Plug 'Shougo/unite-help', {'on': ['Unite'] }
   Plug 'Shougo/unite-outline', {'on': ['Unite']}
-  Plug 'tsukkee/unite-tag', {'on': ['Unite']}
 
 
   Plug 'oppara/snipmate.vim'
