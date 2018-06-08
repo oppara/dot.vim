@@ -829,13 +829,14 @@ augroup vimrc-lcd  "{{{2
       return simple
     endif
 
-    let tf = tagfiles()
-    if !empty(tf)
-      let tagdir = fnamemodify(tf[0], ':p:h')
-      if tagdir !=# '' && simple[ : len(tagdir) - 1] ==# tagdir
-        return tagdir
-      endif
-    endif
+    " " tagディレクトリにも移動しない
+    " let tf = tagfiles()
+    " if !empty(tf)
+      " let tagdir = fnamemodify(tf[0], ':p:h')
+      " if tagdir !=# '' && simple[ : len(tagdir) - 1] ==# tagdir
+        " return tagdir
+      " endif
+    " endif
 
     let base = substitute(expand('%:p'), '\\', '/', 'g')
     " for dir in ['src', 'include']
