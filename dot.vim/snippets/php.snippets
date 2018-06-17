@@ -1,11 +1,13 @@
 snippet @in
 	{@inheritDoc}${1}
 
-snippet dec
+snippet ds
 	declare(strict_types=1);
 
 snippet php
 	<?php
+
+	declare(strict_types=1);
 
 	${1}
 
@@ -111,20 +113,21 @@ snippet con
 		${3}
 	}
 snippet pub
-	public function ${1:FunctionName}(${2})
+	public function ${1:FunctionName}(${2})${3}
 	{
-		${3}
+		${4}
 	}
 snippet pro
-	protected function ${1:FunctionName}(${2})
+	protected function ${1:FunctionName}(${2})${3}
 	{
-		${3}
+		${4}
 	}
 snippet pri
-	private function ${1:FunctionName}(${2})
+	private function ${1:FunctionName}(${2})${3}
 	{
-		${3}
+		${4}
 	}
+
 snippet fn
 	function ${1:FunctionName}(${2})
 	{

@@ -62,6 +62,7 @@ call plug#begin(g:plug_dir)
   Plug 'Shougo/unite-help', {'on': ['Unite'] }
   Plug 'Shougo/unite-outline', {'on': ['Unite']}
 
+
   Plug 'oppara/snipmate.vim'
   Plug 'majutsushi/tagbar'
 
@@ -75,6 +76,7 @@ call plug#begin(g:plug_dir)
   Plug 'tpope/vim-repeat'
   Plug 'tpope/vim-fugitive'
 
+  Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
   Plug 'vim-scripts/sudo.vim'
   Plug 'vim-scripts/matchit.zip'
@@ -115,7 +117,8 @@ call plug#begin(g:plug_dir)
   Plug 'sheerun/vim-polyglot'
   Plug 'w0rp/ale'
 
-  Plug 'oppara/php-doc-modded', {'branch': 'develop', 'for': ['php']}
+  Plug 'tobyS/vmustache'
+  Plug 'tobyS/pdv', {'for': ['php']}
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
   Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
@@ -329,8 +332,7 @@ set viewoptions-=options viewoptions+=slash,unix
 
 
 " tags "{{{3
-set tags=+../../**/tags
-set tags=+tags;
+set tags=./tags;,tags;
 
 " buffer "{{{3
 set hidden
@@ -689,8 +691,33 @@ if &term =~ "xterm"|| &term ==# 'screen-bce' || &term ==# 'screen'
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
+" tag "{{{2
+set notagbsearch
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+" noremap <silent> <C-]> :<C-u>Unite tag:<C-r>=expand('<cword>')<CR><CR>
+" noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tag:<C-r>=expand('<cword>')<CR><CR>
 
+" [tag jump] カーソルの単語の定義先にジャンプ（複数候補はリスト表示）
+nnoremap tj :exe("tjump ".expand('<cword>'))<CR>
 
+" [tag back] tag stack を戻る -> tp(tag pop)よりもtbの方がしっくりきた
+nnoremap tb :pop<CR>
+
+" [tag next] tag stack を進む
+nnoremap tn :tag<CR>
+
+" [tag vertical] 縦にウィンドウを分割してジャンプ
+nnoremap tv :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" [tag horizon] 横にウィンドウを分割してジャンプ
+nnoremap th :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" " [tag tab] 新しいタブでジャンプ
+" nnoremap tt :tab sp<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" [tags list] tag list を表示
+nnoremap tl :ts<CR>
 
 " Autocmd:  "{{{1
 
@@ -812,13 +839,14 @@ augroup vimrc-lcd  "{{{2
       return simple
     endif
 
-    let tf = tagfiles()
-    if !empty(tf)
-      let tagdir = fnamemodify(tf[0], ':p:h')
-      if tagdir !=# '' && simple[ : len(tagdir) - 1] ==# tagdir
-        return tagdir
-      endif
-    endif
+    " " tagディレクトリにも移動しない
+    " let tf = tagfiles()
+    " if !empty(tf)
+      " let tagdir = fnamemodify(tf[0], ':p:h')
+      " if tagdir !=# '' && simple[ : len(tagdir) - 1] ==# tagdir
+        " return tagdir
+      " endif
+    " endif
 
     let base = substitute(expand('%:p'), '\\', '/', 'g')
     " for dir in ['src', 'include']
@@ -998,15 +1026,9 @@ augroup vimrc-ft-php  "{{{2
         \| let b:surround_{char2nr('p')} = "{!! \r !!}"
         \| highlight PreProc ctermfg=250  ctermbg=none
 
-  " php-doc-modded
-  autocmd FileType php nnoremap <buffer><leader>d :call PhpDocSingle()<cr>bcw
-  autocmd FileType php vnoremap <buffer><leader>d :call PhpDocRange()<cr>
-  autocmd FileType php let g:pdv_cfg_Author = g:oppara_email
-        \| let g:pdv_cfg_autoEndFunction = 0
-        \| let g:pdv_cfg_autoEndClass = 0
-        \| let g:pdv_cfg_Version = ''
-        \| let g:pdv_cfg_Copyright = ''
-        \| let g:pdv_cfg_License = ''
+  " pdv
+  let g:pdv_template_dir = $HOME . '/.vim/templates/pdv'
+  autocmd FileType php nnoremap <buffer><leader>d :call  pdv#DocumentCurrentLine()<cr>
 
   " https://github.com/StanAngeloff/php.vim
   function! PhpSyntaxOverride()
@@ -1385,6 +1407,10 @@ let g:go_highlight_methods = 1
 let g:go_highlight_extra_types = 1
 
 
+" nerdtree  "{{{2
+noremap <silent> <C-n> :NERDTreeToggle<CR>
+
+
 " tagbar  "{{{2
 noremap <silent> <leader>tl :TagbarOpenAutoClose<cr>
 let g:tagbar_left = 1
@@ -1484,7 +1510,8 @@ nmap <leader>w <Plug>(openbrowser-smart-search)
 let g:NERDSpaceDelims = 1
 let g:NERDShutUp = 1
 let g:NERDCustomDelimiters = {
-  \ 'html': { 'left': '<!--', 'right': '-->' }
+  \ 'html': { 'left': '<!--', 'right': '-->' },
+  \ 'vue': { 'left': '//' }
   \ }
 
 
@@ -1644,8 +1671,8 @@ nmap ga <Plug>(EasyAlign)
 " yankround.vim  "{{{2
 nmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
+" nmap <C-p> <Plug>(yankround-prev)
+" nmap <C-n> <Plug>(yankround-next)
 
 
 " plasticboy/vim-markdown  "{{{2
