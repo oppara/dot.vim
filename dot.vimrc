@@ -1389,6 +1389,7 @@ let g:ale_linters = {
             \ 'javascript': ['eslint'],
             \ 'json': ['jsonlint'],
             \ 'php': ['php', 'phpcbf'],
+            \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
             \}
 nmap <silent> ek <Plug>(ale_previous_wrap)
