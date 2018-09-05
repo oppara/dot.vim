@@ -79,8 +79,8 @@ call plug#begin(g:plug_dir)
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
   Plug 'vim-scripts/sudo.vim'
-  Plug 'vim-scripts/matchit.zip'
-  Plug 'vim-scripts/MatchTag'
+
+  Plug 'Valloric/MatchTagAlways'
 
   Plug 'Yggdroot/indentLine'
   " Plug 'rhysd/migemo-search.vim'
@@ -1461,6 +1461,10 @@ let g:user_emmet_settings = {
       \  },
       \ 'indentation': '  '
       \}
+
+
+" Valloric/MatchTagAlways "{{{2
+noremap mm :MtaJumpToOtherTag<cr>
 
 
 " vim-gfm-syntax  "{{{2
