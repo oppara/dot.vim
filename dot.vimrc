@@ -1089,6 +1089,7 @@ augroup END
 augroup vimrc-ft-vue  "{{{2
   autocmd!
   autocmd FileType vue syntax sync fromstart
+  autocmd FileType vue setlocal expandtab softtabstop=2 shiftwidth=2
 augroup END
 
 
