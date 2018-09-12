@@ -61,6 +61,7 @@ call plug#begin(g:plug_dir)
   Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
   Plug 'Shougo/unite-help', {'on': ['Unite'] }
   Plug 'Shougo/unite-outline', {'on': ['Unite']}
+  Plug 'Shougo/context_filetype.vim'
 
 
   Plug 'oppara/snipmate.vim'
@@ -1407,6 +1408,38 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_extra_types = 1
+
+
+" context_filetype  "{{{2
+let g:context_filetype#filetypes = {
+  \ 'php': [
+  \   {
+  \    'start':
+  \     '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
+  \    'end': '</script>', 'filetype': 'javascript',
+  \   },
+  \   {
+  \    'start':
+  \     '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
+  \    'end': '</script>', 'filetype': 'coffee',
+  \   },
+  \   {
+  \    'start':
+  \     '<script\%( [^>]*\)\?>',
+  \    'end': '</script>', 'filetype': 'javascript',
+  \   },
+  \   {
+  \    'start':
+  \     '<style\%( [^>]*\)\?>',
+  \    'end': '</style>', 'filetype': 'css',
+  \   },
+  \   {
+  \    'start':
+  \     '<[^>]\+ style=\([''"]\)',
+  \    'end': '\1', 'filetype': 'css',
+  \   },
+  \ ],
+\}
 
 
 " nerdtree  "{{{2
