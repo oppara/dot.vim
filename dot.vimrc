@@ -140,7 +140,7 @@ call plug#begin(g:plug_dir)
 
   Plug 'tpope/vim-endwise', {'for': ['ruby']}
 
-  Plug 'fatih/vim-go'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
   Plug 'heavenshell/vim-jsdoc', {'for': ['javascript']}
   Plug 'mattn/jscomplete-vim', {'for': ['javascript']}
