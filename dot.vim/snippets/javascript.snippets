@@ -144,30 +144,6 @@ snippet test
 		ok(true);
 		${2}
 	});
-## Backbone
-snippet ini
-	initialize: function(${1:options}) {
-		${2}
-	}
-snippet bc
-	var ${1:ClassName} = Backbone.Collection.extend({
-		model: ${2:model}
-	});
-snippet bm
-	var ${1:ClassName} = Backbone.Model.extend({
-	});
-snippet bv
-	var ${1:ClassName} = Backbone.View.extend({
-		events: {}
-	});
-snippet br
-	var ${1:ClassName} = Backbone.Router.extend({
-		routes: {}
-	});
-snippet be
-	var ${1:ClassName} = _.extend({
-	}, Backbone.Events);
-# qunit
 snippet qm
 	module('${1}', {
 		setup: function() {
