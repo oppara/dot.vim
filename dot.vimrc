@@ -26,7 +26,6 @@ let g:oppara_email = 'oppara <oppara _at_ oppara.tv>'
 let g:snips_author = g:oppara_email
 let g:changelog_username = 'oppara'
 
-let mapleader = ','
 let g:mapleader = ','
 
 
