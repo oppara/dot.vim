@@ -146,7 +146,6 @@ call plug#begin(g:plug_dir)
   Plug 'mattn/jscomplete-vim', {'for': ['javascript']}
   Plug 'igetgames/vim-backbone-jscomplete', {'for': ['javascript']}
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
-  Plug 'maksimr/vim-jsbeautify', {'for': ['javascript', 'json', 'css']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
 
 call plug#end()
@@ -1081,7 +1080,7 @@ augroup vimrc-ft-javascript  "{{{2
 
   autocmd FileType javascript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   " tidy
-  autocmd FileType javascript nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
+  autocmd FileType javascript nnoremap <silent><buffer><leader>ti :ALEFix<cr>
   " jsdoc
   autocmd FileType javascript nmap <silent> <leader>d <Plug>(jsdoc)
 augroup END
@@ -1102,7 +1101,7 @@ augroup vimrc-ft-json  "{{{2
         \| setlocal foldmethod=syntax
 
   autocmd BufReadPost *json execute 'normal! zAgg'
-  autocmd FileType json nnoremap <silent><buffer><leader>ti :call JsBeautify()<cr>
+  autocmd FileType json nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
@@ -1123,7 +1122,7 @@ augroup vimrc-ft-html  "{{{2
   autocmd FileType html,xhtml,xml,xslt setlocal expandtab softtabstop=2 shiftwidth=2
   autocmd FileType html,xhtml :setlocal path+=$HOME.'Sites'
         \| :setlocal includeexpr=substitute(v:fname,'^\\/','','')
-  autocmd FileType html,xhtml nnoremap <silent><buffer><leader>ti :call HtmlBeautify()<cr>
+  autocmd FileType html,xhtml nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 
   " xmllintによる XMLの検証と整形
   " http://nanasi.jp/articles/others/xmllint.html
@@ -1148,7 +1147,7 @@ augroup vimrc-ft-css  "{{{2
   autocmd BufRead,BufNew *scss :setlocal filetype=css
   autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType css,scss nnoremap <silent><buffer><leader>ti :call CSSBeautify()<cr>
+  autocmd FileType css,scss nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
@@ -1162,6 +1161,7 @@ augroup vimrc-ft-markdown  "{{{2
   autocmd FileType markdown vnoremap <silent><buffer>mc :MyList - [ ]<CR>
   autocmd FileType markdown vnoremap <silent><buffer>mo :MyList 1.<CR>
   autocmd FileType markdown call s:set_markdown_trailing_space_highlight()
+  autocmd FileType markdown nnoremap <silent><buffer><leader>ti :ALEFix<cr>
   " surround.vim
   autocmd FileType markdown let b:surround_{char2nr('l')} = "[](\r)"
 augroup END
@@ -1176,6 +1176,7 @@ augroup END
 augroup vimrc-ft-yaml  "{{{2
   autocmd!
   autocmd FileType yaml setlocal expandtab softtabstop=2 shiftwidth=2
+  autocmd FileType yaml nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
@@ -1394,6 +1395,21 @@ let g:ale_linters = {
             \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
             \}
+let g:ale_fixers = {
+            \ 'html': ['prettier'],
+            \ 'css': ['prettier'],
+            \ 'less': ['prettier'],
+            \ 'scss': ['prettier'],
+            \ 'javascript': ['prettier'],
+            \ 'typescript': ['prettier'],
+            \ 'vue': ['prettier'],
+            \ 'json': ['prettier'],
+            \ 'graphql': ['prettier'],
+            \ 'markdown': ['prettier'],
+            \ 'yaml': ['prettier'],
+            \ 'lua': ['prettier'],
+            \}
+
 nmap <silent> ek <Plug>(ale_previous_wrap)
 nmap <silent> ej <Plug>(ale_next_wrap)
 
