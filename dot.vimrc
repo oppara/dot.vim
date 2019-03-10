@@ -1,4 +1,5 @@
 " encoding and color {{{1
+
 if has('vim_starting')
     set encoding=utf-8
     scriptencoding utf-8
@@ -11,6 +12,8 @@ if has('vim_starting')
 endif
 
 
+
+
 " Vars:   "{{{1
 
 let s:is_mac      = has('macunix') || (executable('uname') && system('uname') =~? '^darwin')
@@ -20,6 +23,7 @@ let s:tidy_cmd    = ''
 
 
 " global vars  "{{{2
+
 let $MY_VIMRUNTIME = expand(s:is_win ? '~/vimfiles' : '~/.vim')
 
 let g:oppara_email = 'oppara <oppara _at_ oppara.tv>'
