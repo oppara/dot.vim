@@ -178,6 +178,8 @@ endif
 
 if !exists('did_encoding_settings') "{{{3
 
+  " http://www.kawaz.jp/pukiwiki/?vim
+  " http://www.ksknet.net/vi/vim_1.html
   if &encoding !=# 'utf-8'
     set encoding=japan
     set fileencoding=japan
