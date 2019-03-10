@@ -1394,6 +1394,10 @@ let g:ale_linters = {
             \ 'php': ['php', 'phpcbf'],
             \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
+            \ 'css': ['stylelint'],
+            \ 'scss': ['stylelint'],
+            \ 'sass': ['stylelint'],
+            \ 'less': ['stylelint'],
             \}
 let g:ale_fixers = {
             \ 'html': ['prettier'],
