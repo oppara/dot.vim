@@ -463,16 +463,16 @@ nnoremap <silent> <leader>mz :highlight ZenkakuSpace ctermbg=red  ctermfg=red gu
 
 " to normal mode  "{{{2
 
-nnoremap <C-j> <esc>
-vnoremap <C-j> <esc>
-inoremap <c-j> <esc>
-snoremap <c-j> <esc>
+nnoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
+inoremap <C-j> <Esc>
+snoremap <C-j> <Esc>
 
 
 " save "{{{2
 
 nnoremap <leader><leader> :<C-u>call <SID>my_update()<cr>
-" noremap <leader><leader> <esc>:<C-u>call <SID>my_update()<cr>
+" noremap <leader><leader> <Esc>:<C-u>call <SID>my_update()<cr>
 function! s:my_update()
   normal mx
   up
@@ -496,8 +496,8 @@ nnoremap <leader>ht :helptags $MY_VIMRUNTIME/doc<cr>:helptags  $MY_VIMRUNTIME/bu
 
 " http://www.ac.cyberhome.ne.jp/~yakahaira/vimdoc/options.html#'iminsert'
 " コマンド <Esc> でInsertモードを終える度に値を 0 に戻すには以下。
-inoremap <silent> <esc> <esc>:set iminsert=0<cr>
-inoremap <silent> <c-j> <esc>:set iminsert=0<cr>
+inoremap <silent> <Esc> <Esc>:set iminsert=0<cr>
+inoremap <silent> <c-j> <Esc>:set iminsert=0<cr>
 
 
 " search  "{{{2
@@ -589,9 +589,9 @@ noremap <C-g> g;
 
 " emacs like C-a C-e C-f C-b "{{{2
 
-inoremap <C-a> <esc>^i
+inoremap <C-a> <Esc>^i
 inoremap <C-f> <Right>
-inoremap <C-e> <esc>A
+inoremap <C-e> <Esc>A
 inoremap <C-b> <Left>
 inoremap <C-D>  <Del>
 
