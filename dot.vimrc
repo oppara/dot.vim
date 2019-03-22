@@ -1503,6 +1503,15 @@ let g:tagbar_type_php = {
     \ ],
 \ }
 
+let g:tagbar_type_javascript = {
+    \ 'kinds' : [
+        \ 'I:interfaces',
+        \ 'C:classes',
+        \ 'D:constant definitions:1:0',
+        \ 'F:functions',
+    \ ],
+\ }
+
 
 "pt.vim  "{{{2
 cnoreabbrev Pt Pt!
