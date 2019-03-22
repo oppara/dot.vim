@@ -1509,6 +1509,7 @@ let g:tagbar_type_javascript = {
         \ 'C:classes',
         \ 'D:constant definitions:1:0',
         \ 'F:functions',
+        \ 'V:variables',
     \ ],
 \ }
 
