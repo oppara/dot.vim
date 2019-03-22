@@ -1399,16 +1399,17 @@ let g:ale_linters = {
             \ 'php': ['php', 'phpcbf'],
             \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
-            \ 'css': ['stylelint'],
-            \ 'scss': ['stylelint'],
-            \ 'sass': ['stylelint'],
-            \ 'less': ['stylelint'],
+            \ 'css': [],
+            \ 'scss': [],
+            \ 'sass': [],
+            \ 'less': [],
             \}
+            " \ 'css': ['stylelint'],
+            " \ 'scss': ['stylelint'],
+            " \ 'sass': ['stylelint'],
+            " \ 'less': ['stylelint'],
 let g:ale_fixers = {
             \ 'html': ['prettier'],
-            \ 'css': ['prettier'],
-            \ 'less': ['prettier'],
-            \ 'scss': ['prettier'],
             \ 'javascript': ['prettier'],
             \ 'typescript': ['prettier'],
             \ 'vue': ['prettier'],
@@ -1417,6 +1418,9 @@ let g:ale_fixers = {
             \ 'markdown': ['prettier'],
             \ 'yaml': ['prettier'],
             \ 'lua': ['prettier'],
+            \ 'css': ['prettier'],
+            \ 'less': ['prettier'],
+            \ 'scss': ['prettier'],
             \}
 
 nmap <silent> ek <Plug>(ale_previous_wrap)
