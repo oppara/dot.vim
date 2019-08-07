@@ -2,13 +2,13 @@
 snippet sh
 	#!/bin/sh
 	set -eu
+
 	${1}
 snippet bash
 	#!/bin/bash
 	set -eu
+
 	${1}
-
-
 snippet if
 	if [[ ${1:condition} ]]; then
 		${2:#statements}
@@ -90,3 +90,8 @@ snippet mul
 	${1}
 
 	rm $SCRIPT_PID
+
+snippet fn
+	function ${1}() {
+		${2}
+	}
