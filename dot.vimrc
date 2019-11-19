@@ -1026,6 +1026,8 @@ augroup vimrc-ft-php  "{{{2
 
   autocmd FileType php nnoremap <buffer>ef :EnableFastPHPFolds<cr>
 
+  autocmd FileType php nnoremap <buffer>su :call PhpSortUse()<cr>
+
   autocmd FileType php,blade inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   autocmd FileType blade let b:surround_{char2nr('e')} = "{{ \r }}"
         \| let b:surround_{char2nr('p')} = "{!! \r !!}"
