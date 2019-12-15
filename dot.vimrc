@@ -1394,6 +1394,8 @@ let g:ale_statusline_format = ['E%d', 'W%d', '']
 let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
 " let g:ale_open_list = 1
 " let g:ale_keep_list_window_open = 1
+" let g:ale_fix_on_save = 1
+" let g:ale_open_list = 0
 let g:ale_linters = {
             \ 'html': ['htmlhint'],
             \ 'javascript': ['eslint'],
@@ -1401,6 +1403,7 @@ let g:ale_linters = {
             \ 'php': ['php', 'phpcbf'],
             \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
+            \ 'markdown': ['textlint'],
             \ 'css': [],
             \ 'scss': [],
             \ 'sass': [],
@@ -1417,6 +1420,20 @@ let g:ale_fixers = {
             \ 'vue': ['prettier'],
             \ 'json': ['prettier'],
             \ 'graphql': ['prettier'],
+            \ 'markdown': ['textlint', 'prettier'],
+            \ 'yaml': ['prettier'],
+            \ 'lua': ['prettier'],
+            \ 'css': ['prettier'],
+            \ 'less': ['prettier'],
+            \ 'scss': ['prettier'],
+            \}
+let g:ale_fix_on_save_ignore = {
+            \ 'html': ['prettier'],
+            \ 'javascript': ['prettier'],
+            \ 'typescript': ['prettier'],
+            \ 'vue': ['prettier'],
+            \ 'json': ['prettier'],
+            \ 'graphql': ['prettier'],
             \ 'markdown': ['prettier'],
             \ 'yaml': ['prettier'],
             \ 'lua': ['prettier'],
@@ -1427,6 +1444,7 @@ let g:ale_fixers = {
 
 nmap <silent> ek <Plug>(ale_previous_wrap)
 nmap <silent> ej <Plug>(ale_next_wrap)
+nmap <silent> ef <Plug>(ale_fix)
 
 highlight ALEError ctermfg=196 ctermbg=228
 highlight ALEErrorSign ctermfg=202 ctermbg=none
