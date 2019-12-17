@@ -117,6 +117,7 @@ call plug#begin(g:plug_dir)
   Plug 'anyakichi/vim-qfutil'
 
   Plug 'tyru/open-browser.vim'
+  Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
 
   Plug 'sheerun/vim-polyglot'
   Plug 'w0rp/ale'
@@ -156,6 +157,7 @@ call plug#end()
 
 
 filetype plugin indent on
+
 
 
 
@@ -1177,6 +1179,7 @@ augroup END
 augroup vimrc-ft-sh  "{{{2
   autocmd!
   autocmd FileType sh setlocal expandtab softtabstop=2 shiftwidth=2
+  autocmd FileType sh nnoremap <silent><buffer><leader>ti :Shfmt<cr>
 augroup END
 
 
@@ -1449,6 +1452,10 @@ nmap <silent> ef <Plug>(ale_fix)
 highlight ALEError ctermfg=196 ctermbg=228
 highlight ALEErrorSign ctermfg=202 ctermbg=none
 highlight ALEErrorLine term=underline cterm=underline
+
+
+" z0mbix/vim-shfmt   "{{{2
+let g:shfmt_extra_args = '-i 2 -ci -bn -s'
 
 
 " vim-go  "{{{2
