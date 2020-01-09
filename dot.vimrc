@@ -84,6 +84,7 @@ call plug#begin(g:plug_dir)
   Plug 'scrooloose/nerdcommenter'
   Plug 'vim-scripts/sudo.vim'
 
+  Plug 'andymass/vim-matchup'
   Plug 'Valloric/MatchTagAlways'
 
   Plug 'Yggdroot/indentLine'
@@ -1567,6 +1568,11 @@ let g:user_emmet_settings = {
 noremap mm :MtaJumpToOtherTag<cr>
 
 
+" andymass/vim-matchup "{{{2
+let g:loaded_matchit = 1
+
+
+
 " vim-gfm-syntax  "{{{2
 let g:gfm_syntax_enable_always = 0
 let g:gfm_syntax_enable_filetypes = ['markdown.gfm']
@@ -1868,11 +1874,6 @@ endfunction
 
 
 " Vim Starting:  "{{{1
-if has('vim_starting')
-  " http://nanasi.jp/articles/vim/matchit_vim.html
-  source $VIMRUNTIME/macros/matchit.vim
-endif
-
 " Use vsplit mode
 if has("vim_starting") && !has("gui_running") && has("vertsplit")
   function! EnableVsplitMode()

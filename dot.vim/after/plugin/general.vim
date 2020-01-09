@@ -27,10 +27,6 @@ let xhtml_no_embedded_mathml = 1
 let xhtml_no_embedded_svg = 1
 
 
-" matchit: "{{{1
-
-let b:match_words = '<:>,<div.*>:</div>,if:endif,foreach:endforeach,\<begin\>:\<end\>'
-
 
 " Plugins: "{{{1
 
