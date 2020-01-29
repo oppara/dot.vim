@@ -131,6 +131,7 @@ call plug#begin(g:plug_dir)
   Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
   Plug 'beanworks/vim-phpfmt', {'for': ['php']}
   Plug 'arnaud-lb/vim-php-namespace', {'for': ['php']}
+  Plug 'stephpy/vim-php-cs-fixer', {'for': ['php']}
 
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
@@ -1047,6 +1048,9 @@ augroup vimrc-ft-php  "{{{2
   endfunction
   autocmd FileType php call PhpSyntaxOverride()
 
+  " php-cs-fixer
+  autocmd FileType php nnoremap <buffer><silent><leader>cf :call PhpCsFixerFixFile()<cr>
+
 augroup END
 
 
@@ -1594,8 +1598,18 @@ let g:phpfmt_tmp_dir = '/tmp/phpcbf'
 " let g:phpfmt_options = '--standard=WordPress-Core --encoding=utf-8'
 
 
+
 " phpfolding.vim  "{{{2
 let g:DisableAutoPHPFolding = 1
+
+
+
+" php-cs-fixer  "{{{2
+let g:php_cs_fixer_config_file = expand('~/.config/php/php_cs.dist')
+let g:php_cs_fixer_enable_default_mapping = 0
+let g:php_cs_fixer_dry_run = 0
+let g:php_cs_fixer_verbose = 0
+
 
 
 " vim-php-namespace "{{{2
