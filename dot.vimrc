@@ -404,6 +404,10 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']['.&ft.']'}
 set scrolloff=3
 
 
+" nofixeol  "{{{2
+" https://github.com/vim-jp/issues/issues/152
+set nofixeol
+
 
 
 " Mapping:  "{{{1
