@@ -1562,7 +1562,8 @@ let g:jsx_ext_required = 1
 
 
 " emmet-vim  "{{{2
-let g:user_emmet_leader_key='<c-t>'
+" Expressions<c-e>,
+let g:user_emmet_leader_key='<c-e>'
 let g:user_emmet_settings = {
       \  'variables': {
       \    'lang': 'ja',
