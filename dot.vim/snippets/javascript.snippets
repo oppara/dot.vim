@@ -28,12 +28,22 @@ snippet cf const hoge = function
 	const ${1:funcName} = function(${2:args}) {
 	  ${3}
 	};
+snippet cfa const hoge = ()
+	const ${1:funcName} = (${2:args}) => {
+	  ${3}
+	};
 snippet pf Object method
 	${1:methodName}: function(${2:args}) {
 	  ${4}
 	}${3}
+snippet pfa Object method
+	${1:methodName}: (${2:args}) => {
+	  ${4}
+	}${3}
 snippet ff Object method
 	function(${1:args}) {${2}}
+snippet fa Object method
+	(${1:args}) => {${2}}
 
 # if
 snippet if
@@ -178,3 +188,9 @@ snippet qnse
 	notStrictEqual(${1}, ${2}${3});
 snippet qth
 	throws(${1}${2});
+
+snippet as
+	(async () => {
+		${1}
+	})();
+
