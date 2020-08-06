@@ -50,6 +50,9 @@ call plug#begin(g:plug_dir)
 
   Plug 'junegunn/vim-plug', {'dir': g:plug_repo_dir}
 
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
   Plug 'vim-jp/vimdoc-ja'
   Plug 'justinmk/vim-dirvish'
 
@@ -59,7 +62,7 @@ call plug#begin(g:plug_dir)
 
   Plug 'clones/vim-l9'
   Plug 'clones/vim-autocomplpop'
-  Plug 'clones/vim-fuzzyfinder', {'on': ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}
+  " Plug 'clones/vim-fuzzyfinder', {'on': ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}
 
   Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
   Plug 'Shougo/unite-help', {'on': ['Unite'] }
@@ -1396,6 +1399,30 @@ endfunction
 
 " Plugins: "{{{1
 
+" fzf  "{{{2
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+nnoremap fff :GFiles<cr>
+nnoremap ffg :GFiles?<cr>
+nnoremap ffb :Buffers<cr>
+nnoremap ffh :History<cr>
+
+
+
+
 " ale  "{{{2
 let g:ale_sign_warning = '!'
 let g:ale_sign_error = 'X'
@@ -1730,26 +1757,6 @@ let g:acp_ignorecaseOption=0
 " autocmd FileType erlang let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k~/.vim/dict/erlang.dict'
 
 
-" fuf.vim  "{{{2
-" http://www.vim.org/scripts/script.php?script_id=1984
-
-let g:fuf_modesDisable = ['mrucmd']
-let g:fuf_keyNextMode = '<TAB>'
-let g:fuf_keyPrevMode = '<S-TAB>'
-let g:fuf_ignoreCase = 0
-let g:fuf_modesDisable = ['mrucmd']
-let g:fuf_mrufile_maxItem = 1000
-let g:fuf_enumeratingLimit = 20
-let g:fuf_mrufile_exclude = '\v\~$|\.bak$|\.swp|\.howm$|COMMIT_EDITMSG'
-let g:fuf_file_exclude = '\v\~$|\.DS_Store$|\.o$|\.exe$|\.bak$|\.swp|\.howm$'
-let g:fuf_dir_exclude = '\v\.svn|((^|[/\\])\.{1,2}[/\\]$)'
-
-nnoremap <silent> fff :FufFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-nnoremap <silent> ffn :FufBuffer<CR>
-nnoremap <silent> ffm :FufMruFile<CR>
-nnoremap <silent> ffd :FufDir <C-r>=expand('%:p:~')[:-1-len(expand('%:p:~:t'))]<CR><CR>
-nnoremap <silent> ffb :FufBookmark<CR>
-vmap <silent> ffa :FufAddBookmark<CR>
 
 
 " qfutil  "{{{2
