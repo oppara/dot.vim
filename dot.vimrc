@@ -1536,6 +1536,13 @@ let g:context_filetype#filetypes = {
 
 " nerdtree  "{{{2
 noremap <silent> <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeQuitOnOpen = 1
+augroup nerdtree
+  " How can I close vim if the only window left open is a NERDTree?
+  autocmd!
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
+
 
 
 " tagbar  "{{{2
