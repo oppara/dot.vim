@@ -151,9 +151,11 @@ call plug#begin(g:plug_dir)
 
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
-  Plug 'heavenshell/vim-jsdoc', {'for': ['javascript']}
+  Plug 'heavenshell/vim-jsdoc', {
+        \ 'for': ['javascript', 'javascript.jsx','typescript'],
+        \ 'do': 'make install'
+        \}
   Plug 'mattn/jscomplete-vim', {'for': ['javascript']}
-  Plug 'igetgames/vim-backbone-jscomplete', {'for': ['javascript']}
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
 
