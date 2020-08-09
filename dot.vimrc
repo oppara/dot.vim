@@ -1400,6 +1400,7 @@ endfunction
 " Plugins: "{{{1
 
 " fzf  "{{{2
+let g:fzf_preview_window = 'right:30%'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
@@ -1407,14 +1408,6 @@ let g:fzf_action = {
 
 augroup fzf
   autocmd!
-
-  " autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
-  " autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
-  " autocmd VimEnter * command! -bang -nargs=? Buffers call fzf#vim#buffers(<q-args>, {'options': '--no-preview'}, <bang>0)
-  " autocmd VimEnter * command! -bang -nargs=? History call fzf#vim#history(<q-args>, {'options': '--no-preview'}, <bang>0)
-  autocmd VimEnter * command! -bang -nargs=? -complete=dir Files
-        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
   autocmd VimEnter * command! -bang -nargs=* Rg
         \ call fzf#vim#grep(
         \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
