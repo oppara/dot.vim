@@ -4,30 +4,40 @@
 
 ## Install
 
-    % brew install vim --with-lua --with-luajit
+```sh
+% brew install vim --with-lua --with-luajit
+```
 
 or
 
-    % git https://github.com/vim/vim.git 
-    % cd vim/src
-    % ./configure --prefix=${HOME}/bin \
-      --with-features=huge \
-      --enable-multibyte \
-      --enable-xim \
-      --enable-fontset \
-      --disable-selinux \
-      --disable-gui \
-      --with-tlib=ncurses \
-      --enable-rubyinterp \
-      --enable-luainterp \
-      --without-x
+```sh
+% git clone https://github.com/vim/vim.git 
+% cd vim/src
+% ./configure --prefix=${HOME}/bin \
+  --with-features=huge \
+  --enable-multibyte \
+  --enable-xim \
+  --enable-fontset \
+  --disable-selinux \
+  --disable-gui \
+  --with-tlib=ncurses \
+  --enable-rubyinterp \
+  --enable-luainterp \
+  --without-x
 
-    % make && make install
+% make && make install
+```
 
+## Starting without vimrc & plugin
 
-### MacVim-KaoriYa
+compatible on
 
-<https://code.google.com/p/macvim-kaoriya/>
+```sh
+% vim -u NONE
+```
 
-    % brew tap caskroom/homebrew-versions
-    % brew cask install macvim-kaoriya
+compatible off
+
+```sh
+% vim -u NONE -N
+```
