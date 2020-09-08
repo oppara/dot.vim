@@ -36,6 +36,7 @@ call plug#begin(g:plug_dir)
   Plug 'Shougo/context_filetype.vim'
 
   Plug 'oppara/wombat256opp'
+  Plug 'morhetz/gruvbox'
 
   Plug 'oppara/snipmate.vim'
   Plug 'majutsushi/tagbar'
