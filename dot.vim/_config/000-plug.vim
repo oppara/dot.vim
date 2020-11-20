@@ -26,9 +26,11 @@ call plug#begin(g:plug_dir)
   Plug 'itchyny/lightline.vim'
   Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
-  Plug 'clones/vim-l9'
-  Plug 'clones/vim-autocomplpop'
-  " Plug 'clones/vim-fuzzyfinder', {'on': ['FufFile', 'FufBuffer', 'FufMruFile', 'FufDir', 'FufBookmark', 'FufAddBookmark']}
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'akaimo/asyncomplete-around.vim'
+  Plug 'prabirshrestha/asyncomplete-buffer.vim'
+  Plug 'yami-beta/asyncomplete-omni.vim'
+  Plug 'prabirshrestha/asyncomplete-file.vim'
 
   Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
   Plug 'Shougo/unite-help', {'on': ['Unite'] }
