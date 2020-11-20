@@ -8,6 +8,7 @@ endif
 nmap <silent> ek <Plug>(ale_previous_wrap)
 nmap <silent> ej <Plug>(ale_next_wrap)
 nmap <silent> ef <Plug>(ale_fix)
+nmap <silent> al <Plug>(ale_toggle)
 
 highlight ALEError ctermfg=196 ctermbg=228
 highlight ALEErrorSign ctermfg=202 ctermbg=none
@@ -16,7 +17,7 @@ highlight ALEErrorLine term=underline cterm=underline
 let g:ale_sign_warning = '!'
 let g:ale_sign_error = 'X'
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
 let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_statusline_format = ['E%d', 'W%d', '']
 let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
