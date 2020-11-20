@@ -125,6 +125,8 @@ call plug#begin(g:plug_dir)
   Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
   Plug 'oppara/vim-jquery', {'for': ['javascript']}
 
+  Plug 'hashivim/vim-terraform'
+
 call plug#end()
 
 
