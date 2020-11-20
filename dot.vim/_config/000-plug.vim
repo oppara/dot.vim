@@ -104,6 +104,7 @@ call plug#begin(g:plug_dir)
   Plug 'beanworks/vim-phpfmt', {'for': ['php']}
   Plug 'stephpy/vim-php-cs-fixer', {'for': ['php']}
   Plug 'StanAngeloff/php.vim'
+  Plug 'jwalton512/vim-blade', {'for': ['php']}
 
   Plug 'oppara/sql_iabbr.vim', {'for': ['sql']}
 
