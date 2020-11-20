@@ -6,6 +6,7 @@ if empty(globpath(&rtp, 'autoload/fern.vim'))
 endif
 
 nnoremap <silent> <Leader>f :<C-u>Fern . -reveal=% -drawer -toggle -width=40<CR>
+nnoremap <silent> <C-h> :<C-u>Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 function! s:init_fern() abort
   " TODO ファイルだったらドローワーを閉じてファイルを開く
