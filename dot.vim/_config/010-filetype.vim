@@ -20,8 +20,6 @@ augroup vimrc-filetype  "{{{2
 
   autocmd BufRead,BufNew *slim :setlocal filetype=slim
 
-  autocmd BufRead,BufNew *.cf.yml :setlocal filetype=cloudformation.yaml
-
   autocmd BufRead,BufNewFile jquery.*.js :setlocal filetype=javascript syntax=jquery
 
   autocmd BufRead,BufNewFile *json :setlocal filetype=json syntax=json

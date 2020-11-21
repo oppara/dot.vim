@@ -28,3 +28,34 @@ let g:lsp_signs_enabled = 1
 let g:lsp_signs_error = {'text': 'X'}
 let g:lsp_signs_warning = {'text': '!'}
 let g:lsp_signs_information = {'text': '?'}
+
+let g:lsp_settings = {
+      \  'yaml-language-server': {
+      \    'workspace_config': {
+      \      'yaml': {
+      \        'customTags': [
+      \          '!And',
+      \          '!If',
+      \          '!Not',
+      \          '!Equals',
+      \          '!Or',
+      \          '!FindInMap',
+      \          '!Base64',
+      \          '!Cidr',
+      \          '!Ref',
+      \          '!Sub',
+      \          '!GetAtt',
+      \          '!GetAZs',
+      \          '!ImportValue',
+      \          '!Select',
+      \          '!Split',
+      \          '!Join'
+      \        ],
+      \        'completion': v:true,
+      \        'hover': v:true,
+      \        'validate': v:true,
+      \        'format.enable': v:true,
+      \      }
+      \    }
+      \  },
+      \}
