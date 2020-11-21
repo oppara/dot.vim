@@ -17,12 +17,6 @@ call plug#begin(g:plug_dir)
 
   Plug 'vim-jp/vimdoc-ja'
 
-  Plug 'lambdalisue/fern.vim'
-  Plug 'lambdalisue/nerdfont.vim'
-  Plug 'lambdalisue/glyph-palette.vim'
-  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-
-
   Plug 'itchyny/lightline.vim'
   Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
@@ -35,6 +29,9 @@ call plug#begin(g:plug_dir)
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
+
+  Plug 'mattn/vim-molder'
+  Plug 'mattn/vim-molder-operations'
 
   Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
   Plug 'Shougo/unite-help', {'on': ['Unite'] }
