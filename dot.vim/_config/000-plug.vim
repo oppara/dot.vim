@@ -95,6 +95,8 @@ call plug#begin(g:plug_dir)
 
   Plug 'tyru/open-browser.vim'
 
+  Plug 'vim-test/vim-test'
+
   Plug 'sheerun/vim-polyglot'
   Plug 'w0rp/ale'
 
