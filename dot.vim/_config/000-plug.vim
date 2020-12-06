@@ -20,15 +20,17 @@ call plug#begin(g:plug_dir)
   Plug 'itchyny/lightline.vim'
   Plug 'Shougo/vimproc.vim', {'do': 'make'}
 
+  Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+
   Plug 'akaimo/asyncomplete-around.vim'
   Plug 'prabirshrestha/asyncomplete-buffer.vim'
   Plug 'yami-beta/asyncomplete-omni.vim'
   Plug 'prabirshrestha/asyncomplete-file.vim'
 
-  Plug 'prabirshrestha/asyncomplete-lsp.vim'
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
 
   Plug 'mattn/vim-molder'
   Plug 'mattn/vim-molder-operations'
