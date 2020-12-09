@@ -118,8 +118,6 @@ call plug#begin(g:plug_dir)
   Plug 'kannokanno/previm', {'for': ['markdown']}
   Plug 'rhysd/vim-gfm-syntax'
 
-  Plug 'hokaccha/vim-html5validator', {'for': ['html']}
-
   Plug 'hail2u/vim-css3-syntax', {'for': ['css']}
 
   Plug 'heavenshell/vim-jsdoc', {
