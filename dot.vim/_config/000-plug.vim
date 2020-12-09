@@ -122,8 +122,6 @@ call plug#begin(g:plug_dir)
 
   Plug 'hail2u/vim-css3-syntax', {'for': ['css']}
 
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
-
   Plug 'heavenshell/vim-jsdoc', {
         \ 'for': ['javascript', 'javascript.jsx','typescript'],
         \ 'do': 'make install'
