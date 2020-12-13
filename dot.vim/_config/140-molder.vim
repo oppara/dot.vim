@@ -7,6 +7,6 @@ endif
 
 augroup vim-molder
   autocmd!
-  autocmd FileType molder nmap u <plug>(molder-up)
-  autocmd FileType molder nmap o <plug>(molder-open)
+  autocmd FileType molder nmap <buffer> u <plug>(molder-up)
+  autocmd FileType molder nmap <buffer> o <plug>(molder-open)
 augroup END
