@@ -31,6 +31,9 @@ call plug#begin(g:plug_dir)
   Plug 'yami-beta/asyncomplete-omni.vim'
   Plug 'prabirshrestha/asyncomplete-file.vim'
 
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
+
 
   Plug 'mattn/vim-molder'
   Plug 'mattn/vim-molder-operations'
@@ -43,7 +46,7 @@ call plug#begin(g:plug_dir)
   Plug 'oppara/wombat256opp'
   Plug 'morhetz/gruvbox'
 
-  Plug 'oppara/snipmate.vim'
+  " Plug 'oppara/snipmate.vim'
   Plug 'majutsushi/tagbar'
 
   Plug 'LeafCage/yankround.vim'

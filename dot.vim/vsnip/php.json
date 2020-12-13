@@ -1,0 +1,760 @@
+{
+  "assertSame": {
+    "prefix": "as",
+    "body": [
+      "\\$this->assertSame(\\$${1:expected}, \\$${2:actual}${3});"
+    ],
+    "description": "assertSame"
+  },
+  "assertNotSame": {
+    "prefix": "ans",
+    "body": [
+      "\\$this->assertNotSame(\\$${1:expected}, \\$${2:actual}${3});"
+    ],
+    "description": "assertNotSame"
+  },
+  "assertTrue": {
+    "prefix": "at",
+    "body": [
+      "\\$this->assertTrue(${1:true});"
+    ],
+    "description": "assertTrue"
+  },
+  "assertFalse": {
+    "prefix": "af",
+    "body": [
+      "\\$this->assertFalse(${1:false});"
+    ],
+    "description": "assertFalse"
+  },
+  "assertContains": {
+    "prefix": "aco",
+    "body": [
+      "\\$this->assertContains(\\$${1:needle}, \\$${2:hystack}${3});"
+    ],
+    "description": "assertContains"
+  },
+  "assertNotContains": {
+    "prefix": "anco",
+    "body": [
+      "\\$this->assertNotContains(\\$${1:needle}, \\$${2:hystack}${3});"
+    ],
+    "description": "assertNotContains"
+  },
+  "assertCount": {
+    "prefix": "acnt",
+    "body": [
+      "\\$this->assertCount(\\$${1:count}, \\$${2:hystack}${3});"
+    ],
+    "description": "assertCount"
+  },
+  "assertNotCount": {
+    "prefix": "ancnt",
+    "body": [
+      "\\$this->assertNotCount(\\$${1:count}, \\$${2:hystack}${3});"
+    ],
+    "description": "assertNotCount"
+  },
+  "assertEmpty": {
+    "prefix": "aem",
+    "body": [
+      "\\$this->assertEmpty(\\$${1:count});"
+    ],
+    "description": "assertEmpty"
+  },
+  "assertNotEmpty": {
+    "prefix": "anem",
+    "body": [
+      "\\$this->assertNotEmpty(\\$${1:count});"
+    ],
+    "description": "assertNotEmpty"
+  },
+  "assertNull": {
+    "prefix": "anull",
+    "body": [
+      "\\$this->assertNull(\\$${1:variable});"
+    ],
+    "description": "assertNull"
+  },
+  "assertNotNull": {
+    "prefix": "annull",
+    "body": [
+      "\\$this->assertNotNull(\\$${1:variable});"
+    ],
+    "description": "assertNotNull"
+  },
+  "assertFileExists": {
+    "prefix": "afe",
+    "body": [
+      "\\$this->assertFileExists(\\$${1:path});"
+    ],
+    "description": "assertFileExists"
+  },
+  "assertNotFileExists": {
+    "prefix": "anfe",
+    "body": [
+      "\\$this->assertNotFileExists(\\$${1:path});"
+    ],
+    "description": "assertNotFileExists"
+  },
+  "assertRegExp": {
+    "prefix": "are",
+    "body": [
+      "\\$this->assertRegExp(\\$${1:pattern}, \\$${2:string}${3});"
+    ],
+    "description": "assertRegExp"
+  },
+  "assertNotRegExp": {
+    "prefix": "anre",
+    "body": [
+      "\\$this->assertNotRegExp(\\$${1:pattern}, \\$${2:string}${3});"
+    ],
+    "description": "assertNotRegExp"
+  },
+  "assertEquals": {
+    "prefix": "aeq",
+    "body": [
+      "\\$this->assertEquals(\\$${1:expected}, \\$${2:actual}${3});"
+    ],
+    "description": "assertEquals"
+  },
+  "assertNotEquals": {
+    "prefix": "aneq",
+    "body": [
+      "\\$this->assertNotEquals(\\$${1:expected}, \\$${2:actual}${3});"
+    ],
+    "description": "assertNotEquals"
+  },
+  "expectException": {
+    "prefix": "eee",
+    "body": [
+      "\\$this->expectException(${1:exception});"
+    ],
+    "description": "expectException"
+  },
+  "expectExceptionMessage": {
+    "prefix": "eem",
+    "body": [
+      "\\$this->expectExceptionMessage(${1:message});"
+    ],
+    "description": "expectExceptionMessage"
+  },
+  "expectExceptionCode": {
+    "prefix": "eec",
+    "body": [
+      "\\$this->expectExceptionCode(${1:code});"
+    ],
+    "description": "expectExceptionCode"
+  },
+  "expectExceptionMessageRegExp": {
+    "prefix": "eer",
+    "body": [
+      "\\$this->expectExceptionMessagRegExpe(${1:regexp});"
+    ],
+    "description": "expectExceptionMessagRegExpe"
+  },
+
+  "@expectedException": {
+    "prefix": "atex",
+    "body": [
+      "@expectedException ${1:Exception}"
+    ],
+    "description": "@expectedException"
+  },
+  "@dataProvider": {
+    "prefix": "atdp",
+    "body": [
+      "@dataProvider ${1:Provider}"
+    ],
+    "description": "@dataProvider"
+  },
+  "@group": {
+    "prefix": "atg",
+    "body": [
+      "@group ${1:hoi}"
+    ],
+    "description": "@group"
+  },
+  "@test": {
+    "prefix": "te",
+    "body": [
+      "/**",
+      " * @test",
+      " */",
+      "public function ${1:FunctionName}()",
+      "{",
+      "\t${2}",
+      "}"
+    ],
+    "description": "@test"
+  },
+  "phpunit": {
+    "prefix": "pu",
+    "body": [
+      "use PHPUnit\\Framework\\TestCase;",
+      "",
+      "class ${1:ClassName}Test extends TestCase",
+      "{",
+      "\tprotected function setUp()",
+      "\t{",
+      "\t\tparent::setUp();",
+      "\t}",
+      "",
+      "\tprotected function tearDown()",
+      "\t{",
+      "\t\tparent::tearDown();",
+      "\t}",
+      "",
+      "\t/**",
+      "\t * @test",
+      "\t */",
+      "\tpublic function ${2:FunctionName}()",
+      "\t{",
+      "\t\t\\$this->fail();",
+      "\t}",
+      "}"
+    ],
+    "description": "phpunit"
+  },
+
+  "Try ... catch": {
+    "prefix": "try",
+    "body": [
+      "try {",
+        "\t${1:# code...}",
+        "} catch (${2:\\Throwable} \\$${3:e}) {",
+        "\t${4:# code...}",
+        "}"
+    ],
+    "description": "Try catch block"
+  },
+  "Try ... catch ... finally": {
+    "prefix": "tryf",
+    "body": [
+      "try {",
+        "\t${1:# code...}",
+        "} catch (${2:\\Throwable} \\$${3:e}) {",
+        "\t${4:# code...}",
+        "}$5 finally {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Try catch finally block"
+  },
+  "Catch": {
+    "prefix": "cat",
+    "body": [
+      "catch (${1:\\Throwable} \\$${2:e}) {",
+        "\t${3:# code...}",
+        "}"
+    ],
+    "description": "Catch block"
+  },
+  "Finally": {
+    "prefix": "fy",
+    "body": [
+      "finally {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Finally block"
+  },
+  "Throw new Exception": {
+    "prefix": "th",
+    "body": [
+      "throw new ${1:Some}Exception(\"${2:Error statement}\");"
+    ],
+    "description": "Throw new exception statement"
+  },
+  "Foreach loop": {
+    "prefix": "fore",
+    "body": [
+      "foreach (\\$${1:iterable} as \\$${2:item}) {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Foreach as $item block"
+  },
+  "Foreach ... key ... item": {
+    "prefix": "forek",
+    "body": [
+      "foreach (\\$${1:iterable} as \\$${2:key} => \\$${3:item}) {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Foreach as $key => $item block"
+  },
+  "For loop": {
+    "prefix": "for",
+    "body": [
+      "for (\\$${1:i} = ${2:0}; \\$${1:i} < \\$${3:limit}; \\$${1:i}++) {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "For loop"
+  },
+  "While loop": {
+    "prefix": "wh",
+    "body": [
+      "while (\\$${1:variable} ${2:<=} \\$${3:limit}) {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "While loop"
+  },
+  "Do ... while": {
+    "prefix": "dowh",
+    "body": [
+      "do {",
+        "\t${0:# code...}",
+        "} while (\\$${1:variable} ${2:<=} \\$${3:limit});"
+    ],
+    "description": "Do while loop"
+  },
+  "Key ... value": {
+    "prefix": "kv",
+    "body": [
+      "'${1:key}' => ${2:value},"
+    ],
+    "description": "key => value statement"
+  },
+  "If block": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition}) {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "If  block"
+  },
+  "If ... else": {
+    "prefix": "ife",
+    "body": [
+      "if (${1:condition}) {",
+        "\t${2:# code...}",
+        "} else {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "If else block"
+  },
+  "Switch block": {
+    "prefix": "sw",
+    "body": [
+      "switch (\\$${1:variable}) {",
+        "\tcase '${2:label}':",
+        "\t\t${3:# code...}",
+        "\t\tbreak;",
+        "\tcase '${4:label}':",
+        "\t\t${5:# code...}",
+        "\t\tbreak;$6",
+        "\tdefault:",
+        "\t\t${0:# code...}",
+        "\t\tbreak;",
+        "}"
+    ],
+    "description": "Switch block"
+  },
+  "Case statement": {
+    "prefix": "cs",
+    "body": [
+      "case '${1:label}':",
+      "\t${2:# code...}",
+      "\tbreak;"
+    ],
+    "description": "Case addon block"
+  },
+  "Ternary operator": {
+    "prefix": "tern",
+    "body": [
+      "${1:condition} ? ${2:if_true} : ${3:if_false};"
+    ],
+    "description": "Ternary statement"
+  },
+  "Class constructor": {
+    "prefix": "pubc",
+    "body": [
+      "public function __construct(${1:args})",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Class public constructor block"
+  },
+  "Class private constructor": {
+    "prefix": "pric",
+    "body": [
+      "private function __construct(${1:args})",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Class private constructor block"
+  },
+  "Class protected constructor": {
+    "prefix": "proc",
+    "body": [
+      "protected function __construct(${1:args})",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Class protected constructor block"
+  },
+  "Private method PHP5": {
+    "prefix": "pri",
+    "body": [
+      "private function ${1:methodName}(${2:parameters})",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Private method block PHP5"
+  },
+  "Protected method PHP5": {
+    "prefix": "pro",
+    "body": [
+      "protected function ${1:methodName}(${2:parameters})",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Protected method block PHP5"
+  },
+  "Public method PHP5": {
+    "prefix": "pub",
+    "body": [
+      "public function ${1:methodName}(${2:parameters})",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Public method block PHP5"
+  },
+  "Function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:func_name}(${2:Type} \\$${3:args}): ${4:void} {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Function block"
+  },
+  "Anonymous function": {
+    "prefix": "fna",
+    "body": [
+      "function (${1:Type} \\$${2:args}): ${3:void} {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Anonymous function block"
+  },
+  "Anonymous function ... use": {
+    "prefix": "fnu",
+    "body": [
+      "function (${1:Type} \\$${2:args}) use (\\$${3:vars}): ${4:void} {",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "Anonymous function with use block"
+  },
+  "Class": {
+    "prefix": "cl",
+    "body": [
+      "class ${1:ClassName}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP Class block"
+  },
+  "Class extends": {
+    "prefix": "clx",
+    "body": [
+      "class ${1:ClassName} extends ${2:MotherClass}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP Class extends block"
+  },
+  "Class implements": {
+    "prefix": "cli",
+    "body": [
+      "class ${1:ClassName} implements ${2:Interfaces}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP Class implements block"
+  },
+  "Class extends implements": {
+    "prefix": "clxi",
+    "body": [
+      "class ${1:ClassName} extends ${2:MotherClass} implements ${3:Interfaces}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP Class extends and implements block"
+  },
+  "Abstract class": {
+    "prefix": "acl",
+    "body": [
+      "abstract class ${1:ClassName}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP abstract Class block"
+  },
+  "Abstract class extends": {
+    "prefix": "aclx",
+    "body": [
+      "abstract class ${1:ClassName} extends ${2:MotherClass}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP abstract Class extends block"
+  },
+  "Abstract class implements": {
+    "prefix": "acli",
+    "body": [
+      "abstract class ${1:ClassName} implements ${2:Interfaces}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP abstract Class implements block"
+  },
+  "Abstract class extends implements": {
+    "prefix": "aclxi",
+    "body": [
+      "abstract class ${1:ClassName} extends ${2:MotherClass} implements ${3:Interfaces}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP abstract Class extends and implements block"
+  },
+  "Final class": {
+    "prefix": "fcl",
+    "body": [
+      "final class ${1:ClassName}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP final Class block"
+  },
+  "Final class extends": {
+    "prefix": "fclx",
+    "body": [
+      "final class ${1:ClassName} extends ${2:MotherClass}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP final Class extends block"
+  },
+  "Final class implements": {
+    "prefix": "fcli",
+    "body": [
+      "final class ${1:ClassName} implements ${2:Interfaces}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP final Class implements block"
+  },
+  "Final class extends implements": {
+    "prefix": "fclxi",
+    "body": [
+      "final class ${1:ClassName} extends ${2:MotherClass} implements ${3:Interfaces}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP final Class extends and implements block"
+  },
+  "Interface": {
+    "prefix": "in",
+    "body": [
+      "interface ${1:InterfaceName}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP Interface block"
+  },
+  "Interface extends": {
+    "prefix": "inx",
+    "body": [
+      "interface ${1:InterfaceName} extends ${2:Interfaces}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP Interface extends block"
+  },
+  "Trait": {
+    "prefix": "trt",
+    "body": [
+      "trait ${1:TraitName}",
+      "{",
+        "\t${0:# code...}",
+        "}"
+    ],
+    "description": "PHP Trait block"
+  },
+  "define": {
+    "prefix": "df",
+    "body": [
+      "define(\"${1:CONSTANT}\", \"${2:value}\");"
+    ],
+    "description": "'define' call"
+  },
+  "PHP require_once": {
+    "prefix": "req",
+    "body": [
+      "require_once ${1:__DIR__.}'${2:path_to_filename}';"
+    ],
+    "description": "PHP require_once "
+  },
+  "PHP include_once": {
+    "prefix": "inc",
+    "body": [
+      "include_once ${1:__DIR__.}'${2:path_to_filename}';"
+    ],
+    "description": "PHP require_once "
+  },
+  "PHP here doc": {
+    "prefix": "hd",
+    "body": [
+      "<<< EOL",
+      "$0",
+      "EOL;"
+    ],
+    "description": "PHP here doc"
+  },
+  "PHP now doc": {
+    "prefix": "nd",
+    "body": [
+      "<<< 'EOL'",
+      "$0",
+      "EOL;"
+    ],
+    "description": "PHP now doc"
+  },
+
+  "PHP var_export": {
+    "prefix": "ve",
+    "body": [
+      "var_export(\\$${1:variable});"
+    ],
+    "description": "PHP var_export"
+  },
+  "PHP var_dump": {
+    "prefix": "vd",
+    "body": [
+      "var_dump(\\$${1:variable});"
+    ],
+    "description": "PHP var_dump"
+  },
+  "PHP print_r": {
+    "prefix": "pr",
+    "body": [
+      "print_r(\\$${1:variable});"
+    ],
+    "description": "PHP print_r"
+  },
+
+  "PHP echo short tag": {
+    "prefix": "pee",
+    "body": [
+      "<?= $0 ?>"
+    ],
+    "description": "PHP echo short tag"
+  },
+  "PHP echo tag": {
+    "prefix": "pe",
+    "body": [
+      "<?php echo $0; ?>"
+    ],
+    "description": "PHP echo tag"
+  },
+  "PHP tags": {
+    "prefix": "php",
+    "body": [
+      "<?php",
+      "declare(strict_types=1);",
+      "",
+      "$0"
+    ],
+    "description": "PHP tag with strict_types=1"
+  },
+  "GLOBAL array": {
+    "prefix": "gglob",
+    "body": [
+      "\\$GLOBALS[\"${1:key}\"]"
+    ],
+    "description": "$GLOBALS array"
+  },
+  "SERVER array": {
+    "prefix": "gser",
+    "body": [
+      "\\$_SERVER[\"${1:key}\"]"
+    ],
+    "description": "$_SERVER array"
+  },
+  "REQUEST array": {
+    "prefix": "greq",
+    "body": [
+      "\\$_REQUEST[\"${1:key}\"]"
+    ],
+    "description": "$_REQUEST array"
+  },
+  "POST array": {
+    "prefix": "gpost",
+    "body": [
+      "\\$_POST[\"${1:key}\"]"
+    ],
+    "description": "$_POST array"
+  },
+  "GET array": {
+    "prefix": "gget",
+    "body": [
+      "\\$_GET[\"${1:key}\"]"
+    ],
+    "description": "$_GET array"
+  },
+  "FILES array": {
+    "prefix": "gfile",
+    "body": [
+      "\\$_FILES['${1:userfile}']['${2:key}']"
+    ],
+    "description": "$_FILES array"
+  },
+  "ENV array": {
+    "prefix": "genv",
+    "body": [
+      "\\$_ENV[\"${1:key}\"]"
+    ],
+    "description": "$_ENV array"
+  },
+  "COOKIE array": {
+    "prefix": "gcook",
+    "body": [
+      "\\$_COOKIE[\"${1:key}\"]"
+    ],
+    "description": "$_COOKIE array"
+  },
+  "SESSION array": {
+    "prefix": "gss",
+    "body": [
+      "\\$_SESSION[\"${1:key}\"]"
+    ],
+    "description": "$_SESSION array"
+  }
+}
