@@ -651,21 +651,21 @@
   "PHP var_export": {
     "prefix": "ve",
     "body": [
-      "var_export(\\$${1:variable});"
+      "var_export(${1:variable});"
     ],
     "description": "PHP var_export"
   },
   "PHP var_dump": {
     "prefix": "vd",
     "body": [
-      "var_dump(\\$${1:variable});"
+      "var_dump(${1:variable});"
     ],
     "description": "PHP var_dump"
   },
   "PHP print_r": {
     "prefix": "pr",
     "body": [
-      "print_r(\\$${1:variable});"
+      "print_r(${1:variable});"
     ],
     "description": "PHP print_r"
   },
