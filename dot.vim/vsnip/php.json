@@ -751,7 +751,7 @@
     "description": "$_COOKIE array"
   },
   "SESSION array": {
-    "prefix": "gss",
+    "prefix": "gses",
     "body": [
       "\\$_SESSION[\"${1:key}\"]"
     ],
