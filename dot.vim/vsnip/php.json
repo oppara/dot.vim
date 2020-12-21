@@ -153,6 +153,13 @@
     ],
     "description": "expectExceptionMessagRegExpe"
   },
+  "@inheritdoc": {
+    "prefix": "atin",
+    "body": [
+      "{@inheritdoc}"
+    ],
+    "description": "@inheritdoc"
+  },
 
   "@expectedException": {
     "prefix": "atex",
@@ -164,7 +171,7 @@
   "@dataProvider": {
     "prefix": "atdp",
     "body": [
-      "@dataProvider ${1:Provider}"
+      "@dataProvider ${1}Provider"
     ],
     "description": "@dataProvider"
   },
