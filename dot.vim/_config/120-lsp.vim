@@ -10,8 +10,8 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <silent> sh :split \| :LspDefinition <CR>
 
   inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
-  " inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+  inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+  inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 endfunction
 
 augroup lsp_install
