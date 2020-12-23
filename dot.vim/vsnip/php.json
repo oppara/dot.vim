@@ -1,153 +1,153 @@
 {
   "assertSame": {
-    "prefix": "as",
+    "prefix": "ass",
     "body": [
       "\\$this->assertSame(\\$${1:expected}, \\$${2:actual}${3});"
     ],
     "description": "assertSame"
   },
   "assertNotSame": {
-    "prefix": "ans",
+    "prefix": "asns",
     "body": [
       "\\$this->assertNotSame(\\$${1:expected}, \\$${2:actual}${3});"
     ],
     "description": "assertNotSame"
   },
   "assertTrue": {
-    "prefix": "at",
+    "prefix": "ast",
     "body": [
       "\\$this->assertTrue(${1:true});"
     ],
     "description": "assertTrue"
   },
   "assertFalse": {
-    "prefix": "af",
+    "prefix": "asf",
     "body": [
       "\\$this->assertFalse(${1:false});"
     ],
     "description": "assertFalse"
   },
   "assertContains": {
-    "prefix": "aco",
+    "prefix": "asc",
     "body": [
       "\\$this->assertContains(\\$${1:needle}, \\$${2:hystack}${3});"
     ],
     "description": "assertContains"
   },
   "assertNotContains": {
-    "prefix": "anco",
+    "prefix": "asnc",
     "body": [
       "\\$this->assertNotContains(\\$${1:needle}, \\$${2:hystack}${3});"
     ],
     "description": "assertNotContains"
   },
   "assertCount": {
-    "prefix": "acnt",
+    "prefix": "ascn",
     "body": [
       "\\$this->assertCount(\\$${1:count}, \\$${2:hystack}${3});"
     ],
     "description": "assertCount"
   },
   "assertNotCount": {
-    "prefix": "ancnt",
+    "prefix": "asncn",
     "body": [
       "\\$this->assertNotCount(\\$${1:count}, \\$${2:hystack}${3});"
     ],
     "description": "assertNotCount"
   },
   "assertEmpty": {
-    "prefix": "aem",
+    "prefix": "asem",
     "body": [
       "\\$this->assertEmpty(\\$${1:count});"
     ],
     "description": "assertEmpty"
   },
   "assertNotEmpty": {
-    "prefix": "anem",
+    "prefix": "asnem",
     "body": [
       "\\$this->assertNotEmpty(\\$${1:count});"
     ],
     "description": "assertNotEmpty"
   },
   "assertNull": {
-    "prefix": "anull",
+    "prefix": "asnull",
     "body": [
       "\\$this->assertNull(\\$${1:variable});"
     ],
     "description": "assertNull"
   },
   "assertNotNull": {
-    "prefix": "annull",
+    "prefix": "asnnull",
     "body": [
       "\\$this->assertNotNull(\\$${1:variable});"
     ],
     "description": "assertNotNull"
   },
   "assertFileExists": {
-    "prefix": "afe",
+    "prefix": "asfe",
     "body": [
       "\\$this->assertFileExists(\\$${1:path});"
     ],
     "description": "assertFileExists"
   },
   "assertNotFileExists": {
-    "prefix": "anfe",
+    "prefix": "asnfe",
     "body": [
       "\\$this->assertNotFileExists(\\$${1:path});"
     ],
     "description": "assertNotFileExists"
   },
   "assertRegExp": {
-    "prefix": "are",
+    "prefix": "asre",
     "body": [
       "\\$this->assertRegExp(\\$${1:pattern}, \\$${2:string}${3});"
     ],
     "description": "assertRegExp"
   },
   "assertNotRegExp": {
-    "prefix": "anre",
+    "prefix": "asnre",
     "body": [
       "\\$this->assertNotRegExp(\\$${1:pattern}, \\$${2:string}${3});"
     ],
     "description": "assertNotRegExp"
   },
   "assertEquals": {
-    "prefix": "aeq",
+    "prefix": "aseq",
     "body": [
       "\\$this->assertEquals(\\$${1:expected}, \\$${2:actual}${3});"
     ],
     "description": "assertEquals"
   },
   "assertNotEquals": {
-    "prefix": "aneq",
+    "prefix": "asneq",
     "body": [
       "\\$this->assertNotEquals(\\$${1:expected}, \\$${2:actual}${3});"
     ],
     "description": "assertNotEquals"
   },
   "expectException": {
-    "prefix": "eee",
+    "prefix": "exx",
     "body": [
       "\\$this->expectException(${1:exception});"
     ],
     "description": "expectException"
   },
   "expectExceptionMessage": {
-    "prefix": "eem",
+    "prefix": "exm",
     "body": [
       "\\$this->expectExceptionMessage(${1:message});"
     ],
     "description": "expectExceptionMessage"
   },
   "expectExceptionCode": {
-    "prefix": "eec",
+    "prefix": "exc",
     "body": [
       "\\$this->expectExceptionCode(${1:code});"
     ],
     "description": "expectExceptionCode"
   },
   "expectExceptionMessageRegExp": {
-    "prefix": "eer",
+    "prefix": "exmre",
     "body": [
       "\\$this->expectExceptionMessagRegExpe(${1:regexp});"
     ],
@@ -183,7 +183,7 @@
     "description": "@group"
   },
   "@test": {
-    "prefix": "te",
+    "prefix": "atte",
     "body": [
       "/**",
       " * @test",
@@ -615,24 +615,25 @@
     ],
     "description": "PHP Trait block"
   },
+
   "define": {
-    "prefix": "df",
+    "prefix": "def",
     "body": [
-      "define(\"${1:CONSTANT}\", \"${2:value}\");"
+      "define('${1:CONSTANT}', '${2:value}');"
     ],
     "description": "'define' call"
   },
   "PHP require_once": {
-    "prefix": "req",
+    "prefix": "reqo",
     "body": [
-      "require_once ${1:__DIR__.}'${2:path_to_filename}';"
+      "require_once ${1:path};"
     ],
     "description": "PHP require_once "
   },
   "PHP include_once": {
-    "prefix": "inc",
+    "prefix": "inco",
     "body": [
-      "include_once ${1:__DIR__.}'${2:path_to_filename}';"
+      "include_once ${1:path};"
     ],
     "description": "PHP require_once "
   },
@@ -656,36 +657,36 @@
   },
 
   "PHP var_export": {
-    "prefix": "ve",
+    "prefix": ["vx", "varx"],
     "body": [
-      "var_export(${1:variable});"
+      "var_export(\\$${1:var});"
     ],
     "description": "PHP var_export"
   },
   "PHP var_dump": {
-    "prefix": "vd",
+    "prefix": ["vd", "vard"],
     "body": [
-      "var_dump(${1:variable});"
+      "var_dump(\\$${1:var});"
     ],
     "description": "PHP var_dump"
   },
   "PHP print_r": {
-    "prefix": "pr",
+    "prefix": "prr",
     "body": [
-      "print_r(${1:variable});"
+      "print_r(\\$${1:var});"
     ],
     "description": "PHP print_r"
   },
 
   "PHP echo short tag": {
-    "prefix": "pee",
+    "prefix": "phps",
     "body": [
       "<?= $0 ?>"
     ],
     "description": "PHP echo short tag"
   },
   "PHP echo tag": {
-    "prefix": "pe",
+    "prefix": "phpe",
     "body": [
       "<?php echo $0; ?>"
     ],
@@ -700,68 +701,5 @@
       "$0"
     ],
     "description": "PHP tag with strict_types=1"
-  },
-  "GLOBAL array": {
-    "prefix": "gglob",
-    "body": [
-      "\\$GLOBALS[\"${1:key}\"]"
-    ],
-    "description": "$GLOBALS array"
-  },
-  "SERVER array": {
-    "prefix": "gser",
-    "body": [
-      "\\$_SERVER[\"${1:key}\"]"
-    ],
-    "description": "$_SERVER array"
-  },
-  "REQUEST array": {
-    "prefix": "greq",
-    "body": [
-      "\\$_REQUEST[\"${1:key}\"]"
-    ],
-    "description": "$_REQUEST array"
-  },
-  "POST array": {
-    "prefix": "gpost",
-    "body": [
-      "\\$_POST[\"${1:key}\"]"
-    ],
-    "description": "$_POST array"
-  },
-  "GET array": {
-    "prefix": "gget",
-    "body": [
-      "\\$_GET[\"${1:key}\"]"
-    ],
-    "description": "$_GET array"
-  },
-  "FILES array": {
-    "prefix": "gfile",
-    "body": [
-      "\\$_FILES['${1:userfile}']['${2:key}']"
-    ],
-    "description": "$_FILES array"
-  },
-  "ENV array": {
-    "prefix": "genv",
-    "body": [
-      "\\$_ENV[\"${1:key}\"]"
-    ],
-    "description": "$_ENV array"
-  },
-  "COOKIE array": {
-    "prefix": "gcook",
-    "body": [
-      "\\$_COOKIE[\"${1:key}\"]"
-    ],
-    "description": "$_COOKIE array"
-  },
-  "SESSION array": {
-    "prefix": "gses",
-    "body": [
-      "\\$_SESSION[\"${1:key}\"]"
-    ],
-    "description": "$_SESSION array"
   }
 }
