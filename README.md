@@ -5,7 +5,7 @@
 ## Install
 
 ```sh
-% brew install vim --with-lua --with-luajit
+% brew install vim 
 ```
 
 or
