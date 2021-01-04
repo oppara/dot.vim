@@ -25,9 +25,6 @@ call plug#begin(g:plug_dir)
   Plug 'mattn/vim-molder'
   Plug 'mattn/vim-molder-operations'
 
-  "Plug 'Shougo/unite.vim', {'on': ['Unite', 'UniteWithBufferDir'], 'for': ['unite']}
-  "Plug 'Shougo/unite-help', {'on': ['Unite'] }
-  "Plug 'Shougo/unite-outline', {'on': ['Unite']}
   "Plug 'Shougo/context_filetype.vim'
 
   Plug 'oppara/wombat256opp'

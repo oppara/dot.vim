@@ -90,7 +90,7 @@ augroup vimrc-lcd  "{{{2
 
   function! s:lcd()
     if &l:buftype !=# '' && &l:buftype !=# 'help' ||
-    \   0 <= index(['unite', 'vimfiler'], &l:filetype)
+    \   0 <= index(['vimfiler'], &l:filetype)
       unlet! b:lcd
       return
     endif
