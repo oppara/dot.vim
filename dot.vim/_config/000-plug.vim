@@ -33,7 +33,7 @@ call plug#begin(g:plug_dir)
   Plug 'majutsushi/tagbar'
 
   "Plug 'LeafCage/yankround.vim'
-  "Plug 'thinca/vim-localrc'
+  Plug 'thinca/vim-localrc'
   "Plug 'thinca/vim-qfreplace'
   "Plug 'fuenor/qfixgrep'
   "Plug 'anyakichi/vim-qfutil'
@@ -58,7 +58,7 @@ call plug#begin(g:plug_dir)
   "" endif
 
 
-  "Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
+  Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
 
   Plug 'jiangmiao/auto-pairs'
 
@@ -88,8 +88,8 @@ call plug#begin(g:plug_dir)
   " shell
   Plug 'z0mbix/vim-shfmt', { 'for': 'sh'  }
 
-  "Plug 'tobyS/vmustache'
-  "Plug 'tobyS/pdv', {'for': ['php']}
+  Plug 'tobyS/vmustache'
+  Plug 'tobyS/pdv', {'for': ['php']}
 
 "" " http://www.karakaram.com/vim/phpunit-location-list/
   "Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
