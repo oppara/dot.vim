@@ -261,10 +261,13 @@ set scrolloff=3
 
 " nofixeol  "{{{2
 " https://github.com/vim-jp/issues/issues/152
+" 最後に改行のないファイルを編集したときに改行を付け加えない
 set nofixeol
 
 
-" Vim Starting:  "{{{1
+" 縦分割スクロール高速化設定:  "{{{1
+" https://qiita.com/kefir_/items/c725731d33de4d8fb096
+" https://vim-jp.org/vimdoc-ja/term.html#'t_F9'
 " Use vsplit mode
 if has("vim_starting") && !has("gui_running") && has("vertsplit")
   function! EnableVsplitMode()
