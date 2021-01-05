@@ -41,3 +41,26 @@ compatible off
 ```sh
 % vim -u NONE -N
 ```
+
+## Language Server
+
+### php
+
+```sh
+% npm i intelephense -g
+```
+
+```json
+{
+  "languageserver": {
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    }
+  }
+}
+```
