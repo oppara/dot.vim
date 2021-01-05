@@ -8,7 +8,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-json',
   \ 'coc-html',
-  \ 'coc-css'
+  \ 'coc-css',
   \ ]
 " let g:coc_global_extensions = [
 "   \ 'coc-prettier',
@@ -29,13 +29,14 @@ augroup CocVimGroup
 augroup END
 
 function! s:configure_lsp() abort
+  echo 'aa'
   let l:coc_filetyps = [
         \ 'php',
         \ 'bash',
-        \ 'css',
-        \ 'scss',
+        \ 'yaml',
         \ 'html',
-        \ 'yaml'
+        \ 'scss',
+        \ 'css',
         \ ]
   " let l:coc_filetyps = [
         " \ 'Dockerfile',
