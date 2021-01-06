@@ -39,7 +39,7 @@ let g:lightline = {
       \ 'colorscheme': 'hogehoge',
       \ 'active': {
       \   'left': [ [ 'paste', 'readonly', 'modified' ],
-      \             [ 'filename' ], [ 'ale' ] ],
+      \             [ 'filename' ], [ 'ale', 'cocstatus' ] ],
       \   'right': [ [ 'percent' ],
       \              [ 'lineinfo' ],
       \              [ 'fugitive', 'fileencoding', 'fileformat', 'filetype' ] ]
@@ -59,6 +59,7 @@ let g:lightline = {
       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
       \ },
       \ 'component_function': {
+      \   'cocstatus': 'coc#status',
       \   'ale': 'ALEStatus'
       \ },
       \ }
