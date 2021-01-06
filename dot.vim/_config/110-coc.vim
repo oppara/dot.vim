@@ -34,6 +34,7 @@ function! s:configure_lsp() abort
         \ 'php',
         \ 'bash',
         \ 'yaml',
+        \ 'json',
         \ 'html',
         \ 'scss',
         \ 'css',

@@ -403,13 +403,11 @@ call plug#begin(g:plug_dir)
 
   Plug 'hail2u/vim-css3-syntax', {'for': ['css']}
 
+  Plug 'elzr/vim-json'
   "Plug 'heavenshell/vim-jsdoc', {
         "\ 'for': ['javascript', 'javascript.jsx','typescript'],
         "\ 'do': 'make install'
         "\}
-  "Plug 'mattn/jscomplete-vim', {'for': ['javascript']}
-  "Plug 'myhere/vim-nodejs-complete', {'for': ['javascript', 'node']}
-  "Plug 'oppara/vim-jquery', {'for': ['javascript']}
 
   Plug 'hashivim/vim-terraform'
 

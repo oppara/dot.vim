@@ -28,11 +28,11 @@ let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
 let g:ale_linters = {
             \ 'html': ['htmlhint'],
             \ 'javascript': ['eslint'],
-            \ 'json': ['jsonlint'],
             \ 'php': ['php', 'phpcbf'],
             \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
             \ 'markdown': ['textlint'],
+            \ 'json': [],
             \ 'css': [],
             \ 'scss': [],
             \ 'sass': [],
