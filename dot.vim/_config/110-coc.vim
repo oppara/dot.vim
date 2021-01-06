@@ -30,7 +30,6 @@ augroup CocVimGroup
 augroup END
 
 function! s:configure_lsp() abort
-  echo 'aa'
   let l:coc_filetyps = [
         \ 'php',
         \ 'bash',
