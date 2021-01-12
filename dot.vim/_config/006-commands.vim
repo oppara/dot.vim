@@ -179,3 +179,6 @@ function! s:Jq(...)
 endfunction
 
 
+" EchoSyntax  "{{{2
+" カーソル位置のsyntax要素の名前を表示
+command! -nargs=0 EchoSyntax echo synIDattr(synID(line("."), col("."), 1), "name")
