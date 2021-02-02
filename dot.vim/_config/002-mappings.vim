@@ -292,39 +292,39 @@ endif
 
 " tag "{{{2
 
-nmap t [Tag]
-nnoremap [Tag] <Nop>
+" nmap t [Tag]
+" nnoremap [Tag] <Nop>
 
-nnoremap [Tag]t  <C-]>           " jump
-nnoremap [Tag]j  :<C-u>tag<cr>   " next
-nnoremap [Tag]k  :<C-u>pop<cr>   " prev
-nnoremap [Tag]l  :<C-u>tags<cr>  " list
+" nnoremap [Tag]t  <C-]>           " jump
+" nnoremap [Tag]j  :<C-u>tag<cr>   " next
+" nnoremap [Tag]k  :<C-u>pop<cr>   " prev
+" nnoremap [Tag]l  :<C-u>tags<cr>  " list
 
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
-" noremap <silent> <C-]> :<C-u>Unite tag:<C-r>=expand('<cword>')<CR><CR>
-" noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tag:<C-r>=expand('<cword>')<CR><CR>
+" " noremap <silent> <C-]> :<C-u>Unite tag:<C-r>=expand('<cword>')<CR><CR>
+" " noremap <silent> <C-]> :<C-u>Unite -immediately -no-start-insert tag:<C-r>=expand('<cword>')<CR><CR>
 
-" [tag jump] カーソルの単語の定義先にジャンプ（複数候補はリスト表示）
-nnoremap tj :exe("tjump ".expand('<cword>'))<CR>
+" " [tag jump] カーソルの単語の定義先にジャンプ（複数候補はリスト表示）
+" nnoremap tj :exe("tjump ".expand('<cword>'))<CR>
 
-" [tag back] tag stack を戻る -> tp(tag pop)よりもtbの方がしっくりきた
-nnoremap tb :pop<CR>
+" " [tag back] tag stack を戻る -> tp(tag pop)よりもtbの方がしっくりきた
+" nnoremap tb :pop<CR>
 
-" [tag next] tag stack を進む
-nnoremap tn :tag<CR>
+" " [tag next] tag stack を進む
+" nnoremap tn :tag<CR>
 
-" [tag vertical] 縦にウィンドウを分割してジャンプ
-nnoremap tv :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" " [tag vertical] 縦にウィンドウを分割してジャンプ
+" nnoremap tv :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 
-" [tag horizon] 横にウィンドウを分割してジャンプ
-nnoremap th :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+" " [tag horizon] 横にウィンドウを分割してジャンプ
+" nnoremap th :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
-" " [tag tab] 新しいタブでジャンプ
-" nnoremap tt :tab sp<CR> :exe("tjump ".expand('<cword>'))<CR>
+" " " [tag tab] 新しいタブでジャンプ
+" " nnoremap tt :tab sp<CR> :exe("tjump ".expand('<cword>'))<CR>
 
-" [tags list] tag list を表示
-nnoremap tl :ts<CR>
+" " [tags list] tag list を表示
+" nnoremap tl :ts<CR>
 
 
 " sudo で保存 "{{{2
@@ -365,3 +365,15 @@ nnoremap <silent><leader>4 :setlocal filetype=php syntax=php<CR>
 " コマンドライン履歴 "{{{2
 " https://twitter.com/thinca/status/1333425555866333187
 cnoremap <C-p> <Up>
+
+" tabpage "{{{2
+nmap t [Tab]
+nnoremap [Tab] <Nop>
+nnoremap <silent> [Tab]n :tablast <bar> tabnew<CR>
+nnoremap <silent> [Tab]c :tabclose<CR>
+nnoremap <silent> [Tab]] :tabnext<CR>
+nnoremap <silent> [Tab][ :tabprevious<CR>
+nnoremap <silent> [Tab]t g<Tab><CR>
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tab]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
