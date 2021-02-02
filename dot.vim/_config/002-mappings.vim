@@ -360,3 +360,8 @@ nnoremap <silent><leader>1 :setlocal filetype=html syntax=html<CR>
 nnoremap <silent><leader>2 :setlocal filetype=css syntax=css<CR>
 nnoremap <silent><leader>3 :setlocal filetype=javascript syntax=javascript<CR>
 nnoremap <silent><leader>4 :setlocal filetype=php syntax=php<CR>
+
+
+" コマンドライン理的 "{{{2
+" https://twitter.com/thinca/status/1333425555866333187
+cnoremap <C-p> <Up>
