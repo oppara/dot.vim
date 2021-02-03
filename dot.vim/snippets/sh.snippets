@@ -108,3 +108,9 @@ snippet usage
 		usage
 		exit 1
 	fi
+
+snippet whileread
+	while read -r ${1:line}
+	do
+		echo "${${1:line}}"
+	done
