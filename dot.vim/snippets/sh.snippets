@@ -1,12 +1,12 @@
 # #!/bin/bash
 snippet sh
 	#!/bin/sh
-	set -eu
+	set -eu -o pipefail
 
 	${1}
 snippet bash
 	#!/bin/bash
-	set -eu
+	set -eu -o pipefail
 
 	${1}
 snippet if
