@@ -54,11 +54,6 @@ let g:did_install_syntax_menu = 1
 let g:loaded_2html_plugin = 1
 let g:loaded_matchparen = 1
 
-" sheerun/vim-polyglot: A solid language pack for Vim.
-" https://github.com/sheerun/vim-polyglot
-let g:polyglot_disabled = ['jsx', 'dockerfile']
-let g:jsx_ext_required = 1
-
 
 " Options:   "{{{1
 
