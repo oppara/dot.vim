@@ -53,9 +53,9 @@ function! s:configure_lsp() abort
         " \ 'vue',
         " \ 'yaml'
         " \ ]
-  if match(l:coc_filetyps, &filetype) == -1
-    return
-  endif
+  " if match(l:coc_filetyps, &filetype) == -1
+    " return
+  " endif
 
 
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
@@ -95,16 +95,16 @@ function! s:configure_lsp() abort
   inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
         \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-  " <C-o>  - jump to original window on list create.
   nmap <buffer><C-]> <Plug>(coc-definition)
-  nmap <buffer><silent> jd <Plug>(coc-definition)
-  nmap <buffer><silent> jt <Plug>(coc-type-definition)
-  nmap <buffer><silent> ji <Plug>(coc-implementation)
-  nmap <buffer><silent> jr <Plug>(coc-references)
+  nmap <buffer><silent> gd <Plug>(coc-definition)
+  nmap <buffer><silent> gt <Plug>(coc-type-definition)
+  nmap <buffer><silent> gi <Plug>(coc-implementation)
+  nmap <buffer><silent> gr <Plug>(coc-references)
+
   nmap <buffer><leader>R   <Plug>(coc-rename)
 
   " Diagnostic
-  nmap <buffer><silent> gn <Plug>(coc-diagnostic-next)
-  nmap <buffer><silent> gp <Plug>(coc-diagnostic-prev)
+  nmap <buffer><silent> ]g <Plug>(coc-diagnostic-next)
+  nmap <buffer><silent> [g <Plug>(coc-diagnostic-prev)
 
 endfunction
