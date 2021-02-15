@@ -11,7 +11,7 @@
   },
   "yaml.completion": true,
   "yaml.schemas": {
-    "https://raw.githubusercontent.com/awslabs/goformation/v4.15.0/schema/cloudformation.schema.json": [
+    "https://raw.githubusercontent.com/awslabs/goformation/v4.16.2/schema/cloudformation.schema.json": [
       "*.cf.yaml",
       "*.cf.yml",
       "cfn/*.yaml",
