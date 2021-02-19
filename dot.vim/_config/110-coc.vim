@@ -3,7 +3,10 @@ if empty(globpath(&rtp, 'autoload/coc.vim'))
   finish
 endif
 
+
+
 let g:coc_global_extensions = [
+  \ 'coc-explorer',
   \ 'coc-snippets',
   \ 'coc-sh',
   \ 'coc-yaml',
@@ -11,6 +14,7 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ ]
+" 'coc-explorer', 'coc-fzf-preview', 'coc-python', 'coc-sql', 'coc-tabnine', 'coc-solargraph']
 " let g:coc_global_extensions = [
 "   \ 'coc-prettier',
 "   \ 'coc-tsserver',
@@ -107,4 +111,5 @@ function! s:configure_lsp() abort
   nmap <buffer><silent> ]g <Plug>(coc-diagnostic-next)
   nmap <buffer><silent> [g <Plug>(coc-diagnostic-prev)
 
+  nnoremap <buffer><leader>e  :CocCommand explorer --quit-on-open<CR>
 endfunction
