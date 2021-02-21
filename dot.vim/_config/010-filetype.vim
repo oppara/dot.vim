@@ -192,6 +192,9 @@ augroup vimrc-ft-html  "{{{2
         \| :setlocal includeexpr=substitute(v:fname,'^\\/','','')
   autocmd FileType html,xhtml nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 
+  " https://qiita.com/KaoruIto76/items/002d9658b890fb6392f9
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><CR><ESC>F<i
+
   " xmllintによる XMLの検証と整形
   " http://nanasi.jp/articles/others/xmllint.html
   " autocmd FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"
