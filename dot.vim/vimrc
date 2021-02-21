@@ -178,7 +178,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set directory-=.
-set viminfo='100,<100,:50,%,h,n~/.viminfo
+set viminfo='1000,<500,h,n~/.viminfo
 
 
 " view  "{{{2
