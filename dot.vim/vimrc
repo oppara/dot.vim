@@ -312,6 +312,7 @@ call plug#begin(g:plug_dir)
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+  Plug 'mattn/vim-sonictemplate'
   Plug 'mattn/vim-molder'
   Plug 'mattn/vim-molder-operations'
 
