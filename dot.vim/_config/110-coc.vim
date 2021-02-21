@@ -7,6 +7,7 @@ endif
 
 let g:coc_global_extensions = [
   \ 'coc-explorer',
+  \ 'coc-fzf-preview',
   \ 'coc-snippets',
   \ 'coc-sh',
   \ 'coc-yaml',
@@ -14,17 +15,24 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ ]
-" 'coc-explorer', 'coc-fzf-preview', 'coc-python', 'coc-sql', 'coc-tabnine', 'coc-solargraph']
-" let g:coc_global_extensions = [
-"   \ 'coc-prettier',
-"   \ 'coc-tsserver',
-"   \ 'coc-tslint-plugin',
-"   \ 'coc-eslint',
-"   \ 'coc-vetur',
-"   \ 'coc-jest',
-"   \ 'coc-explorer',
-"   \ 'coc-git',
-"   \ ]
+" \ 'coc-sql',
+" \ 'coc-tabnine',
+" \ 'coc-solargraph'
+" \ 'coc-prettier',
+" \ 'coc-tsserver',
+" \ 'coc-tslint-plugin',
+" \ 'coc-eslint',
+" \ 'coc-vetur',
+" \ 'coc-jest',
+" \ 'coc-git',
+" \ 'coc-markdownlint',
+" \ 'coc-marketplace',
+" \ 'coc-python',
+" \ 'coc-react-refactor',
+" \ 'coc-rust-analyzer',
+" \ 'coc-spell-checker',
+" \ 'coc-vimlsp',
+" \ 'coc-word',
 
 let g:coc_snippet_next = '<tab>'
 
@@ -111,5 +119,30 @@ function! s:configure_lsp() abort
   nmap <buffer><silent> ]g <Plug>(coc-diagnostic-next)
   nmap <buffer><silent> [g <Plug>(coc-diagnostic-prev)
 
+  " coc-explorer
   nnoremap <buffer><leader>e  :CocCommand explorer --quit-on-open<CR>
+
+  " coc-fzf-preview
+  nmap ff [fzf-p]
+  xmap ff [fzf-p]
+
+  nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru git<CR>
+  nnoremap <silent> [fzf-p]m     :<C-u>CocCommand fzf-preview.FromResources mru old project_mru project_old<CR>
+  nnoremap <silent> [fzf-p]d     :<C-u>CocCommand fzf-preview.FromResources directory<CR>
+  nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
+  nnoremap <silent> [fzf-p]B     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
+
+  nnoremap <silent> [fzf-p]/     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+  nnoremap <silent> [fzf-p]*     :<C-u>CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+
+  nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+  nnoremap <silent> [fzf-p]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
+
+  nnoremap          [fzf-p]gr    :<C-u>CocCommand fzf-preview.ProjectGrep<Space>
+
+  nnoremap <silent> [fzf-p]<C-o> :<C-u>CocCommand fzf-preview.Jumps<CR>
+  nnoremap <silent> [fzf-p]g;    :<C-u>CocCommand fzf-preview.Changes<CR>
+  nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
+  nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
+  nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 endfunction
