@@ -9,6 +9,17 @@
       }
     }
   },
+
+  "html-css-support.styleSheets": [
+    "/style.css",
+    "style.css"
+  ],
+  "html-css-support.enabledLanguages": [
+    "vue",
+    "blade",
+    "html"
+  ],
+
   "yaml.completion": true,
   "yaml.schemas": {
     "https://raw.githubusercontent.com/awslabs/goformation/v4.16.2/schema/cloudformation.schema.json": [
