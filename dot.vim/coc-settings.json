@@ -1,4 +1,6 @@
 {
+  "diagnostic.displayByAle": true,
+
   "languageserver": {
     "intelephense": {
       "command": "intelephense",

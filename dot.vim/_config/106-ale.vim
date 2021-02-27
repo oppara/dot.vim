@@ -5,6 +5,8 @@ if empty(globpath(&rtp, 'autoload/ale.vim'))
   finish
 endif
 
+let g:ale_disable_lsp = 1
+
 nmap <silent> ek <Plug>(ale_previous_wrap)
 nmap <silent> ej <Plug>(ale_next_wrap)
 nmap <silent> ef <Plug>(ale_fix)
