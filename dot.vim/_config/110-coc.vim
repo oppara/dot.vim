@@ -127,7 +127,8 @@ function! s:configure_lsp() abort
   nmap ff [fzf-p]
   xmap ff [fzf-p]
 
-  nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.FromResources buffer project_mru git<CR>
+  nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.FromResources buffer project<CR>
+  nnoremap <silent> [fzf-p]g     :<C-u>CocCommand fzf-preview.FromResources git<CR>
   nnoremap <silent> [fzf-p]m     :<C-u>CocCommand fzf-preview.FromResources mru old project_mru project_old<CR>
   nnoremap <silent> [fzf-p]d     :<C-u>CocCommand fzf-preview.FromResources directory<CR>
   nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
@@ -146,4 +147,5 @@ function! s:configure_lsp() abort
   nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
   nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
   nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
+
 endfunction
