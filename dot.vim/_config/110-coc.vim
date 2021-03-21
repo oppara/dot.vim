@@ -36,6 +36,18 @@ let g:coc_global_extensions = [
 " \ 'coc-word',
 
 let g:coc_snippet_next = '<tab>'
+" let g:fzf_preview_custom_processes = {'open-file':{}}
+
+let g:fzf_preview_custom_processes = {
+  \ 'open-file': {
+    \ 'ctrl-o': 'OpenFileCtrlO',
+    \ 'ctrl-q': 'OpenFileCtrlQ',
+    \ 'ctrl-t': 'OpenFileCtrlT',
+    \ 'ctrl-v': 'OpenFileCtrlV',
+    \ 'ctrl-s': 'OpenFileCtrlX',
+    \ 'enter': 'OpenFileEnter'
+    \}
+  \}
 
 augroup CocVimGroup
   autocmd!
