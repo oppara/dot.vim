@@ -14,22 +14,17 @@ endif
 
 " Vars:   "{{{1
 
-let g:is_mac      = has('macunix') || (executable('uname') && system('uname') =~? '^darwin')
-let g:is_unix     = has('unix') && !g:is_mac
-let g:is_win      = has('win32') || has('win64')
-let s:tidy_cmd    = ''
-
-
-" global vars  "{{{2
-
-let $MY_VIMRUNTIME = expand(g:is_win ? '~/vimfiles' : '~/.vim')
+let g:mapleader = ','
 
 let g:oppara_email = 'oppara <oppara _at_ oppara.tv>'
 let g:snips_author = g:oppara_email
 let g:changelog_username = 'oppara'
 
+let g:is_mac      = has('macunix') || (executable('uname') && system('uname') =~? '^darwin')
+let g:is_unix     = has('unix') && !g:is_mac
+let g:is_win      = has('win32') || has('win64')
 
-let g:mapleader = ','
+let $MY_VIMRUNTIME = expand(g:is_win ? '~/vimfiles' : '~/.vim')
 
 let g:no_gvimrc_example = 1
 let g:no_vimrc_example = 1
