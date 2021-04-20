@@ -1,9 +1,7 @@
 " Valloric/MatchTagAlways: A Vim plugin that always highlights the enclosing html/xml tags
 " https://github.com/Valloric/MatchTagAlways
 
-if empty(globpath(&rtp, 'autoload/MatchTagAlways.vim'))
-  finish
-endif
+UsePlugin 'MatchTagAlways'
 
 let g:mta_filetypes = {
     \ 'html' : 1,

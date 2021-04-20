@@ -1,9 +1,7 @@
 " mattn/vim-molder
 " https://github.com/mattn/vim-molder
 
-if empty(globpath(&rtp, 'autoload/molder.vim'))
-  finish
-endif
+UsePlugin 'vim-molder'
 
 augroup vim-molder
   autocmd!

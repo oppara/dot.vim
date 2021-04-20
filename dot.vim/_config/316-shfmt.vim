@@ -1,9 +1,7 @@
 " z0mbix/vim-shfmt: Vim plugin for shfmt (https://github.com/mvdan/sh)
 " https://github.com/z0mbix/vim-shfmt
 
-" if empty(globpath(&rtp, 'autoload/shfmt.vim'))
-  " finish
-" endif
+UsePlugin 'vim-shfmt'
 
 let g:shfmt_extra_args = '-i 2 -ci -bn -s'
 

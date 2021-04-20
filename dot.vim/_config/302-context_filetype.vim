@@ -1,10 +1,7 @@
 " Shougo/context_filetype.vim: Context filetype library for Vim script
 " https://github.com/Shougo/context_filetype.vim
 
-if empty(globpath(&rtp, 'context_filetype.vim'))
-  finish
-endif
-
+UsePlugin 'context_filetype.vim'
 
 let g:context_filetype#filetypes = {
   \ 'php': [

@@ -1,9 +1,7 @@
 " vim-test/vim-test: Run your tests at the speed of thought
 " https://github.com/vim-test/vim-test
 
-if empty(globpath(&rtp, 'autoload/test.vim'))
-  finish
-endif
+UsePlugin 'vim-test'
 
 let test#strategy = 'vimterminal'
 

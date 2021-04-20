@@ -1,9 +1,7 @@
 " LeafCage/yankround.vim: logging registers and reusing them.
 " https://github.com/LeafCage/yankround.vim
 
-if empty(globpath(&rtp, 'autoload/yankround.vim'))
-  finish
-endif
+UsePlugin 'yankround.vim'
 
 nmap p <plug>(yankround-p)
 xmap p <plug>(yankround-p)

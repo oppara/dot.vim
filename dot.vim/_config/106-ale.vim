@@ -1,9 +1,7 @@
 " dense-analysis/ale: Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 " https://github.com/dense-analysis/ale
 
-if empty(globpath(&rtp, 'autoload/ale.vim'))
-  finish
-endif
+UsePlugin 'ale'
 
 let g:ale_disable_lsp = 1
 

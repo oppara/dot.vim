@@ -1,9 +1,5 @@
 
-if empty(globpath(&rtp, 'autoload/coc.vim'))
-  finish
-endif
-
-
+UsePlugin 'coc.nvim'
 
 let g:coc_global_extensions = [
   \ 'coc-explorer',

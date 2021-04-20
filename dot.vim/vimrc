@@ -406,6 +406,15 @@ call plug#end()
 
 filetype plugin indent on
 
-" source:  "{{{1
-call map(sort(split(globpath(&runtimepath, '_config/*.vim'))), {->[execute('exec "so" v:val')]})
 
+" source:  "{{{1
+
+" vimrc の分割管理を上手くやる 2020年版
+" https://zenn.dev/mattn/articles/565c4ec71f461cbbf5c9
+let s:plugs = get(s:, 'plugs', get(g:, 'plugs', {}))
+function! FindPlugin(name) abort
+  return has_key(s:plugs, a:name) ? isdirectory(s:plugs[a:name].dir) : 0
+endfunction
+command! -nargs=1 UsePlugin if !FindPlugin(<args>) | finish | endif
+
+runtime! _config/*.vim

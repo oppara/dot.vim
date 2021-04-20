@@ -1,9 +1,7 @@
 " itchyny/lightline.vim: A light and configurable statusline/tabline plugin for Vim
 " https://github.com/itchyny/lightline.vim
 
-if empty(globpath(&rtp, 'autoload/lightline.vim'))
-  finish
-endif
+UsePlugin 'lightline.vim'
 
 let s:base04 = [ '#fdf6e3', 230 ]
 let s:base03 = [ '#242424', 235 ]
@@ -77,7 +75,7 @@ let g:lightline = {
       \ }
 
 function! ALEStatus()
-  if empty(globpath(&rtp, 'autoload/ale.vim'))
+  if empty(FindPlugin('ale'))
     return ''
   endif
 

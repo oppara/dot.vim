@@ -1,9 +1,7 @@
 " majutsushi/tagbar: Vim plugin that displays tags in a window, ordered by scope
 " https://github.com/majutsushi/tagbar
 
-if empty(globpath(&rtp, 'autoload/tagbar.vim'))
-  finish
-endif
+UsePlugin 'tagbar'
 
 noremap <silent> <leader>tl :TagbarOpenAutoClose<cr>
 

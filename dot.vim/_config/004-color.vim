@@ -27,7 +27,7 @@ augroup vimrc-color
 augroup END
 
 
-if 200 < &t_Co && ! empty(globpath(&rtp, 'colors/wombat256opp.vim'))
+if 200 < &t_Co && FindPlugin('wombat256opp')
     set t_Co=256
     colorscheme wombat256opp
 else
