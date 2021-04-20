@@ -118,8 +118,18 @@ snippet usage
 		exit 1
 	fi
 
-snippet whileread
+# プログラマーの君！ 騙されるな！ シェルスクリプトはそう書いちゃ駄目だ！！ という話 - Qiita
+# https://qiita.com/piroor/items/77233173707a0baa6360
+snippet wr
 	while read -r ${1:line}
 	do
 		echo "${${1:line}}"
 	done
+
+snippet read
+	read -p "${1:ok? (y/N): }" ${2:ans}
+	case "$${2:ans}" in
+		[yY]*) ;;
+		*) exit 1;;
+	esac
+
