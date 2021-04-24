@@ -27,7 +27,7 @@ let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
 " let g:ale_open_list = 0
 let g:ale_linters = {
             \ 'html': ['htmlhint'],
-            \ 'javascript': ['eslint'],
+            \ 'javascript': [],
             \ 'php': ['php', 'phpcbf'],
             \ 'perl': ['perl', 'perlcritic'],
             \ 'ruby': ['ruby'],
@@ -44,17 +44,17 @@ let g:ale_linters = {
             " \ 'less': ['stylelint'],
 let g:ale_fixers = {
             \ 'html': ['prettier'],
-            \ 'javascript': ['prettier'],
-            \ 'typescript': ['prettier'],
-            \ 'vue': ['prettier'],
-            \ 'json': ['prettier'],
+            \ 'javascript': [],
+            \ 'typescript': [],
+            \ 'vue': [],
+            \ 'json': [],
             \ 'graphql': ['prettier'],
-            \ 'markdown': ['textlint', 'prettier'],
+            \ 'markdown': ['textlint'],
             \ 'yaml': ['prettier'],
             \ 'lua': ['prettier'],
-            \ 'css': ['prettier'],
-            \ 'less': ['prettier'],
-            \ 'scss': ['prettier'],
+            \ 'css': [],
+            \ 'less': [],
+            \ 'scss': [],
             \}
 let g:ale_fix_on_save_ignore = {
             \ 'html': ['prettier'],
@@ -72,6 +72,12 @@ let g:ale_fix_on_save_ignore = {
             \}
 
 
+augroup AleVimGroup
+  autocmd!
+  autocmd FileType javascript,typescript,vue,javascriptreact,typescriptreact call s:disable_ale()
+augroup END
 
-
+function! s:disable_ale() abort
+  " execute 'ALEDisableBuffer'
+endfunction
 

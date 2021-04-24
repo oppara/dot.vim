@@ -12,6 +12,15 @@
     }
   },
 
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "eslint.alwaysShowStatus": true,
+
   "html-css-support.styleSheets": [
     "/style.css",
     "style.css"

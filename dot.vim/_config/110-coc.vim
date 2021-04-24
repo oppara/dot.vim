@@ -13,12 +13,12 @@ let g:coc_global_extensions = [
   \ 'coc-html-css-support',
   \ 'coc-prettier',
   \ 'coc-eslint',
+  \ 'coc-tsserver',
   \ 'coc-vetur',
   \ ]
 " \ 'coc-sql',
 " \ 'coc-tabnine',
 " \ 'coc-solargraph'
-" \ 'coc-tsserver',
 " \ 'coc-tslint-plugin',
 " \ 'coc-jest',
 " \ 'coc-git',
@@ -165,3 +165,6 @@ function! s:configure_lsp() abort
   nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 
 endfunction
+
+" "ESLint not approved or denied yet." というエラーが出たら以下を実行
+" :CocCommand eslint.showOutputChannel
