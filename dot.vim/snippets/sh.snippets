@@ -131,3 +131,10 @@ snippet read
 		*) exit 1;;
 	esac
 
+snippet log
+	function _log() {
+		timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+		# timestamp=$(date "+%b %d %H:%M:%S")
+		echo "$timestamp: \$1" >> ${2:/tmp/log}
+	}
+
