@@ -84,17 +84,23 @@ snippet tmp
 snippet cwd
 	CWD=$(cd $(dirname $0$${1:0}) && pwd)${2}
 
-snippet mul
-	 SCRIPT_PID="/path/to/run_script.pid"
+snippet mut
+	OLDEST=$(pgrep -fo \$0)
+	if [ $$ != $$OLDEST ] && [ $$PPID != $$OLDEST ]; then
+		echo "[ERROR] Double boot: Stop \$0"
+		exit 1
+	fi
+snippet mut
+	SCRIPT_PID="/tmp/${1:cron_script}.pid"
 	if [ -f $SCRIPT_PID ]; then
-		PID=`cat $SCRIPT_PID `
-		if (ps -e | awk '{print $1}' | grep $PID >/dev/null); then
+		PID=$(cat $SCRIPT_PID)
+		if (ps -e | awk '{print \$1}' | grep $PID > /dev/null); then
 			exit
 		fi
 	fi
 	echo $$ > $SCRIPT_PID
 
-	${1}
+	${2:# script}
 
 	rm $SCRIPT_PID
 
@@ -138,3 +144,13 @@ snippet log
 		echo "$timestamp: \$1" >> ${2:/tmp/log}
 	}
 
+snippet filename
+        `Filename()`
+snippet div
+	<div>
+		${0:${VISUAL:<!-- content -->}}
+	</div>
+snippet div2
+	<div>
+		${0:<!-- content -->}
+	</div>
