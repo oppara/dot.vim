@@ -12,14 +12,14 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-html-css-support',
   \ 'coc-prettier',
+  \ 'coc-eslint',
+  \ 'coc-vetur',
   \ ]
 " \ 'coc-sql',
 " \ 'coc-tabnine',
 " \ 'coc-solargraph'
 " \ 'coc-tsserver',
 " \ 'coc-tslint-plugin',
-" \ 'coc-eslint',
-" \ 'coc-vetur',
 " \ 'coc-jest',
 " \ 'coc-git',
 " \ 'coc-markdownlint',
