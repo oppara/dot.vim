@@ -1,14 +1,9 @@
-snippet sh
-	#!/bin/sh
+
+snippet eu
+	set -eu
+
+snippet euo
 	set -eu -o pipefail
-
-	${1}
-
-snippet bash
-	#!/bin/bash
-	set -eu -o pipefail
-
-	${1}
 
 snippet if
 	if [ ${1:condition} ]; then
