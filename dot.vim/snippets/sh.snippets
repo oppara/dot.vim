@@ -11,13 +11,17 @@ snippet bash
 	${1}
 
 snippet if
-	if [[ ${1:condition} ]]; then
-		${2:#statements}
+	if [ ${1:condition} ]; then
+		${2:: #}
 	fi
 
+snippet el
+	else
+		${1:: #}
+
 snippet elif
-	elif [[ ${1:condition} ]]; then
-		${2:#statements}
+	elif [ ${1:condition} ]; then
+		${2:: #}
 
 snippet fo
 	for (( ${2:i} = 0; $2 < ${1:count}; $2++ )); do
