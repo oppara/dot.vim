@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-json',
   \ 'coc-html',
+  \ 'coc-tsserver',
   \ 'coc-css',
   \ 'coc-html-css-support',
   \ ]
@@ -16,7 +17,6 @@ let g:coc_global_extensions = [
 " \ 'coc-tabnine',
 " \ 'coc-solargraph'
 " \ 'coc-prettier',
-" \ 'coc-tsserver',
 " \ 'coc-tslint-plugin',
 " \ 'coc-eslint',
 " \ 'coc-vetur',
