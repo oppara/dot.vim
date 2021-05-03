@@ -11,11 +11,11 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-html-css-support',
-  \ 'coc-prettier',
   \ ]
 " \ 'coc-sql',
 " \ 'coc-tabnine',
 " \ 'coc-solargraph'
+" \ 'coc-prettier',
 " \ 'coc-tsserver',
 " \ 'coc-tslint-plugin',
 " \ 'coc-eslint',
@@ -48,9 +48,6 @@ let g:fzf_preview_custom_processes = {
 augroup CocVimGroup
   autocmd!
   autocmd FileType * call s:configure_lsp()
-  autocmd FileType javascript,typescript,vue,json,javascriptreact,typescriptreact,graphql nnoremap <silent><buffer><leader>ti :Prettier<cr>
-  autocmd FileType html,xhtml,css,scss,markdown,yaml nnoremap <silent><buffer><leader>ti :Prettier<cr>
-  autocmd FileType javascript,typescript,json,javascriptreact,typescriptreact,graphql vmap <leader>f  <Plug>(coc-format-selected)
 augroup END
 
 function! s:configure_lsp() abort
@@ -133,11 +130,6 @@ function! s:configure_lsp() abort
 
   " coc-explorer
   nnoremap <buffer><leader>e  :CocCommand explorer --quit-on-open<CR>
-
-  " coc-prettier
-  command! -nargs=0 Prettier :CocCommand prettier.formatFile
-  " nnoremap <silent> <leader>f     :<C-u>CocCommand  prettier.formatFile<CR>
-
 
   " coc-fzf-preview
   nmap ff [fzf-p]

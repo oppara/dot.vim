@@ -150,6 +150,8 @@ augroup vimrc-ft-javascript  "{{{2
         \| setlocal complete+=k$MY_VIMRUNTIME/dict/javascript.dict
 
   autocmd FileType javascript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+  " tidy
+  autocmd FileType javascript nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
@@ -167,6 +169,7 @@ augroup vimrc-ft-json  "{{{2
         \| setlocal foldmethod=syntax
 
   autocmd BufReadPost *json execute 'normal! zAgg'
+  autocmd FileType json nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
@@ -187,6 +190,7 @@ augroup vimrc-ft-html  "{{{2
   autocmd FileType html,xhtml,xml,xslt setlocal expandtab softtabstop=2 shiftwidth=2
   autocmd FileType html,xhtml :setlocal path+=$HOME.'Sites'
         \| :setlocal includeexpr=substitute(v:fname,'^\\/','','')
+  autocmd FileType html,xhtml nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 
   " https://qiita.com/KaoruIto76/items/002d9658b890fb6392f9
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><CR><ESC>F<i
@@ -213,6 +217,7 @@ augroup vimrc-ft-css  "{{{2
   autocmd!
   autocmd FileType css setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType css,scss nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
@@ -225,6 +230,7 @@ augroup vimrc-ft-markdown  "{{{2
   autocmd FileType markdown vnoremap <silent><buffer>mc :MyList - [ ]<CR>
   autocmd FileType markdown vnoremap <silent><buffer>mo :MyList 1.<CR>
   autocmd FileType markdown :SetMarkdownTrailingSpaceHighlight
+  autocmd FileType markdown nnoremap <silent><buffer><leader>ti :ALEFix<cr>
   " surround.vim
   autocmd FileType markdown let b:surround_{char2nr('l')} = "[](\r)"
 augroup END
@@ -233,6 +239,7 @@ augroup END
 augroup vimrc-ft-yaml  "{{{2
   autocmd!
   autocmd FileType yaml setlocal expandtab softtabstop=2 shiftwidth=2
+  autocmd FileType yaml nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
