@@ -11,6 +11,18 @@
       }
     }
   },
+  // diagnostic-languageserver
+  // [Linters · iamcco/diagnostic-languageserver Wiki](https://github.com/iamcco/diagnostic-languageserver/wiki/Linters)
+  // [coc-diagnostic/config.ts at master · iamcco/coc-diagnostic](https://github.com/iamcco/coc-diagnostic/blob/master/src/config.ts)
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck",
+    "vim": "vint"
+    // "email": "languagetool",
+    // "markdown": [ "write-good", "markdownlint" ],
+    // "elixir": ["mix_credo", "mix_credo_compile"],
+    // "eelixir": ["mix_credo", "mix_credo_compile"],
+    // "php": ["phpstan", "psalm"],
+  },
 
   "html-css-support.styleSheets": [
     "/style.css",
@@ -102,3 +114,4 @@
      "!Split"
 ]
 }
+
