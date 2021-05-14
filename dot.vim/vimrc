@@ -381,8 +381,6 @@ call plug#begin(g:plug_dir)
 "" " http://www.karakaram.com/vim/phpunit-location-list/
   "Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
   "Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
-  "Plug 'beanworks/vim-phpfmt', {'for': ['php']}
-  Plug 'stephpy/vim-php-cs-fixer', {'for': ['php']}
   Plug 'StanAngeloff/php.vim'
   Plug 'jwalton512/vim-blade', {'for': ['php']}
 

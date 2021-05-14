@@ -85,7 +85,6 @@ augroup vimrc-ft-php  "{{{2
         \| nmap g' cs'g
         \| nmap G' cs'G
 
-  autocmd FileType php nnoremap <silent><buffer><leader>ti :PhpFmt<cr>
 
   autocmd FileType php nnoremap <buffer>ef :EnableFastPHPFolds<cr>
 
@@ -108,7 +107,7 @@ augroup vimrc-ft-php  "{{{2
   autocmd FileType php call PhpSyntaxOverride()
 
   " php-cs-fixer
-  autocmd FileType php nnoremap <buffer><silent><leader>cf :call PhpCsFixerFixFile()<cr>
+  autocmd FileType php nnoremap <buffer><silent><leader>ti :ALEFix<cr>
 
 augroup END
 

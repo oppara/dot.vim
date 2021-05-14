@@ -42,7 +42,9 @@ let g:ale_linters = {
             " \ 'scss': ['stylelint'],
             " \ 'sass': ['stylelint'],
             " \ 'less': ['stylelint'],
+
 let g:ale_fixers = {
+      \ 'php': ['php_cs_fixer'],
             \ 'html': ['prettier'],
             \ 'javascript': ['prettier'],
             \ 'typescript': ['prettier'],
@@ -56,6 +58,13 @@ let g:ale_fixers = {
             \ 'less': ['prettier'],
             \ 'scss': ['prettier'],
             \}
+
+let g:ale_php_cs_fixer_options = '--using-cache=no --config=' . expand('~/.config/php/php_cs.dist')
+
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['eslint'],
+" \}
 let g:ale_fix_on_save_ignore = {
             \ 'html': ['prettier'],
             \ 'javascript': ['prettier'],
