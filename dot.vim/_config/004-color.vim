@@ -27,11 +27,10 @@ augroup vimrc-color
 augroup END
 
 
-colorscheme iceberg
-" if 200 < &t_Co && FindPlugin('wombat256opp')
-    " set t_Co=256
-    " colorscheme wombat256opp
-" else
-    " colorscheme delek
-" endif
+if 200 < &t_Co && FindPlugin('wombat256opp')
+    set t_Co=256
+    colorscheme wombat256opp
+else
+    colorscheme delek
+endif
 
