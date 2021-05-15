@@ -31,11 +31,11 @@ inoremap <expr><c-p> pumvisible() ? "<up>" : "<c-p>"
 
 " set list, number, paste toggle "{{{2
 
-noremap <silent> sl :set list!<CR>
-noremap <silent> sm :set number!<CR>
+noremap <silent> tl :set list!<CR>
+noremap <silent> tm :set number!<CR>
 " set pastetoggle=nv
-noremap sv :<C-u>call <SID>my_paste_toggle()<CR>
-function! s:my_paste_toggle()
+noremap tv :<C-u>call <SID>toggle_paste()<CR>
+function! s:toggle_paste()
   execute ':setlocal paste!'
   if (&paste)
       echo 'paste'
