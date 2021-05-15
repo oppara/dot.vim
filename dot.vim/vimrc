@@ -348,6 +348,7 @@ call plug#begin(g:plug_dir)
   Plug 'mattn/emmet-vim', {'for': ['html', 'xhtml', 'xml', 'css', 'less', 'sass', 'scss', 'slim', 'haml', 'jade', 'php']}
 
   Plug 'jiangmiao/auto-pairs'
+  Plug 'alvan/vim-closetag'
 
   "Plug 'kana/vim-fakeclip', {'on':  ['<Plug>(fakeclip-']}
   Plug 'kana/vim-smartchr'
