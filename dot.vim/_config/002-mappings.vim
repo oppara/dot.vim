@@ -10,6 +10,15 @@ nnoremap [Leader] <Nop>
 nmap q [Quickfix]
 nnoremap [Quickfix] <Nop>
 
+" window "{{{2
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap ss :<C-u>sp<CR><C-w>j
+nnoremap sv :<C-u>vs<CR><C-w>l
+nnoremap sq :<C-u>q<CR>
+
 
 " complete "{{{2
 
@@ -131,6 +140,7 @@ nnoremap <leader>ow
 \ \|     setlocal wrap?<cr>
 
 " nnoremap ep :set invpaste<cr>
+
 
 
 " visual mode "{{{2
