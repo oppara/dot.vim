@@ -117,7 +117,6 @@ function! s:configure_lsp() abort
   inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
         \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-  nmap <buffer><C-]> <Plug>(coc-definition)
   nmap <buffer><silent> gd <Plug>(coc-definition)
   nmap <buffer><silent> gt <Plug>(coc-type-definition)
   nmap <buffer><silent> gi <Plug>(coc-implementation)
