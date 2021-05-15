@@ -403,6 +403,7 @@ call plug#begin(g:plug_dir)
   Plug 'hashivim/vim-terraform'
 
   Plug 'luochen1990/rainbow'
+  Plug 'simeji/winresizer'
 
 call plug#end()
 
