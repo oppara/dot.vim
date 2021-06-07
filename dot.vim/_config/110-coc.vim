@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-pyright',
   \ 'coc-yaml',
+  \ 'coc-cfn-lint',
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-tsserver',
