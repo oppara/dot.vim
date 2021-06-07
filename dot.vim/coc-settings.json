@@ -12,8 +12,8 @@
     }
   },
   // diagnostic-languageserver
-  // [Linters · iamcco/diagnostic-languageserver Wiki](https://github.com/iamcco/diagnostic-languageserver/wiki/Linters)
-  // [coc-diagnostic/config.ts at master · iamcco/coc-diagnostic](https://github.com/iamcco/coc-diagnostic/blob/master/src/config.ts)
+  // [Linters iamcco/diagnostic-languageserver Wiki](https://github.com/iamcco/diagnostic-languageserver/wiki/Linters)
+  // [coc-diagnostic/config.ts at master iamcco/coc-diagnostic](https://github.com/iamcco/coc-diagnostic/blob/master/src/config.ts)
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck",
     "vim": "vint"
