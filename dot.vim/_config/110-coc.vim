@@ -2,7 +2,6 @@
 UsePlugin 'coc.nvim'
 
 let g:coc_global_extensions = [
-  \ 'coc-diagnostic',
   \ 'coc-explorer',
   \ 'coc-fzf-preview',
   \ 'coc-snippets',
@@ -16,6 +15,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-html-css-support',
   \ ]
+  " \ 'coc-diagnostic',
 " \ 'coc-sql',
 " \ 'coc-tabnine',
 " \ 'coc-solargraph'
