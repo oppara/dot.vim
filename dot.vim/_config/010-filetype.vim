@@ -254,6 +254,12 @@ augroup vimrc-ft-gitignore  "{{{2
 augroup END
 
 
+augroup vimrc-ft-cloudformation  "{{{2
+  autocmd!
+  autocmd BufRead,BufNewFile *.cf.yaml,*.cf.yml set filetype=yaml.cloudformation
+augroup END
+
+
 augroup vimrc-ft-applescript  "{{{2
   autocmd!
   autocmd BufRead,BufNew *applescript :setlocal filetype=applescript
