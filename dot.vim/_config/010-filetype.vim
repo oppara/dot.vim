@@ -140,17 +140,13 @@ augroup END
 
 augroup vimrc-ft-javascript  "{{{2
   autocmd!
-  " jquery
 
-  autocmd FileType javascript setlocal expandtab softtabstop=2 shiftwidth=2
+  autocmd FileType javascript,typescript setlocal expandtab softtabstop=2 shiftwidth=2
         \| setlocal foldmethod=marker
-        \| setlocal omnifunc=javascriptcomplete#CompleteJS
-        \| setlocal dictionary+=$MY_VIMRUNTIME/dict/javascript.dict
-        \| setlocal complete+=k$MY_VIMRUNTIME/dict/javascript.dict
 
-  autocmd FileType javascript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
+  autocmd FileType javascript,typescript inoremap <buffer><expr> > smartchr#one_of('>', '->', '=>', '>>')
   " tidy
-  autocmd FileType javascript nnoremap <silent><buffer><leader>ti :ALEFix<cr>
+  autocmd FileType javascript,typescript nnoremap <silent><buffer><leader>ti :ALEFix<cr>
 augroup END
 
 
