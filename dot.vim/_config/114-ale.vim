@@ -44,6 +44,7 @@ let g:ale_linters = {
             " \ 'less': ['stylelint'],
 
 let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'php': ['php_cs_fixer'],
             \ 'html': ['prettier'],
             \ 'javascript': ['prettier'],
