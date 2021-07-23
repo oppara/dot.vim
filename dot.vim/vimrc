@@ -395,10 +395,10 @@ call plug#begin(g:plug_dir)
 
   Plug 'elzr/vim-json'
   Plug 'kevinoid/vim-jsonc'
-  "Plug 'heavenshell/vim-jsdoc', {
-        "\ 'for': ['javascript', 'javascript.jsx','typescript'],
-        "\ 'do': 'make install'
-        "\}
+  Plug 'heavenshell/vim-jsdoc', {
+        \ 'for': ['javascript', 'javascript.jsx','typescript'],
+        \ 'do': 'make install'
+        \}
 
   Plug 'hashivim/vim-terraform'
 
