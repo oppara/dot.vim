@@ -1,11 +1,19 @@
 " thinca/vim-quickrun: Run commands quickly.
 " https://github.com/thinca/vim-quickrun
 
-silent! map <unique> <Leader>r <plug>(quickrun)
+map <unique> <Leader>r <plug>(quickrun)
 
-let g:quickrun_no_default_key_mappings = 1
+augroup vim-quickrun
+  autocmd!
+  autocmd FileType quickrun nnoremap <silent><buffer>q :quit<CR>
+augroup END
 
-let g:quickrun_config = {'*': {'split': ''}}
+let g:quickrun_config = get(g:, 'quickrun_config', {})
+let g:quickrun_config._ = {
+      \ 'outputter/buffer/opener': 'new',
+      \ 'outputter/buffer/into': 1,
+      \ 'outputter/buffer/close_on_empty': 1,
+      \ }
 
 " " http://www.karakaram.com/vim/phpunit-location-list/
 " augroup QuickRunPHPUnit
