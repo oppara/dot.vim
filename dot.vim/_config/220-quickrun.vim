@@ -1,7 +1,7 @@
 " thinca/vim-quickrun: Run commands quickly.
 " https://github.com/thinca/vim-quickrun
 
-map <unique> <Leader>r <plug>(quickrun)
+map <Leader>r <plug>(quickrun)
 
 augroup vim-quickrun
   autocmd!
