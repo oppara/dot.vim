@@ -3,9 +3,8 @@ if exists("b:did_ftplugin")
 endif
 let b:did_ftplugin = 1
 
-" https://gist.github.com/997620
-let g:endtagcommentFormat = '<!-- /%tag_name%id%class -->'
-function! s:Endtagcomment()
+let s:EndTagCommentFormat = '<!-- /%tag_name%id%class -->'
+function! s:EndTagComment()
     let reg_save = @@
 
     try
@@ -37,7 +36,7 @@ function! s:Endtagcomment()
 
     execute "normal `>va<\<Esc>`<"
 
-    let comment = g:endtagcommentFormat
+    let comment = s:EndTagCommentFormat
     let comment = substitute(comment, '%tag_name', tag_name, 'g')
     let comment = substitute(comment, '%id', id, 'g')
     let comment = substitute(comment, '%class', class, 'g')
@@ -48,7 +47,7 @@ function! s:Endtagcomment()
 
     let @@ = reg_save
 endfunction
-nnoremap <buffer><leader>e :<C-u>call <SID>Endtagcomment()<CR>
+nnoremap <buffer><leader>et :<C-u>call <SID>EndTagComment()<CR>
 
 
 if exists('g:loaded_surround')
