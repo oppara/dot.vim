@@ -1,4 +1,4 @@
-SHELL=/bin/bash
+SHELL := /bin/bash
 
 all: test build ## test & build
 
