@@ -137,7 +137,7 @@ function! s:configure_lsp() abort
   nmap ff [fzf-p]
   xmap ff [fzf-p]
 
-  nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.FromResources buffer project<CR>
+  nnoremap <silent> [fzf-p]f     :<C-u>CocCommand fzf-preview.FromResources buffer directory<CR>
   nnoremap <silent> [fzf-p]g     :<C-u>CocCommand fzf-preview.FromResources git<CR>
   nnoremap <silent> [fzf-p]m     :<C-u>CocCommand fzf-preview.FromResources mru old<CR>
   nnoremap <silent> [fzf-p]D     :<C-u>CocCommand fzf-preview.FromResources directory<CR>
