@@ -124,6 +124,9 @@ function! s:configure_lsp() abort
   nmap <buffer><silent> gi <Plug>(coc-implementation)
   nmap <buffer><silent> gr <Plug>(coc-references)
 
+  xmap <buffer><leader>f  <Plug>(coc-format-selected)
+  nmap <buffer><leader>f  <Plug>(coc-format-selected)
+
   nmap <buffer><leader>R   <Plug>(coc-rename)
 
   " Diagnostic
