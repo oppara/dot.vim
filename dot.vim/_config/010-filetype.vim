@@ -252,7 +252,7 @@ augroup END
 
 augroup vimrc-ft-cloudformation  "{{{2
   autocmd!
-  autocmd BufRead,BufNewFile *.cf.yaml,*.cf.yml set filetype=yaml.cloudformation
+  autocmd BufRead,BufNewFile *.cf.yaml,*.cf.yml,*.cfn.yaml,*.cfn.yml set filetype=yaml.cloudformation
 augroup END
 
 
