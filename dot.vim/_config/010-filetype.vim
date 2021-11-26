@@ -107,7 +107,7 @@ augroup vimrc-ft-php  "{{{2
   autocmd FileType php call PhpSyntaxOverride()
 
   " php-cs-fixer
-  autocmd FileType php nmap <buffer><silent><leader>ti <Plug>(coc-format)
+  autocmd FileType php nnoremap <buffer><silent><leader>ti :ALEFix<cr>
 
 augroup END
 
