@@ -291,20 +291,20 @@ snippet pu
 	class ${1:ClassName}Test extends TestCase
 	{
 
-		protected function setUp()
+		protected function setUp(): void
 		{
 		}
 
-		protected function tearDown()
+		protected function tearDown(): void
 		{
 		}
 
 		/**
-		 * @test
-		 */
+		* @test
+		*/
 		public function ${2:FunctionName}()
 		{
-			$this->fail();
+			\$this->fail();
 		}
 	}
 # csv import
