@@ -382,7 +382,7 @@ call plug#begin(g:plug_dir)
   Plug 'tobyS/pdv', {'for': ['php']}
 
 "" " http://www.karakaram.com/vim/phpunit-location-list/
-  "Plug 'karakaram/vim-quickrun-phpunit', {'for': ['php']}
+  Plug 'oppara/vim-quickrun-phpunit', { 'branch': 'fix-color', 'for': ['php']}
   "Plug 'vim-scripts/phpfolding.vim', {'for': ['php']}
   Plug 'oppara/php.vim', {'for': ['php']}
   Plug 'jwalton512/vim-blade', {'for': ['php']}
