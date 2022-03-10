@@ -82,7 +82,7 @@ snippet tmp
 	${0}
 
 snippet cwd
-	CWD=$(cd $(dirname $0$${1:0}) && pwd)${2}
+	CWD=$(cd "$(dirname "$0$${1:0}")" && pwd)${2}
 
 snippet mut
 	OLDEST=$(pgrep -fo \$0)
