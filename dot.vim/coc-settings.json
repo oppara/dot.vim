@@ -4,6 +4,7 @@
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
 
+  //  npm i intelephense --location=global
   "languageserver": {
     "intelephense": {
       "command": "intelephense",
