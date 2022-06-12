@@ -9,7 +9,6 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-pyright',
   \ 'coc-yaml',
-  \ 'coc-cfn-lint',
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-tsserver',
@@ -17,6 +16,7 @@ let g:coc_global_extensions = [
   \ 'coc-html-css-support',
   \ ]
   " \ 'coc-diagnostic',
+  " \ 'coc-cfn-lint',
 " \ 'coc-sql',
 " \ 'coc-tabnine',
 " \ 'coc-solargraph'
