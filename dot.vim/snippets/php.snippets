@@ -180,44 +180,44 @@ snippet te
 
 # assertion
 snippet ahk
-	\$this->assertArrayHasKey(${1:$key}, ${2:$array}${3});${4}
+	\$this->assertArrayHasKey(${1:\$key}, ${2:\$array}${3});${4}
 snippet anhk
-	\$this->assertNotArrayHasKey(${1:$key}, ${2:$array}${3});${4}
+	\$this->assertNotArrayHasKey(${1:\$key}, ${2:\$array}${3});${4}
 
 snippet acha
-	\$this->assertClassHasAttribute(${1:$name}, ${2:$class_name}${3});${4}
+	\$this->assertClassHasAttribute(${1:\$name}, ${2:\$class_name}${3});${4}
 snippet ancha
-	\$this->assertNotClassHasAttribute(${1:$name}, ${2:$class_name}${3});${4}
+	\$this->assertNotClassHasAttribute(${1:\$name}, ${2:\$class_name}${3});${4}
 
 snippet achsa
-	\$this->assertClassHasStaticAttribute(${1:$name}, ${2:$class_name}${3});${4}
+	\$this->assertClassHasStaticAttribute(${1:\$name}, ${2:\$class_name}${3});${4}
 snippet anchsa
-	\$this->assertNotClassHasStaticAttribute(${1:$name}, ${2:$class_name}${3});${4}
+	\$this->assertNotClassHasStaticAttribute(${1:\$name}, ${2:\$class_name}${3});${4}
 
 snippet aco
-	\$this->assertContains(${1:$needle}, ${2:$hystack}${3});${4}
+	\$this->assertContains(${1:\$needle}, ${2:\$hystack}${3});${4}
 snippet anco
-	\$this->assertNotContains(${1:$needle}, ${2:$hystack}${3});${4}
+	\$this->assertNotContains(${1:\$needle}, ${2:\$hystack}${3});${4}
 
 snippet acnt
-	\$this->assertCount(${1:$count}, ${2:$hystack}${3});${4}
+	\$this->assertCount(${1:\$count}, ${2:\$hystack}${3});${4}
 snippet ancnt
-	\$this->assertNotCount(${1:$count}, ${2:$hystack}${3});${4}
+	\$this->assertNotCount(${1:\$count}, ${2:\$hystack}${3});${4}
 
 snippet aem
-	\$this->assertEmpty(${1:$count}${2});${3}
+	\$this->assertEmpty(${1:\$count}${2});${3}
 snippet anem
-	\$this->assertNotEmpty(${1:$count}${2});${3}
+	\$this->assertNotEmpty(${1:\$count}${2});${3}
 
 snippet as
-	\$this->assertSame(${1:$expected}, ${2:$actual}${3});${4}
+	\$this->assertSame(${1:\$expected}, ${2:\$actual}${3});${4}
 snippet ans
-	\$this->assertNotSame(${1:$expected}, ${2:$actual}${3});${4}
+	\$this->assertNotSame(${1:\$expected}, ${2:\$actual}${3});${4}
 
 snippet aeq
-	\$this->assertEquals(${1:$expected}, ${2:$actual}${3});${4}
+	\$this->assertEquals(${1:\$expected}, ${2:\$actual}${3});${4}
 snippet aneq
-	\$this->assertNotEquals(${1:$expected}, ${2:$actual}${3});${4}
+	\$this->assertNotEquals(${1:\$expected}, ${2:\$actual}${3});${4}
 
 snippet at
 	\$this->assertTrue(${1:true}${2});${3}
@@ -225,9 +225,9 @@ snippet af
 	\$this->assertFalse(${1:false}${2});${3}
 
 snippet afe
-	\$this->assertFileExists(${1:$path}${2});${3}
+	\$this->assertFileExists(${1:\$path}${2});${3}
 snippet anfe
-	\$this->assertFileExists(${1:$path}${2});${3}
+	\$this->assertFileExists(${1:\$path}${2});${3}
 
 snippet anull
 	\$this->assertNull(${1},${2});${3}
@@ -235,14 +235,14 @@ snippet annull
 	\$this->assertNotNull(${1},${2});${3}
 
 snippet areg
-	\$this->assertRegExp(${1:$pattern}, ${2:$string});${3}
+	\$this->assertRegExp(${1:\$pattern}, ${2:\$string});${3}
 snippet anreg
-	\$this->assertNotRegExp(${1:$pattern}, ${2:$string});${3}
+	\$this->assertNotRegExp(${1:\$pattern}, ${2:\$string});${3}
 
 snippet ai
-	\$this->assertIdentical(${1:$results}, ${2:$expected});${3}
+	\$this->assertIdentical(${1:\$results}, ${2:\$expected});${3}
 snippet ani
-	\$this->assertNotIdentical(${1:$results}, ${2:$expected});${3}
+	\$this->assertNotIdentical(${1:\$results}, ${2:\$expected});${3}
 snippet aia
 	\$this->assertIsA(${1}, ${2});${3}
 snippet ana
