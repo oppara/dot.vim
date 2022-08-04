@@ -15,33 +15,51 @@ snippet pt
 	${1:obj}.prototype.${2:method} = function(${3:args}) {
 	  ${4}
 	};
+
 # function
 snippet fn function
 	function ${1:funcName}(${2:args}) {
 	  ${3}
 	}
+
+snippet afn function
+	async function ${1:funcName}(${2:args}) {
+	  ${3}
+	}
+
 snippet vf var hoge = function
 	var ${1:funcName} = function(${2:args}) {
 	  ${3}
 	};
-snippet cf const hoge = function
-	const ${1:funcName} = function(${2:args}) {
-	  ${3}
-	};
-snippet cfa const hoge = ()
+
+snippet cf const hoge = ()
 	const ${1:funcName} = (${2:args}) => {
 	  ${3}
 	};
-snippet pf Object method
+
+snippet caf const hoge = ()
+	const ${1:funcName} = async (${2:args}) => {
+	  ${3}
+	};
+
+snippet cfn const hoge = function
+	const ${1:funcName} = function(${2:args}) {
+	  ${3}
+	};
+
+snippet pfn Object method
 	${1:methodName}: function(${2:args}) {
 	  ${4}
 	}${3}
-snippet pfa Object method
+
+snippet pf Object method
 	${1:methodName}: (${2:args}) => {
 	  ${4}
 	}${3}
+
 snippet ff Object method
 	function(${1:args}) {${2}}
+
 snippet fa Object method
 	(${1:args}) => {${2}}
 
