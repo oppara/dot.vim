@@ -18,6 +18,8 @@ augroup vimrc-color
     highlight DiffDelete       ctermbg=235  ctermfg=131  cterm=reverse
     highlight DiffText         ctermbg=235  ctermfg=33  cterm=reverse
 
+    highlight CocMenuSel ctermfg=black ctermbg=white
+
     if g:colors_name !~? '^wombat'
       highlight Pmenu ctermbg=black
       highlight PmenuSel ctermfg=black ctermbg=white
