@@ -26,7 +26,7 @@ destroy: ## docker-compose down -v
 	docker-compose down -v
 
 .PHONY: bash
-ssh: ## docker exec -it ${CONTAINER_NAME} bash
+bash: ## docker exec -it ${CONTAINER_NAME} bash
 	docker exec -it ${CONTAINER_NAME} bash
 
 .PHONY: setup
