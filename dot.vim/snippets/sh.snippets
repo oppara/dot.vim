@@ -51,6 +51,9 @@ snippet null
 snippet exit
 	trap '${1:cmd}' EXIT
 
+snippet td
+	test -d ${1} && ${2}
+
 # http://sfujiwara.hatenablog.com/entry/20120613/1339547638
 snippet syslog
 	${1:cmd} 2>&1 | logger -t ${2:mycommand} -p ${3:local0.info}${4}
