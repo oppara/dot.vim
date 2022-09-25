@@ -93,8 +93,6 @@ function! s:configure_lsp() abort
   " diagnostics appear/become resolved.
   set signcolumn=number
 
-  let g:coc_snippet_next = '<tab>'
-
   " :h coc-completion-example
   " Use tab for trigger completion with characters ahead and navigate.
   " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
