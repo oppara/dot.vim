@@ -93,24 +93,26 @@ function! s:configure_lsp() abort
   " diagnostics appear/become resolved.
   set signcolumn=number
 
-  " :h coc-completion-example
+  let g:coc_snippet_next = '<tab>'
 
+  " :h coc-completion-example
   " Use tab for trigger completion with characters ahead and navigate.
   " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
   " other plugin before putting this into your config.
   inoremap <silent><expr> <TAB>
-    \ coc#pum#visible() ? coc#_select_confirm() :
-    \ coc#expandableOrJumpable() ?
-    \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackSpace() ? "\<TAB>" :
+      \ coc#refresh()
 
-  function! s:check_back_space() abort
+  inoremap <expr><c-n> coc#pum#visible() ? coc#pum#next(1) : "<c-n>"
+  inoremap <expr><c-p> coc#pum#visible() ? coc#pum#prev(1) : "<c-p>"
+
+  function! CheckBackSpace() abort
     let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+    return !col || getline('.')[col - 1]  =~ '\s'
   endfunction
-
-  let g:coc_snippet_next = '<tab>'
 
   " Use <c-space> to trigger completion.
   if has('nvim')
