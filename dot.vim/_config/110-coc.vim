@@ -50,10 +50,10 @@ let g:fzf_preview_custom_processes = {
 
 augroup CocVimGroup
   autocmd!
-  autocmd FileType * call s:configure_lsp()
+  autocmd FileType * call s:configure_coc()
 augroup END
 
-function! s:configure_lsp() abort
+function! s:configure_coc() abort
   let l:coc_filetyps = [
         \ 'php',
         \ 'bash',
