@@ -1,5 +1,8 @@
 SHELL := /bin/bash
 
+MAKEFILE_DIR:=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+PARENT_DIR := $(shell dirname ${MAKEFILE_DIR})
+
 # 実行するコンテナ名
 CONTAINER_NAME := foo
 
