@@ -376,3 +376,10 @@ nnoremap <silent><leader>4 :setlocal filetype=php syntax=php<CR>
 " https://twitter.com/thinca/status/1333425555866333187
 cnoremap <C-p> <Up>
 
+" text-object around "{{{2
+onoremap a' 2i'
+xnoremap a' 2i'
+onoremap a" 2i"
+xnoremap a" 2i"
+onoremap a` 2i`
+xnoremap a` 2i`
