@@ -8,7 +8,7 @@ let g:ale_disable_lsp = 1
 nmap <silent> ek <Plug>(ale_previous_wrap)
 nmap <silent> ej <Plug>(ale_next_wrap)
 nmap <silent> ef <Plug>(ale_fix)
-nmap <silent> al <Plug>(ale_toggle)
+nmap <silent> al <Plug>(ale_toggle_buffer)
 
 highlight ALEError ctermfg=196 ctermbg=228
 highlight ALEErrorSign ctermfg=202 ctermbg=none
