@@ -126,6 +126,8 @@ function! s:configure_coc() abort
 
 
   nmap <buffer><silent> gd <Plug>(coc-definition)
+  nmap <buffer><silent> gds :call CocAction('jumpDefinition', 'split')<CR>
+  nmap <buffer><silent> gdv :call CocAction('jumpDefinition', 'vsplit')<CR>
   nmap <buffer><silent> gt <Plug>(coc-type-definition)
   nmap <buffer><silent> gi <Plug>(coc-implementation)
   nmap <buffer><silent> gr <Plug>(coc-references)
