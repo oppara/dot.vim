@@ -12,37 +12,112 @@
       "filetypes": ["php"],
       "initializationOptions": {
         "storagePath": "/tmp/intelephense"
-      }
-    }
+      },
+    },
+    "intelephense.stubs": [
+      "apache",
+      "bcmath",
+      "bz2",
+      "calendar",
+      "com_dotnet",
+      "Core",
+      "ctype",
+      "curl",
+      "date",
+      "dba",
+      "dom",
+      "enchant",
+      "exif",
+      "FFI",
+      "fileinfo",
+      "filter",
+      "fpm",
+      "ftp",
+      "gd",
+      "gettext",
+      "gmp",
+      "hash",
+      "iconv",
+      "imap",
+      "intl",
+      "json",
+      "ldap",
+      "libxml",
+      "mbstring",
+      "meta",
+      "mysqli",
+      "oci8",
+      "odbc",
+      "openssl",
+      "pcntl",
+      "pcre",
+      "PDO",
+      "pdo_ibm",
+      "pdo_mysql",
+      "pdo_pgsql",
+      "pdo_sqlite",
+      "pgsql",
+      "Phar",
+      "posix",
+      "pspell",
+      "random",
+      "readline",
+      "Reflection",
+      "session",
+      "shmop",
+      "SimpleXML",
+      "snmp",
+      "soap",
+      "sockets",
+      "sodium",
+      "SPL",
+      "sqlite3",
+      "standard",
+      "superglobals",
+      "sysvmsg",
+      "sysvsem",
+      "sysvshm",
+      "tidy",
+      "tokenizer",
+      "xml",
+      "xmlreader",
+      "xmlrpc",
+      "xmlwriter",
+      "xsl",
+      "Zend OPcache",
+      "zip",
+      "zlib",
+      "wordpress"
+    ],
   },
-//  // diagnostic-languageserver
-//  // [Linters iamcco/diagnostic-languageserver Wiki](https://github.com/iamcco/diagnostic-languageserver/wiki/Linters)
-//  // [coc-diagnostic/config.ts at master iamcco/coc-diagnostic](https://github.com/iamcco/coc-diagnostic/blob/master/src/config.ts)
-//  "diagnostic-languageserver.filetypes": {
-//    "sh": "shellcheck",
-//    // "vim": "vint"
-//    // "email": "languagetool",
-//    // "markdown": [ "write-good", "markdownlint" ],
-//    // "elixir": ["mix_credo", "mix_credo_compile"],
-//    // "eelixir": ["mix_credo", "mix_credo_compile"],
-//    // "php": ["phpstan", "psalm"],
-//  },
-//  "diagnostic-languageserver.formatFiletypes": {
-//    // format `sh` (includes `bash`) files using formatter defined below
-//    "sh": "shfmt"
-//  },
-//  "diagnostic-languageserver.formatters": {
-//    // define our formatter so that we can reference it from
-//    // `diagnostic-languageserver.formatFiletypes`
-//    "shfmt": {
-//      "command": "shfmt",
-//      // all the below args are entirely optional
-//      // primarily listed here to call out that flags which take an
-//      // argument (such as `-i <num-spaces>` for specifying indentation)
-//      // should be split into two strings, the flag and then the value
-//      "args": ["-i", "2", "-bn", "-ci", "-sr"]
-//    }
-//  },
+  //  // diagnostic-languageserver
+  //  // [Linters iamcco/diagnostic-languageserver Wiki](https://github.com/iamcco/diagnostic-languageserver/wiki/Linters)
+  //  // [coc-diagnostic/config.ts at master iamcco/coc-diagnostic](https://github.com/iamcco/coc-diagnostic/blob/master/src/config.ts)
+  //  "diagnostic-languageserver.filetypes": {
+    //    "sh": "shellcheck",
+    //    // "vim": "vint"
+    //    // "email": "languagetool",
+    //    // "markdown": [ "write-good", "markdownlint" ],
+    //    // "elixir": ["mix_credo", "mix_credo_compile"],
+    //    // "eelixir": ["mix_credo", "mix_credo_compile"],
+    //    // "php": ["phpstan", "psalm"],
+    //  },
+    //  "diagnostic-languageserver.formatFiletypes": {
+      //    // format `sh` (includes `bash`) files using formatter defined below
+      //    "sh": "shfmt"
+      //  },
+      //  "diagnostic-languageserver.formatters": {
+        //    // define our formatter so that we can reference it from
+        //    // `diagnostic-languageserver.formatFiletypes`
+        //    "shfmt": {
+          //      "command": "shfmt",
+          //      // all the below args are entirely optional
+          //      // primarily listed here to call out that flags which take an
+          //      // argument (such as `-i <num-spaces>` for specifying indentation)
+          //      // should be split into two strings, the flag and then the value
+          //      "args": ["-i", "2", "-bn", "-ci", "-sr"]
+          //    }
+          //  },
 
   "html-css-support.styleSheets": [
     "/style.css",
