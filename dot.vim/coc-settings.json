@@ -11,7 +11,12 @@
       "args": ["--stdio"],
       "filetypes": ["php"],
       "initializationOptions": {
-        "storagePath": "/tmp/intelephense"
+        "storagePath": "/tmp/intelephense",
+        "diagnostics": {
+          "undefinedConstants": false,
+          "undefinedFunctions": false,
+          "undefinedSymbols": false
+        },
       },
     },
     "intelephense.stubs": [
