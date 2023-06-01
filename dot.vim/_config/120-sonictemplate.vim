@@ -3,4 +3,4 @@
 
 UsePlugin 'vim-sonictemplate'
 
-let g:sonictemplate_vim_template_dir = '$HOME/.vim/sonictemplate'
+let g:sonictemplate_vim_template_dir = '$HOME/.config/nvim/sonictemplate'
