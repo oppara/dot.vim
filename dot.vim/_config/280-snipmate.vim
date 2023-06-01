@@ -1,7 +1,7 @@
 
 
 
-let g:snippets_dir = $MY_VIMRUNTIME . '/snippets'
+let g:snippets_dir = '~/.config/nvim/snippets'
 
 " " snipMate's Trigger Completion
 " " http://www.vim.org/scripts/script.php?script_id=1879
